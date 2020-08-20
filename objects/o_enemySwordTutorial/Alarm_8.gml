@@ -1,0 +1,2 @@
+noString = false;
+switchStatement = true;

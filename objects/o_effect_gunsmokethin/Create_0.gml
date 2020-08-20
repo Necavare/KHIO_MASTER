@@ -1,0 +1,11 @@
+fireangle = global.fireAngle;
+fire_color = irandom_range(2,3);
+z = 16;
+smoke = true;
+xoffset = 0;
+yoffset = 0;
+angleoffset = 0;
+image_xscale = 0.7;
+image_yscale = 0.7;
+//basex = x;
+//basey = y;

@@ -1,0 +1,2 @@
+///@description Looking
+isLooking = true;

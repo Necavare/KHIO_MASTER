@@ -1,0 +1,3 @@
+///@description Building
+
+canAdd = true;

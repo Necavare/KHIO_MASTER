@@ -1,0 +1,10 @@
+//if(!createTower){
+//if(createdParts){
+	instance_destroy(instBotLeftLog);
+	instance_destroy(instBotRightLog);
+	instance_destroy(instTopLeftLog);
+	instance_destroy(instTopRightLog);
+	instance_destroy(instLadder);
+	instance_destroy(instRoof);
+//}
+//}

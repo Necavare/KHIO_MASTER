@@ -1,0 +1,1 @@
+drawKick = false;

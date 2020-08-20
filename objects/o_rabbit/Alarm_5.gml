@@ -1,0 +1,2 @@
+///@description Fleeing
+isFleeing = false;

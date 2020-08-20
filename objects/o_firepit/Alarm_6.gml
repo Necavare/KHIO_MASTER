@@ -1,0 +1,2 @@
+hotCoals = false;
+isLit = false;
