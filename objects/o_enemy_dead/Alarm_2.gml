@@ -62,7 +62,7 @@ if(spawnItems){
 				pickup_item(self, choose(item.metalpicS, item.metalpicB), 1, itemDur);			
 			}
 		}else if(itemChance<90){//10% flare
-			pickup_item(self, item.flare, choose(1,1,1,2,2,3));
+			pickup_item(self, item.flare, choose(1,1,1,2,2,3), 11);
 		}else if(itemChance < 95){//5 % poisio
 			pickup_item(self, item.poison, choose(1,1,2,2,3,3,4,4,5));
 		}else if(itemChance < 100){//5 % lantern	
