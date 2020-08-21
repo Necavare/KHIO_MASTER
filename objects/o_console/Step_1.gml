@@ -272,7 +272,7 @@ if (display_frame > 0) { // I'm open
 							} else {
 						
 								// find the one that is focused atm 
-								var total_number_of_second_level = array_length_1d(predictions)
+								var total_number_of_second_level = array_length(predictions)
 								for (var i = 1; i < total_number_of_second_level; ++i) {
 									if (predictions_focused[i] == true) { // this one is focused 
 								
@@ -338,15 +338,15 @@ if (display_frame > 0) { // I'm open
 								#endregion
 							} else { // SECOND LEVEL +
 								#region every stage after the first one 
-									var total_number_of_second_level = array_length_1d(predictions)
-									var focus_count = array_length_1d(predictions_focused)
+									var total_number_of_second_level = array_length(predictions)
+									var focus_count = array_length(predictions_focused)
 									var nothing_was_focused = true
 						
 						
 									#region before you move down if they are on the bottom jump to the top 
 							
 										var at_bottom = false
-										var second_level_count = array_length_1d(second_level_commands)-1
+										var second_level_count = array_length(second_level_commands)-1
 
 										#region // find out if the bottom one is focused so you can wrap back up to the top 
 										for (var i = second_level_count; i > 0; --i) { 
@@ -395,7 +395,7 @@ if (display_frame > 0) { // I'm open
 									if (nothing_was_focused == true) {
 								
 										#region to stop any invisible ones being focused still just loop through and remove them 
-										var predictions_focused_count = array_length_1d(predictions_focused)
+										var predictions_focused_count = array_length(predictions_focused)
 										for (var i = 0; i <= predictions_focused_count; ++i) {
 											predictions_focused[i] = false
 										}
@@ -514,7 +514,7 @@ if (display_frame > 0) { // I'm open
 								} else { // SECOND LEVEL +
 									#region Anything after the first left most stage 
 						
-									var predictions_count = array_length_1d(predictions_visible)
+									var predictions_count = array_length(predictions_visible)
 									var to_select = -1 // this is the one we will pick 
 									if (focus != 0) { // player does have something focused (select focused)
 										for (var i = 0; i < predictions_count; ++i) {
@@ -541,7 +541,7 @@ if (display_frame > 0) { // I'm open
 										var text_before_this = ""
 							
 										#region break down all the text before this and put it into a string
-										var text_before_this_count = array_length_1d(text_part)-1
+										var text_before_this_count = array_length(text_part)-1
 										for (var i = 0; i < text_before_this_count; ++i) {
 										    text_before_this += string(text_part[i]) + " "
 										}
@@ -619,7 +619,7 @@ if (display_frame > 0) { // I'm open
 			#region // clicking on the console
 			if (device_mouse_y_to_gui(0) < history_y2) { // Mouse in history 
 				#region Mouse in history 
-				if (history_mouse_hover <= array_length_1d(history_text)) {
+				if (history_mouse_hover <= array_length(history_text)) {
 					text = history_text[history_mouse_hover-1] 
 					cursor_at = string_length(text)
 					commands_visible = array_create(command_1.size,false) // reset
@@ -634,7 +634,7 @@ if (display_frame > 0) { // I'm open
 				
 				if (device_mouse_x_to_gui(0) < text_start_x) { // left of the text
 					cursor_at = -1
-				} else if (device_mouse_x_to_gui(0) > text_start_x+text_char_running_length[array_length_1d(text_char_running_length)-1]) { // right of the text
+				} else if (device_mouse_x_to_gui(0) > text_start_x+text_char_running_length[array_length(text_char_running_length)-1]) { // right of the text
 					cursor_at = length_of_the_text
 				} else { // in the text
 					for (var i = 0; i < length_of_the_text; ++i) {
@@ -664,7 +664,7 @@ if (display_frame > 0) { // I'm open
 				
 				if (device_mouse_x_to_gui(0) < text_start_x) { // left of the text
 					cursor_at = -1
-				} else if (device_mouse_x_to_gui(0) > text_start_x+text_char_running_length[array_length_1d(text_char_running_length)-1]) { // right of the text
+				} else if (device_mouse_x_to_gui(0) > text_start_x+text_char_running_length[array_length(text_char_running_length)-1]) { // right of the text
 					cursor_at = length_of_the_text
 				} else { // in the text
 					for (var i = 0; i < length_of_the_text; ++i) {

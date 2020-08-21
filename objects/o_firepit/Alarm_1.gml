@@ -6,11 +6,11 @@ if((items[# 0, 0] == item.meat || items[# 0, 0] == item.human  || items[# 0, 0] 
 	var new_item = instance_create_layer(x, y, "items", o_item);
 
 	if(items[# 0, 0] == item.meat)
-		new_item.image_index = item.cookedmeat; 
+		new_item.item_ = item.cookedmeat; 
 	else if(items[# 0, 0] == item.human)
-		new_item.image_index = item.cookedhuman; 
+		new_item.item_ = item.cookedhuman; 
 	else if(items[# 0, 0] == item.fungi)
-		new_item.image_index = item.cookedfungi; 
+		new_item.item_ = item.cookedfungi; 
 		
 	new_item.direction = point_direction(x,y,mouse_x,mouse_y);
 	new_item.item_count = 1;

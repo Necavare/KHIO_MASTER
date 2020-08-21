@@ -22,7 +22,7 @@ if(health_ <= 0) {
 		repeat(irandom_range(1,2)) {
 			spawnCount++;
 			var ore = instance_create_depth(x,y,depth, o_item);
-			ore.image_index = item.compound;
+			ore.item_ = item.compound;
 			ore.direction = irandom_range(0,360);
 			ore.fountain = true;
 			ore.wait = true;
@@ -49,7 +49,7 @@ if(health_ <= 0) {
 		repeat(irandom_range(2,3)) {
 			spawnCount++;
 			var ore = instance_create_depth(x,y,depth, o_item);
-			ore.image_index = item.compound;
+			ore.item_ = item.compound;
 			ore.direction = irandom_range(0,360);
 			ore.fountain = true;
 			ore.wait = true;

@@ -558,13 +558,13 @@ if(mouse_check_button_pressed(global.M_LEFT) && !newGameFade && menuFadeIn) {
 			} 
 			// RESOLUTION
 			if(resolutionHighlighted) {
-				for(var i = 0; i < array_length_1d(resolution); i++) {
+				for(var i = 0; i < array_length(resolution); i++) {
 					
 					if(resolution[i] == currentResolution && i != 0) {
 						currentResolution = resolution[i-1];
 						break;
 					} else if(resolution[i] == currentResolution && i == 0)
-						currentResolution = resolution[array_length_1d(resolution)-1];
+						currentResolution = resolution[array_length(resolution)-1];
 				}
 			}
 			// FX

@@ -45,7 +45,7 @@ if(global.isCrateOpen && global.crate == self) {
 				durability[# ix, iy] = -1;
 				
 			var dura = false;
-			for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+			for(var i = 0; i < array_length(global.durabilityItems); i++)
 				if(global.durabilityItems[i] == items[# ix, iy])
 					dura = true;
 		

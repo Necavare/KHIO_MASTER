@@ -4,7 +4,7 @@ function inventory_full() {
 	if(argument_count == 1) {
 		itemToCheck = argument[0];
 	
-		for(var i = 0; i < array_length_1d(global.singleItems); i++)
+		for(var i = 0; i < array_length(global.singleItems); i++)
 			if(global.singleItems[i] == itemToCheck)
 				isSingle = true;
 	}

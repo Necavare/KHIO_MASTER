@@ -60,7 +60,7 @@ if(health_ <= 2 && stackCount == 1) {
 		spawnCount++;
 		var plank = instance_create_depth(x,y,depth, o_item);
 			
-		plank.image_index = item.planks;
+		plank.item_ = item.planks;
 			
 		plank.direction = irandom_range(0,360);
 		plank.fountain = true;

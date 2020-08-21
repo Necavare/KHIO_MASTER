@@ -43,7 +43,7 @@ if(!global.generatingEnvironment){
 		
 			// Creates item
 			var bed = instance_create_depth(x,y,depth, o_item);
-			bed.image_index = item.bedroll;
+			bed.item_ = item.bedroll;
 			bed.direction = irandom_range(0,360);
 			bed.bounce = true;
 			

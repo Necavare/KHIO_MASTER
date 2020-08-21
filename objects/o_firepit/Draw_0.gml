@@ -210,19 +210,19 @@ if(!global.generatingEnvironment || room == r_title){
 				var yy = y + lengthdir_y(-15, image_angle+90);
 			
 				var char = instance_create_depth(xx,yy,depth, o_item);
-				char.image_index = item.charcoal;
+				char.item_ = item.charcoal;
 				char.direction = irandom_range(0,360);
 				char.bounce = true;
 				char.item_count = isMetal+isSulfur;
 			
 				var metal = instance_create_depth(xx,yy,depth, o_item);
-				metal.image_index = item.metal;
+				metal.item_ = item.metal;
 				metal.direction = irandom_range(0,360);
 				metal.bounce = true;
 				metal.item_count = isMetal;
 			
 				var sulfur = instance_create_depth(xx,yy,depth, o_item);
-				sulfur.image_index = item.sulfur;
+				sulfur.item_ = item.sulfur;
 				sulfur.direction = irandom_range(0,360);
 				sulfur.bounce = true;
 				sulfur.item_count = isSulfur;

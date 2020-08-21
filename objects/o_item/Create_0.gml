@@ -15,6 +15,7 @@ s_ = 0;
 z = 0;
 
 // Number of items in stack
+item_ = 0;
 item_count = 1;
 durability = -1;
 

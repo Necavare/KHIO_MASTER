@@ -138,7 +138,7 @@ if(health_ <= 0) {
 	instance_create_depth(x,y,depth,o_blood_spot);
 	
 	var meat = instance_create_depth(x,y,depth, o_item);
-		meat.image_index = item.meat;
+		meat.item_ = item.meat;
 		meat.direction = irandom_range(0,360);
 		meat.bounce = true;
 		meat.item_count = irandom_range(1,2);
@@ -146,7 +146,7 @@ if(health_ <= 0) {
 			
 	// Create bone item
 	var bone = instance_create_depth(x,y,depth, o_item);
-		bone.image_index = item.bones;
+		bone.item_ = item.bones;
 		bone.direction = irandom_range(0,360);
 		bone.bounce = true;
 		bone.item_count = irandom_range(1,2);

@@ -7,7 +7,7 @@
 		// Creates sword
 		var sword = instance_create_depth(ranX,ranY,depth, o_item);
 		sword.durability = weaponDur;
-		sword.image_index = item.sword;
+		sword.item_ = item.sword;
 		sword.direction = ranAngle;
 		sword.bounce = true;
 		//pickup_item(self, item.sword, 1, weaponDur);
@@ -16,7 +16,7 @@
 		// Creates bow
 		var bow = instance_create_depth(ranX,ranY,depth, o_item);
 		bow.durability = weaponDur;
-		bow.image_index = item.crossbow;
+		bow.item_ = item.crossbow;
 		bow.direction = ranAngle;
 		bow.bounce = true;
 		var arrowNum = choose(2,2,2,3,3,3,3,3,4,4,4,4,4,4,5,5,6,6,7,8);	

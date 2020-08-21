@@ -12,7 +12,7 @@ function remove_item() {
 	var single = false;
 	var isLastSingle = false;
 
-	for(var i = 0; i < array_length_1d(global.singleItems); i++) {
+	for(var i = 0; i < array_length(global.singleItems); i++) {
 		if(global.singleItems[i] == object.items[# xx, yy])
 			single = true;
 		if(global.singleItems[i] == global.last_item)
@@ -59,7 +59,7 @@ function remove_item() {
 	
 	// Removing durability from slot
 	if(single) {
-		for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+		for(var i = 0; i < array_length(global.durabilityItems); i++)
 			if(global.durabilityItems[i] == object.items[# xx, yy])
 				object.durability[# xx, yy] = 0;
 	}

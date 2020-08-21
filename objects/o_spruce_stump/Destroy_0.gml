@@ -7,7 +7,7 @@ if(!isOnFire && !global.generatingEnvironment) {
 		spawnCount++;
 		var log = instance_create_depth(x,y,depth, o_item);
 			
-		log.image_index = item.planks;
+		log.item_ = item.planks;
 				
 		log.direction = irandom_range(0,360);
 		log.fountain = true;
@@ -20,7 +20,7 @@ if(!isOnFire && !global.generatingEnvironment) {
 		spawnCount++;
 		var fungi = instance_create_depth(x,y,depth, o_item);
 			
-		fungi.image_index = item.fungi;
+		fungi.item_ = item.fungi;
 				
 		fungi.direction = irandom_range(0,360);
 		fungi.fountain = true;
@@ -34,7 +34,7 @@ if(!isOnFire && !global.generatingEnvironment) {
 		spawnCount++;
 		var fungi = instance_create_depth(x,y,depth, o_item);
 			
-		fungi.image_index = item.keycard;
+		fungi.item_ = item.keycard;
 				
 		fungi.direction = irandom_range(0,360);
 		fungi.fountain = true;
@@ -48,7 +48,7 @@ if(!isOnFire && !global.generatingEnvironment) {
 		spawnCount++;
 		var fungi = instance_create_depth(x,y,depth, o_item);
 			
-		fungi.image_index = item.cookedfungi;
+		fungi.item_ = item.cookedfungi;
 				
 		fungi.direction = irandom_range(0,360);
 		fungi.fountain = true;

@@ -6,7 +6,7 @@ if(!global.generatingEnvironment) {
 		for(var iy = 0; iy < height; iy++)
 			if(items[# ix, iy] > 0) {
 				var item_ = instance_create_depth(x,y,depth, o_item);
-				item_.image_index = items[# ix, iy];
+				item_.item_ = items[# ix, iy];
 				item_.direction = irandom_range(0,360);
 				item_.bounce = true;
 				item_.durability = durability[# ix, iy];
@@ -16,7 +16,7 @@ if(!global.generatingEnvironment) {
 	if(!isOnFire) {
 		// Creates item
 		var plank = instance_create_depth(x,y,depth, o_item);
-		plank.image_index = item.planks;
+		plank.item_ = item.planks;
 		plank.direction = irandom_range(0,360);
 		plank.bounce = true;
 		plank.item_count = irandom_range(1,2);

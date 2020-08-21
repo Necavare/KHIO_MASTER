@@ -9,7 +9,7 @@ function scr_clear_update(argument0) {
 
 	//set all values to false
 	var listArr= argument0;
-	for(i=0; i<array_length_1d(listArr); i++){
+	for(i=0; i<array_length(listArr); i++){
 		listArr[@ i] = false;	
 	}
 

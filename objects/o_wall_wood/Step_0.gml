@@ -40,13 +40,13 @@ if(o_player.isHoldingTool && place_meeting(x,y,o_tool) && o_tool.isSwung && canH
 if(health_ > 5 && lastLogs > round(logs) && !isOnFire) {
 	// Creates item
 	var plank = instance_create_depth(x,y,depth, o_item);
-	plank.image_index = item.planks;
+	plank.item_ = item.planks;
 	plank.direction = irandom_range(0,360);
 	plank.bounce = true;
 	lastLogs = round(logs);
 } 
 
-for(i = 0; i < array_length_1d(logType); i++) {
+for(i = 0; i < array_length(logType); i++) {
 	if(i > logs)
 		logType[i] = -1;
 }

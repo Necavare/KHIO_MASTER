@@ -54,7 +54,7 @@ hintsHighlighted = false;
 
 // Adding resolution to list if new
 var isIn = false;
-for(var i = 0; i < array_length_1d(resolution); i++) {
+for(var i = 0; i < array_length(resolution); i++) {
 	if(resolution[i] == currentResolution)
 		isIn = true;
 }

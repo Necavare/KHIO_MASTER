@@ -15,7 +15,7 @@ if(!isEmpty && collision_circle(o_player.x, o_player.y, 50, self, true, false) &
 			o_camera.shake = .5;
 			
 			var berry = instance_create_depth(x,y,depth,o_item);
-			berry.image_index = item.berry;
+			berry.item_ = item.berry;
 			berry.direction = irandom_range(0,360);
 			berry.bounce = true;
 			berry.durability = 11;

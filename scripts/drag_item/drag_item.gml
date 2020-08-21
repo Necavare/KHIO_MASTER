@@ -110,7 +110,7 @@ function drag_item() {
 		} else if(count[# xx, yy] > 0 && global.isItemPicked && items[# xx, yy] == global.last_item && count[# xx, yy] != 8 && global.picked_quantity != 8) { // Putting item into slot with same item
 			// Checking if item is single stackable
 			var isSingle = false;					
-			for(var i = 0; i < array_length_1d(global.singleItems); i++)
+			for(var i = 0; i < array_length(global.singleItems); i++)
 				if(global.singleItems[i] == global.last_item)
 					isSingle = true;
 				

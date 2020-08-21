@@ -18,7 +18,7 @@ function scr_update_mm(argument0, argument1, argument2, argument3) {
 	var height= argument3;
 
 	//for every element that need to be updated
-	for(var i = 0; i < array_length_1d(updateArr); i++){
+	for(var i = 0; i < array_length(updateArr); i++){
 		//find the bx and by from iv
 		//if their is an update at this i
 		//bx 0 is  i(0,1,2,3,4)

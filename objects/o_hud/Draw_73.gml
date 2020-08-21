@@ -90,8 +90,7 @@ for(var ix = 0; ix < 1; ix++) {
 					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && inventory_full(global.last_item)) {
 						// Spawning new item					
 						var new_item = instance_create_layer(o_player.x, o_player.y, "items", o_item);
-
-						new_item.image_index = global.last_item; 
+						new_item.item_ = global.last_item; 
 						new_item.direction = point_direction(x,y,mouse_x,mouse_y);
 						new_item.item_count = global.picked_quantity;
 						new_item.durability = global.picked_durability;
@@ -484,7 +483,7 @@ for(var ix = 0; ix < 1; ix++)
 			equipDurability[# ix, iy] = -1;
 			
 		if(equipDurability[# ix, iy] <= 0)	
-			for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+			for(var i = 0; i < array_length(global.durabilityItems); i++)
 			 if(equipItems[# ix, iy] == global.durabilityItems[i]) {
 				equipItems[# ix, iy] = 0;
 				equipDurability[# ix, iy] = -1;
@@ -574,8 +573,7 @@ for(var ix = 0; ix < 1; ix++)
 					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && inventory_full(global.last_item)) {
 						// Spawning new item					
 						var new_item = instance_create_layer(o_player.x, o_player.y, "items", o_item);
-
-						new_item.image_index = global.last_item; 
+						new_item.item_ = global.last_item; 
 						new_item.direction = point_direction(x,y,mouse_x,mouse_y);
 						new_item.item_count = global.picked_quantity;
 						new_item.durability = global.picked_durability;
@@ -741,7 +739,7 @@ for (var i = 0; i < 14; i++) {
 		for(var iy = 0; iy < 3; iy++) {
 			
 			if(hotbarDurability[# 0, iy] <= 0)
-				for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+				for(var i = 0; i < array_length(global.durabilityItems); i++)
 					if(hotbarItems[# 0, iy] == global.durabilityItems[i]) {
 						hotbarItems[# 0, iy] = 0;
 						hotbarCount[# 0, iy] = 0;
@@ -866,7 +864,7 @@ for (var i = 0; i < 14; i++) {
 						// Spawning new item					
 						var new_item = instance_create_layer(o_player.x, o_player.y, "items", o_item);
 
-						new_item.image_index = global.last_item; 
+						new_item.item_ = global.last_item; 
 						new_item.direction = point_direction(x,y,mouse_x,mouse_y);
 						new_item.item_count = global.picked_quantity;
 						new_item.durability = global.picked_durability;
@@ -918,7 +916,7 @@ for(var ix = 0; ix < width; ix++)
 			durability[# ix, iy] = -1;
 			
 		if(durability[# ix, iy] <= 0)
-			for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+			for(var i = 0; i < array_length(global.durabilityItems); i++)
 				if(items[# ix, iy] == global.durabilityItems[i]) {
 					items[# ix, iy] = 0;
 					count[# ix, iy] = 0;
@@ -967,7 +965,7 @@ for(var ix = 0; ix < width; ix++)
 			if(count[# ix, iy] > 0)
 				draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, image_alpha);
 		} else {
-			// Drawing slotss
+			// Drawing slots
 			draw_sprite_ext(s_items, slots[# ix, iy].highlighted,xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
 			// Drawing items
 			if(count[# ix, iy] > 0)
@@ -1041,7 +1039,7 @@ for(var ix = 0; ix < width; ix++)
 							// Spawning new item					
 							var new_item = instance_create_layer(o_player.x, o_player.y, "items", o_item);
 
-							new_item.image_index = global.last_item; 
+							new_item.item_ = global.last_item; 
 							new_item.direction = point_direction(x,y,mouse_x,mouse_y);
 							new_item.item_count = global.picked_quantity;
 							new_item.durability = global.picked_durability;
@@ -1117,7 +1115,7 @@ if(global.isItemPicked && !global.slotHighlighted) {
 			// Spawning new item					
 			var new_item = instance_create_layer(o_player.x, o_player.y, "items", o_item);
 
-			new_item.image_index = global.last_item; 
+			new_item.item_ = global.last_item; 
 			new_item.direction = point_direction(x,y,mouse_x,mouse_y);
 			new_item.item_count = global.picked_quantity;
 			new_item.durability = global.picked_durability;
@@ -1147,7 +1145,7 @@ if(global.isItemPicked && !global.slotHighlighted) {
 	if(showHud)
 		for(var iy = 0; iy < 3; iy++) {
 			if(hotbarDurability[# 0, iy] <= 0)
-				for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+				for(var i = 0; i < array_length(global.durabilityItems); i++) 
 					if(hotbarItems[# 0, iy] == global.durabilityItems[i]) {
 						hotbarItems[# 0, iy] = 0;
 						hotbarCount[# 0, iy] = 0;
@@ -1188,7 +1186,7 @@ if(global.isItemPicked && !global.slotHighlighted) {
 		}
 		
 		// Checking if buildable item is in hotbar			
-		for(var i = 0; i < array_length_1d(global.buildableItems); i++) {
+		for(var i = 0; i < array_length(global.buildableItems); i++) {
 			if(global.itemEquipped == global.buildableItems[i] && !instance_exists(o_builder) && global.itemEquipped > 0) {
 				instance_create_depth(x,y,depth,o_builder);
 			}
@@ -1269,7 +1267,7 @@ if((mouse_check_button_released(global.M_LEFT) || mouse_check_button_released(gl
 	else {
 		// Spawning new item					
 		var new_item = instance_create_layer(o_player.x, o_player.y, "items", o_item)
-		new_item.image_index = global.last_item; 
+		new_item.item_ = global.last_item; 
 		new_item.direction = point_direction(x,y,mouse_x,mouse_y);
 		new_item.item_count = global.picked_quantity;
 		new_item.durability = global.picked_durability;

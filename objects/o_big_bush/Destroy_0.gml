@@ -6,7 +6,7 @@ if(!isOnFire && !global.generatingEnvironment) {
 	repeat(irandom_range(2,5)) {
 		spawnCount++;
 		var stick = instance_create_depth(x,y,depth, o_item);
-		stick.image_index = item.stick;
+		stick.item_ = item.stick;
 		stick.direction = irandom_range(0,360);
 		stick.fountain = true;
 		stick.wait = true;

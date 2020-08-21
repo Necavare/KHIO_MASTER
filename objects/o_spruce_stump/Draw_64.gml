@@ -14,7 +14,7 @@ if(!global.generatingEnvironment){
 		if(mouse_check_button(global.M_LEFT)  && global.interactingLoad >= 16) {
 				o_camera.shake = .5;
 				var fungi = instance_create_depth(x,y,depth,o_item);
-				fungi.image_index = item.fungi;
+				fungi.item_ = item.fungi;
 				fungi.direction = irandom_range(0,360);
 				fungi.bounce = true;
 				fungi.durability = 11;

@@ -11,7 +11,8 @@ function pickup_item() {
 
 	if(argument_count > 3)
 		durability = argument[3];
-
+	repeat(200)
+	show_debug_message("ITEM ADDING!: " + string(itemToAdd))
 	var addedCount = 0;
 
 	var width = object.width;
@@ -37,7 +38,7 @@ function pickup_item() {
 		}
 
 	// Checking if item is single stackable
-	for(var i = 0; i < array_length_1d(global.singleItems); i++)
+	for(var i = 0; i < array_length(global.singleItems); i++)
 		if(global.singleItems[i] == itemToAdd)
 			single = true;
 		
@@ -51,7 +52,7 @@ function pickup_item() {
 					object.hotbarCount[# 0, yy]++;
 					
 					if(durability > -1)
-						for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+						for(var i = 0; i < array_length(global.durabilityItems); i++)
 							if(global.durabilityItems[i] == itemToAdd)
 								object.hotbarDurability[# 0, yy] = durability;
 				
@@ -70,7 +71,7 @@ function pickup_item() {
 						object.count[# xx, yy]++;
 					
 						if(durability > -1)
-							for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+							for(var i = 0; i < array_length(global.durabilityItems); i++)
 								if(global.durabilityItems[i] == itemToAdd)
 									object.durability[# xx, yy] = durability;
 				
@@ -95,7 +96,7 @@ function pickup_item() {
 								object.hotbarCount[# 0, yy]++;
 						
 								if(durability > -1)
-									for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+									for(var i = 0; i < array_length(global.durabilityItems); i++)
 									if(global.durabilityItems[i] == itemToAdd)
 										object.hotbarDurability[# 0, yy] = durability;
 							
@@ -114,7 +115,7 @@ function pickup_item() {
 							object.count[# xx, yy]++;
 						
 							if(durability > -1)
-								for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+								for(var i = 0; i < array_length(global.durabilityItems); i++)
 								if(global.durabilityItems[i] == itemToAdd)
 									object.durability[# xx, yy] = durability;
 							
@@ -141,7 +142,7 @@ function pickup_item() {
 									object.hotbarCount[# 0, yy]++;
 							
 									if(durability > -1 && (i == 7 || i == amount-1))
-										for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+										for(var i = 0; i < array_length(global.durabilityItems); i++)
 											if(global.durabilityItems[i] == itemToAdd)
 												object.hotbarDurability[# 0, yy] = durability;
 							
@@ -160,7 +161,7 @@ function pickup_item() {
 									object.count[# xx, yy]++;
 							
 									if(durability > -1 && (i == 7 || i == amount-1))
-										for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+										for(var i = 0; i < array_length(global.durabilityItems); i++)
 											if(global.durabilityItems[i] == itemToAdd)
 												object.durability[# xx, yy] = durability;
 							
@@ -192,7 +193,7 @@ function pickup_item() {
 									object.hotbarCount[# 0, yy]++;
 							
 									if(durability > -1 && (i == 7 || i == amount-1))
-										for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+										for(var i = 0; i < array_length(global.durabilityItems); i++)
 											if(global.durabilityItems[i] == itemToAdd)
 												object.hotbarDurability[# 0, yy] = durability;
 							
@@ -211,7 +212,7 @@ function pickup_item() {
 									object.count[# xx, yy]++;
 							
 									if(durability > -1 && (i == 7 || i == amount-1))
-										for(var i = 0; i < array_length_1d(global.durabilityItems); i++)
+										for(var i = 0; i < array_length(global.durabilityItems); i++)
 											if(global.durabilityItems[i] == itemToAdd)
 												object.durability[# xx, yy] = durability;
 							
@@ -232,7 +233,7 @@ function pickup_item() {
 	if(addedCount < amount) {
 		// Creates item
 		var item_ = instance_create_depth(o_player.x, o_player.y, o_player.depth, o_item);
-		item_.image_index = itemToAdd;
+		item_.item_ = itemToAdd;
 		item_.direction = irandom_range(0,360);
 		item_.bounce = true;
 		item_.item_count = amount-addedCount;

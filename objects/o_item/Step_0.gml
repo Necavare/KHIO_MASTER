@@ -1,13 +1,14 @@
-if(place_meeting(x,y,o_player) && canPickup && !o_player.isDead && !inventory_full(image_index)) {
+if(place_meeting(x,y,o_player) && canPickup && !o_player.isDead && !inventory_full(item_)) {
 	instance_destroy(self);
 	
-	pickup_item(o_hud, image_index, item_count, durability);
+	pickup_item(o_hud, item_, item_count, durability);
 	
-	item_notification(image_index);
+	item_notification(item_);
 }
 
+image_index = item_+1;
 // Moving towards player if within range
-if(collision_circle(o_player.x, o_player.y, 30, self, true, false) && !inventory_full(image_index) && !o_player.isDead && !moving) {
+if(collision_circle(o_player.x, o_player.y, 30, self, true, false) && !inventory_full(item_) && !o_player.isDead && !moving) {
 	x+=lengthdir_x(.25, point_direction(x, y, o_player.x, o_player.y));
 	y+=lengthdir_y(.25, point_direction(x, y, o_player.x, o_player.y));
 }

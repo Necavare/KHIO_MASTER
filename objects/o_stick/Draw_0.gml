@@ -12,7 +12,7 @@ if(room != r_title && !global.isInventoryOpen && !global.isPaused && !o_hud.mapO
 		repeat(1) {
 			spawnCount++;
 			var stick = instance_create_depth(x,y,depth, o_item);
-			stick.image_index = item.stick;
+			stick.item_ = item.stick;
 			
 			stick.direction = irandom_range(0,360);
 			stick.fountain = true;

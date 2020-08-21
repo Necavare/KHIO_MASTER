@@ -30,7 +30,7 @@ switch (command_to_run) {
 		} else {
 			third_level = variable_instance_get_names(object_to_try_and_access.id)
 			
-			var builtin = array_length_1d(third_level)
+			var builtin = array_length(third_level)
 			
 			third_level[builtin++] = "speed"
 			third_level[builtin++] = "x"
@@ -127,7 +127,7 @@ switch (command_to_run) {
 
 
 // put all second level options into this array so we can predict from them 
-var total_count_of_third_level_commands = array_length_1d(third_level)
+var total_count_of_third_level_commands = array_length(third_level)
 var current_count_of_third_level_commands = 0 
 			
 for (var i = 0; i < total_count_of_third_level_commands; ++i) {

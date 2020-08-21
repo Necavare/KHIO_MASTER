@@ -8,8 +8,8 @@ displaykey[0] = vk_f7	// F1
 closekey[0] = vk_f7 // F1
 
 
-open_me_key_count = array_length_1d(displaykey)
-close_me_key_count = array_length_1d(closekey)
+open_me_key_count = array_length(displaykey)
+close_me_key_count = array_length(closekey)
 #endregion
 #region settings
 prediction_count_max = 11			// when typing how many predictions do you want in the drop down

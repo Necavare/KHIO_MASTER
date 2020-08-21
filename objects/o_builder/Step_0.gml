@@ -7,7 +7,7 @@ y += (mouse_y-y)*.1;
 	
 // Destroying self if item equipped is not a buildable item	
 /*var isBuildable = false;
-for(var i = 0; i < array_length_1d(global.buildableItems); i++) {
+for(var i = 0; i < array_length(global.buildableItems); i++) {
 	isBuildable = false;
 	if(global.buildableItems[i] == global.itemEquipped) {
 		isBuildable = true;

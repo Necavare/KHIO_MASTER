@@ -14,7 +14,7 @@ if(room != r_title && !global.isInventoryOpen && !global.isPaused && !o_hud.mapO
 		repeat(1) {
 			spawnCount++;
 			var rock = instance_create_depth(x,y,depth, o_item);
-			rock.image_index = item.rock; break;
+			rock.item_ = item.rock; break;
 			
 			rock.direction = irandom_range(0,360);
 			rock.fountain = true;

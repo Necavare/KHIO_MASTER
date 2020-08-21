@@ -14,7 +14,7 @@ if(collision_circle(o_player.x, o_player.y, 50, self, true, false) && room != r_
 			o_camera.shake = .5;
 			
 			var stick = instance_create_depth(x,y,depth,o_item);
-			stick.image_index = item.lilly;
+			stick.item_ = item.lilly;
 			stick.direction = irandom_range(0,360);
 			stick.bounce = true;
 		

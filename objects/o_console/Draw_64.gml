@@ -211,7 +211,7 @@ if (display_frame > 0) { // draw something
 		#region other levels of prediction 
 			
 			if (cursor_at_stage >= 1) {
-				var second_level_length = array_length_1d(second_level_commands)
+				var second_level_length = array_length(second_level_commands)
 				for (var i = 0; i < second_level_length; ++i) {
 					
 					draw_set_colour(predict_text_col)

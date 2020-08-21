@@ -11,7 +11,7 @@ tips[8] = "Crafting items makes time go by faster";
 tips[9] = "Armor can protect you from breaking bones";
 tips[10] = "Chop logs or stumps for planks";
 
-tipNumber = irandom_range(0, array_length_1d(tips)-1);
+tipNumber = irandom_range(0, array_length(tips)-1);
 
 alarm[9] = 60*5;
 
@@ -79,7 +79,7 @@ hintsHighlighted = false;
 
 // Adding resolution to list if new
 var isIn = false;
-for(var i = 0; i < array_length_1d(resolution); i++) {
+for(var i = 0; i < array_length(resolution); i++) {
 	if(resolution[i] == currentResolution)
 		isIn = true;
 }
@@ -225,7 +225,7 @@ enum item {
 	metalShovelS = 93,
 	metalShovelB = 94,
 	treasureMap = 95,
-	snowball = 96,
+	snowball = 96
 }
 
 birchOrSpruce = false; // Used for randomizing which version is crafted. Birch = false; Spruce = true;
@@ -566,12 +566,10 @@ lanternInst = -1;
 //since the inventory is saved this would add them on top and be weird
 if(!global.loadingWorld && global.isDev){
 // Test pickup stuff
-pickup_item(o_hud, item.metalaxeB, 1, 11);
-pickup_item(o_hud, item.snowball, 8);
-pickup_item(o_hud, item.snowball, 8);
+pickup_item(o_hud, item.smallcrate, 1);
 
-pickup_item(o_hud, item.lantern, 1, 11);
-pickup_item(o_hud, item.sack, 1, 11);
+pickup_item(o_hud, item.metalhead, 1, 11);
+pickup_item(o_hud, item.metalchest, 1, 11);
 
 }
 

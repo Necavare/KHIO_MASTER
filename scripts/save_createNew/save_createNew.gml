@@ -51,8 +51,8 @@ function save_createNew(argument0) {
 	
 		/*
 		//put the block array into the file
-		ds_map_add (_map0, "blockArrLen", array_length_1d(global.blockArr));
-		for(var blockArrI = 0; blockArrI < array_length_1d(global.blockArr); blockArrI++){
+		ds_map_add (_map0, "blockArrLen", array_length(global.blockArr));
+		for(var blockArrI = 0; blockArrI < array_length(global.blockArr); blockArrI++){
 			ds_map_add(_map0, "blockArr["+string(blockArrI)+"]", global.blockArr[blockArrI]);
 		}*/
 	
@@ -70,7 +70,7 @@ function save_createNew(argument0) {
 		}
 	
 		//put the chunk loaded info into the file
-		var chunkLoadedSize = array_length_1d(global.chunkLoaded);
+		var chunkLoadedSize = array_length(global.chunkLoaded);
 		ds_map_add (_map0, "chunkLoadedSize", chunkLoadedSize);
 	
 		for(var chunkLI = 0; chunkLI < chunkLoadedSize; chunkLI++){
@@ -79,7 +79,7 @@ function save_createNew(argument0) {
 	
 		//ds_map_destroy(_map0);
 		/*
-		for(var biomeArrI = 0; biomeArrI < array_length_1d(global.biomeArray); biomeArrI++){
+		for(var biomeArrI = 0; biomeArrI < array_length(global.biomeArray); biomeArrI++){
 			ds_map_add(_map0, "biomeArray["+string(biomeArrI)+"]", global.biomeArray[biomeArrI]);
 		}*/
 	

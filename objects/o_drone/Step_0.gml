@@ -108,7 +108,7 @@ if(explode && !isExploded) {
 	// Creates item
 	repeat(irandom_range(1,4)) {
 		var metal = instance_create_depth(x,y,depth, o_item);
-		metal.image_index = item.metal;
+		metal.item_ = item.metal;
 		metal.direction = irandom_range(0,360);
 		metal.bounce = true;
 	}
@@ -116,7 +116,7 @@ if(explode && !isExploded) {
 	// Creates grenades
 	repeat(irandom_range(1,3)) {
 		var grenade = instance_create_depth(x,y,depth, o_item);
-		grenade.image_index = item.grenade;
+		grenade.item_ = item.grenade;
 		grenade.direction = irandom_range(0,360);
 		grenade.bounce = true;
 	}
