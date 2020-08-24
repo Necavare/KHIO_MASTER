@@ -24,8 +24,8 @@ function inventory_full() {
 				fullCount++;
 			
 		// Then check inventory
-		for(var yy = 0; yy < 3; yy++)
-			for(var xx = 0; xx < 3; xx++)
+		for(var xx = 0; xx < 4; xx++)
+			for(var yy = 0; yy < 3; yy++)
 				if(items[# xx, yy] >= 1)
 					fullCount++;	
 	} else if(!isSingle) { // If not single stackable item, check inventory for same item or empty slot
@@ -35,13 +35,13 @@ function inventory_full() {
 				fullCount++;
 	
 		// Then check inventory
-		for(var yy = 0; yy < 3; yy++)
-			for(var xx = 0; xx < 3; xx++)
+		for(var xx = 0; xx < 4; xx++)
+			for(var yy = 0; yy < 3; yy++)
 				if((items[# xx, yy] == itemToCheck && count[# xx, yy] >= 8) || (items[# xx, yy] != itemToCheck && count[# xx, yy] > 0))
 					fullCount++;
 	}
 
-	if(fullCount >= 12)
+	if(fullCount >= 15)
 		return true;
 	else
 		return false;

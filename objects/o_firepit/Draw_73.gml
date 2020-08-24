@@ -8,10 +8,10 @@ if(!global.generatingEnvironment){
 				if(items[# ix, iy] <= 2)
 					durability[# ix, iy] = -1;
 				// Calculating slot position
-				var offX = -5.5;
-				var offY = -7.5;
-				var xx = o_hud.x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(ix*10.5), angle)+lengthdir_x(offY+(iy*10.5), angle-90);
-				var yy = o_hud.y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(ix*10.5), angle)+lengthdir_y(offY+(iy*10.5), angle-90);
+				var offX = -3;
+				var offY = -7;
+				var xx = o_hud.x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(ix*14.5), angle)+lengthdir_x(offY+(iy*14.5), angle-90);
+				var yy = o_hud.y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(ix*14.5), angle)+lengthdir_y(offY+(iy*14.5), angle-90);
 
 				// Drawing slots
 				var slot = slots[# ix, iy];
@@ -39,25 +39,25 @@ if(!global.generatingEnvironment){
 			
 				if(holdSlot && slots[# ix, iy].highlighted) {
 					// Drawing slots
-					draw_sprite_ext(s_slots, slots[# ix, iy].highlighted+2,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+					draw_sprite_ext(s_slots, slots[# ix, iy].highlighted+2,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 					// Drawing items
 					if(count[# ix, iy] > 0)
-						draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, image_alpha);
+						draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 				} else {
 					// Drawing slotss
-					draw_sprite_ext(s_slots, slots[# ix, iy].highlighted+2,xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+					draw_sprite_ext(s_slots, slots[# ix, iy].highlighted+2,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 					// Drawing items
 					if(count[# ix, iy] > 0)
-						draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, image_alpha);
+						draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 				}
 		
 				// Drawing durability	
 				if(durability[# ix, iy] > -1)
-					draw_sprite_ext(s_durability, item_durability(durability, items, ix, iy)  ,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, image_alpha);
+					draw_sprite_ext(s_durability, item_durability(durability, items, ix, iy)  ,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 			
 				// Drawing quickmove
 				if(quickMove && quickMoveX == ix && quickMoveY == iy)
-					draw_sprite_ext(s_quickmove, quickMoveLoad,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+					draw_sprite_ext(s_quickmove, quickMoveLoad,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 				#region Dragging items
 		
 					// Quickmoving / Full stack Dragging

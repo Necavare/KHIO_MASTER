@@ -97,8 +97,8 @@ function remove_count() {
 		itemToRemove2 = item.metal;
 		countToRemove2 = 8;
 	
-		itemToRemove3 = item.grass;
-		countToRemove3 = 4;
+		itemToRemove3 = item.furpelt;
+		countToRemove3 = 2;
 	} else if(recipeItem == item.poisonsword) {
 		itemToRemove = item.sword;
 		countToRemove = 1;
@@ -109,8 +109,8 @@ function remove_count() {
 		itemToRemove = item.metal;
 		countToRemove = 8;
 	
-		itemToRemove2 = item.grass;
-		countToRemove2 = 4;
+		itemToRemove2 = item.furpelt;
+		countToRemove2 = 1;
 	} else if(recipeItem == item.poisonknife) {
 		itemToRemove = item.knife;
 		countToRemove = 1;
@@ -225,8 +225,8 @@ function remove_count() {
 		itemToRemove = item.stick;
 		countToRemove = 1;
 	
-		itemToRemove2 = item.grass;
-		countToRemove2 = 4;
+		itemToRemove2 = item.furpelt;
+		countToRemove2 = 2;
 	
 		itemToRemove3 = item.metal;
 		countToRemove3 = 8;
@@ -234,8 +234,8 @@ function remove_count() {
 		itemToRemove = item.stick;
 		countToRemove = 1;
 	
-		itemToRemove2 = item.grass;
-		countToRemove2 = 4;
+		itemToRemove2 = item.furpelt;
+		countToRemove2 = 2;
 	
 		itemToRemove3 = item.metal;
 		countToRemove3 = 6;
@@ -243,8 +243,8 @@ function remove_count() {
 		itemToRemove = item.stick;
 		countToRemove = 1;
 	
-		itemToRemove2 = item.grass;
-		countToRemove2 = 4;
+		itemToRemove2 = item.furpelt;
+		countToRemove2 = 2;
 	
 		itemToRemove3 = item.metal;
 		countToRemove3 = 8;

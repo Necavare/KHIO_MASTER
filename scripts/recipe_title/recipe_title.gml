@@ -153,9 +153,9 @@ function recipe_title() {
 		item_count2 = 8;
 		countCheck2 = check_inventory(item.metal, item_count2, -1);
 		item2 = item.metal;
-		item_name3 += "Grass";
-		item_count3 = 4;
-		countCheck3 = check_inventory(item.grass, item_count3, -1);
+		item_name3 += "Fur Pelts";
+		item_count3 = 2;
+		countCheck3 = check_inventory(item.furpelt, item_count3, -1);
 		item3 = item.grass;
 	} else if(item_ == item.poisonsword) {
 		item_name += "Sword";
@@ -171,9 +171,9 @@ function recipe_title() {
 		item_count = 8;
 		countCheck = check_inventory(item.metal, item_count, -1);
 		item1 = item.metal;
-		item_name2 += "Grass";
-		item_count2 = 4;
-		countCheck2 = check_inventory(item.grass, item_count2, -1);
+		item_name2 += "Fur Pelts";
+		item_count2 = 1;
+		countCheck2 = check_inventory(item.furpelt, item_count2, -1);
 		item2 = item.grass;
 	} else if(item_ == item.poisonknife) {
 		item_name += "Knife";
@@ -325,9 +325,9 @@ function recipe_title() {
 		item_count = 1;
 		countCheck = check_inventory(item.stick, item_count, -1);
 		item1 = item.stick;
-		item_name2 += "Grass";
-		item_count2 = 4;
-		countCheck2 = check_inventory(item.grass, item_count2, -1);
+		item_name2 += "Fur Pelts";
+		item_count2 = 2;
+		countCheck2 = check_inventory(item.furpelt, item_count2, -1);
 		item2 = item.grass;
 		item_name3 += "Metal";
 		item_count3 = 8;
@@ -338,10 +338,10 @@ function recipe_title() {
 		item_count = 1;
 		countCheck = check_inventory(item.stick, item_count, -1);
 		item1 = item.stick;
-		item_name2 += "Grass";
-		item_count2 = 4;
-		countCheck2 = check_inventory(item.grass, item_count2, -1);
-		item2 = item.grass;
+		item_name2 += "Fur Pelts";
+		item_count2 = 2;
+		countCheck2 = check_inventory(item.furpelt, item_count2, -1);
+		item2 = item.furpelt;
 		item_name3 += "Metal";
 		item_count3 = 6;
 		countCheck3 = check_inventory(item.metal, item_count3, -1);
@@ -351,16 +351,16 @@ function recipe_title() {
 		item_count = 1;
 		countCheck = check_inventory(item.stick, item_count, -1);
 		item1 = item.stick;
-		item_name2 += "Grass";
-		item_count2 = 4;
-		countCheck2 = check_inventory(item.grass, item_count2, -1);
-		item2 = item.grass;
+		item_name2 += "Fur Pelts";
+		item_count2 = 2;
+		countCheck2 = check_inventory(item.furpelt, item_count2, -1);
+		item2 = item.furpelt;
 		item_name3 += "Metal";
 		item_count3 = 8;
 		countCheck3 = check_inventory(item.metal, item_count3, -1);
 		item3 = item.metal;
 	} else if(item_ == item.sack) {
-		item_name += "Fur Pelt";
+		item_name += "Fur Pelts";
 		item_count = 8;
 		countCheck = check_inventory(item.furpelt, item_count, -1);
 		item1 = item.furpelt;
@@ -466,7 +466,7 @@ function recipe_title() {
 		countCheck2 = check_inventory(item.poison, item_count2, -1);
 		item2 = item.poison;
 	} else if(item_ == item.leatherhead) {
-		item_name += "Fur Pelt";
+		item_name += "Fur Pelts";
 		item_count = 6;
 		countCheck = check_inventory(item.furpelt, item_count, -1);
 		item1 = item.furpelt;
@@ -475,7 +475,7 @@ function recipe_title() {
 		countCheck2 = check_inventory(item.grass, item_count2, -1);
 		item2 = item.grass;
 	} else if(item_ == item.leatherchest) {
-		item_name += "Fur Pelt";
+		item_name += "Fur Pelts";
 		item_count = 8;
 		countCheck = check_inventory(item.furpelt, item_count, -1);
 		item1 = item.furpelt;

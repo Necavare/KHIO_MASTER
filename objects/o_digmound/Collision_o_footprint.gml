@@ -1,2 +1,2 @@
-if(other.canDestroy && other.sprite_index != s_rollprint)
+if(other.canDestroy)
 	instance_destroy(other);

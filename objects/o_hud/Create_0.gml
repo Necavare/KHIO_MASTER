@@ -431,7 +431,7 @@ mouseMoving = false;
 gx = device_mouse_x_to_gui(0);
 gy = device_mouse_y_to_gui(0);
 
-width = 3;
+width = 4;
 height = 3;
 
 // Creating slot instances for highlighting
@@ -566,10 +566,10 @@ lanternInst = -1;
 //since the inventory is saved this would add them on top and be weird
 if(!global.loadingWorld && global.isDev){
 // Test pickup stuff
-pickup_item(o_hud, item.smallcrate, 1);
-
-pickup_item(o_hud, item.metalhead, 1, 11);
-pickup_item(o_hud, item.metalchest, 1, 11);
+pickup_item(o_hud, item.metalShovelB, 1, 11);
+pickup_item(o_hud, item.metalaxeB, 1, 11);
+pickup_item(o_hud, item.metalpicB, 1, 11);
+pickup_item(o_hud, item.stick, 8);
 
 }
 
