@@ -50,5 +50,5 @@ mouseY = -1;
 
 buildZ = -image_number
 
-health_ = 3;
+health_ = 5;
 canHit = true;

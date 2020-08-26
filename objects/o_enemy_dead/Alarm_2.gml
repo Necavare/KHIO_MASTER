@@ -28,6 +28,8 @@ if(spawnItems){
 	// First decided how many slots should be filled
 	var itemCount = irandom_range(2,4);
 	var isMap = false;
+	
+	var isTool = false;
 
 	repeat(itemCount){
 		// Randomize items durability
@@ -55,11 +57,13 @@ if(spawnItems){
 			else if(itemChance < 60){//5% head
 				pickup_item(self, item.metalhead, 1, itemDur);	
 			}
-			else if(itemChance < 70){//10% axe
+			else if(itemChance < 70 && !isTool){//10% axe
 				pickup_item(self, choose(item.metalaxeS, item.metalaxeB), 1, itemDur);	
+				isTool = true;
 			}
-			else if(itemChance < 80){//10% pic
-				pickup_item(self, choose(item.metalpicS, item.metalpicB), 1, itemDur);			
+			else if(itemChance < 80 && !isTool){//10% pic
+				pickup_item(self, choose(item.metalpicS, item.metalpicB), 1, itemDur);	
+				isTool = true;
 			}
 		}else if(itemChance<90){//10% flare
 			pickup_item(self, item.flare, choose(1,1,1,2,2,3), 11);

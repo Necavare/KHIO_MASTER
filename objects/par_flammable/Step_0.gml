@@ -33,6 +33,6 @@ if(isOnFire) {
 		}
 	}
 			
-	fireAmount+=.01;
-	health_-=.01;
+	fireAmount+=.005;
+	health_-=.005;
 }

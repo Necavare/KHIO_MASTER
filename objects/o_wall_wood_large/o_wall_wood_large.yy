@@ -29,6 +29,7 @@
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"o_wall_wood_large","path":"objects/o_wall_wood_large/o_wall_wood_large.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":11,"eventType":2,"collisionObjectId":null,"parent":{"name":"o_wall_wood_large","path":"objects/o_wall_wood_large/o_wall_wood_large.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"o_player","path":"objects/o_player/o_player.yy",},"parent":{"name":"o_wall_wood_large","path":"objects/o_wall_wood_large/o_wall_wood_large.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_wall_wood_large","path":"objects/o_wall_wood_large/o_wall_wood_large.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

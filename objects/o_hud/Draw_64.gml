@@ -1546,6 +1546,7 @@ if(global.isInventoryOpen && !global.isPaused){
 			
 			gpu_set_blendmode(bm_max);
 			//gpu_set
+			
 			draw_circle(xp+(mmWidth/2), yp+(mmHeight/2), mmWidth/2, false);
 			
 			//draw_sprite_stretched(s_mm_circle, 0, xp, yp, mmWidth+1, mmHeight+1);		

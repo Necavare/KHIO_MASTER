@@ -22,6 +22,8 @@ if(collision_circle(o_player.x, o_player.y, 50, self, true, false)) {
 	}
 }
 
+draw_health(health_, 5);
+
 // Drawing interact and options
 if(!options && !editNameSelected)
 	draw_interact();

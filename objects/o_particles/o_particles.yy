@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "par_3d_object",
-    "path": "objects/par_3d_object/par_3d_object.yy",
+    "name": "par_no_depth",
+    "path": "objects/par_no_depth/par_no_depth.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

@@ -10,7 +10,7 @@ image_angle = point_direction(x,y,xTo,yTo);
 x += (xTo-x)*.0025;
 y += (yTo-y)*.0025; */
 
-if(!dead) {
+if(!dead&& !isExploded) {
 	if(dir != -1) {
 		image_angle = dir;
 		x += lengthdir_x(1.5, dir);
@@ -57,10 +57,10 @@ if((place_meeting(x,y,o_bullet) || place_meeting(x,y,o_buckshot)) && canHit) {
 	}
 	canHit = false;
 	alarm[2] = 60;
-	health_-=2;
+	health_-=3;
 }
 
-if(health_ <= 0 && !dead) {
+if(health_ <= 0 && !dead && !isExploded) {
 	dead = true;
 	sprite_index = s_drone_dead;
 	lightOff = true;

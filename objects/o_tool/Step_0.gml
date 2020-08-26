@@ -414,7 +414,7 @@ if(!global.isInventoryOpen && !isHitting) {
 		
 		// Effects
 		o_camera.shake = 1;
-	} else if(!aiming && mouse_check_button(global.M_RIGHT) && !mouse_check_button(global.M_LEFT) && !o_player.isRunning && !isBlocking && alarm[3] == -1 && canBlockAgain && global.itemEquipped != item.grenade) { // Blocking
+	} else if(!aiming && mouse_check_button(global.M_RIGHT) && !mouse_check_button(global.M_LEFT) && !o_player.isRunning && !isBlocking && alarm[3] == -1 && canBlockAgain && global.itemEquipped != item.grenade && global.itemEquipped != item.snowball) { // Blocking
 		if(instance_exists(o_enemySwordTutorial))
 			o_enemySwordTutorial.playerAction = true;
 		
@@ -459,14 +459,28 @@ if(!global.isInventoryOpen && !isHitting) {
 if(isHitting && !isSwung && canSwing) {
 	isHitting = false;
 		
-	o_hud.hotbarDurability[# 0, o_hud.hotbarSlot] -= durability;
-
-	if(o_hud.hotbarDurability[# 0, o_hud.hotbarSlot] <= 0) {
-		instance_destroy(self);
-		audio_play_sound(sn_tool_break, 1, 0);
-	}
+	if(global.itemEquipped == item.snowball) {
+		if(o_hud.hotbarCount[# 0, o_hud.hotbarSlot] > 0)
+			o_hud.hotbarCount[# 0, o_hud.hotbarSlot]--;
 		
-	o_hud.showHotbar = true;
+		if(o_hud.hotbarCount[# 0, o_hud.hotbarSlot] <= 0) {
+			o_hud.hotbarCount[# 0, o_hud.hotbarSlot] = 0;
+			o_hud.hotbarItems[# 0, o_hud.hotbarSlot] = 0;
+			o_hud.hotbarDurability[# 0, o_hud.hotbarSlot] = -1;
+		}
+		
+		audio_play_sound(sn_snowwalk_4, 1, 0);
+		audio_play_sound(sn_snowwalk_4, 1, 0);
+	} else if(global.itemEquipped != item.snowball) {
+		o_hud.hotbarDurability[# 0, o_hud.hotbarSlot] -= durability;
+
+		if(o_hud.hotbarDurability[# 0, o_hud.hotbarSlot] <= 0) {
+			o_hud.hotbarDurability[# 0, o_hud.hotbarSlot] = -1;
+			instance_destroy(self);
+			audio_play_sound(sn_tool_break, 1, 0);
+			o_hud.showHotbar = true;
+		}
+	}
 }
 
 depth = o_player.depth + 1;

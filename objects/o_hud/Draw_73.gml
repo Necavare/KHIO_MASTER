@@ -842,54 +842,7 @@ for (var i = 0; i < 14; i++) {
 				if(hotbarSlots[# 0, iy].highlighted) {
 					if(mouse_check_button(global.M_LEFT) && mouseMoving && !global.isItemPicked) 
 						drag_item(hotbarItems, hotbarCount, hotbarDurability, 0, iy, false);
-					else if((mouse_check_button(global.M_LEFT) && !mouseMoving && !global.isItemPicked)) {
-						if(hotbarItems[# ix, iy] == item.treasureMap || hotbarItems[# ix, iy] == item.enemymap) {
-							// Clicking to load interact
-							global.interactingObject = self;
-							if(mouse_check_button(global.M_LEFT) && global.interactingLoad < 16) 
-								global.interactingLoad+=1;
-		
-							// Clicking to interact
-							if(mouse_check_button(global.M_LEFT) && global.interactingLoad >= 16) {
-								// Discover enemy camp
-								if(hotbarItems[# ix, iy] == item.enemymap) {
-									var uncovered = false;
-									for(var i = 0; i < ds_list_size(global.campIdList); i++){
-										if(!uncovered && ds_list_find_value(global.campCol, i) != 0){
-											uncovered = true;
-											ds_list_set(global.campCol, i, 1);
-				
-											global.enemyMap = true;
-											o_hud.enemyMapTime = 0;
-										}
-									}
-								}
-								
-								// Discover treasure
-								if(hotbarItems[# ix, iy] == item.treasureMap) {
-									var uncovered = false;
-									for(var i =0; i < ds_list_size(global.moundXList); i++){
-										if(!uncovered && ds_list_find_value(global.moundTypeList, i) == 0) {
-											uncovered = true;
-											ds_list_set(global.moundTypeList, i, 1);
-				
-											global.enemyMap = true;
-											o_hud.enemyMapTime = 0;
-											//set a treasure icon (no library)
-				
-											i = ds_list_size(global.moundXList);
-										}
-									}
-								}
-								
-								hotbarItems[# ix, iy] = 0;
-								hotbarCount[# ix, iy] = 0;
-								
-								global.interactingObject = -1;
-								global.interactingLoad = -1;
-							}
-						}
-					} else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && !inventory_full(global.last_item))
+					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && !inventory_full(global.last_item))
 						drag_item(hotbarItems, hotbarCount, hotbarDurability, 0, iy, false);
 					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && inventory_full(global.last_item)) {
 						// Spawning new item					
@@ -1015,56 +968,9 @@ for(var ix = 0; ix < width; ix++)
 				
 				// Quickmoving / Full stack Dragging
 				if(slots[# ix, iy].highlighted) {
-					if((mouse_check_button(global.M_LEFT) && mouseMoving && !global.isItemPicked)) {
+					if((mouse_check_button(global.M_LEFT) && mouseMoving && !global.isItemPicked))
 						drag_item(items, count, durability, ix, iy, false);
-					} else if((mouse_check_button(global.M_LEFT) && !mouseMoving && !global.isItemPicked)) {
-						if(items[# ix, iy] == item.treasureMap || items[# ix, iy] == item.enemymap) {
-							// Clicking to load interact
-							global.interactingObject = self;
-							if(mouse_check_button(global.M_LEFT) && global.interactingLoad < 16) 
-								global.interactingLoad+=1;
-		
-							// Clicking to interact
-							if(mouse_check_button(global.M_LEFT) && global.interactingLoad >= 16) {
-								// Discover enemy camp
-								if(items[# ix, iy] == item.enemymap) {
-									var uncovered = false;
-									for(var i = 0; i < ds_list_size(global.campIdList); i++){
-										if(!uncovered && ds_list_find_value(global.campCol, i) != 0){
-											uncovered = true;
-											ds_list_set(global.campCol, i, 1);
-				
-											global.enemyMap = true;
-											o_hud.enemyMapTime = 0;
-										}
-									}
-								}
-								
-								// Discover treasure
-								if(items[# ix, iy] == item.treasureMap) {
-									var uncovered = false;
-									for(var i =0; i < ds_list_size(global.moundXList); i++){
-										if(!uncovered && ds_list_find_value(global.moundTypeList, i) == 0) {
-											uncovered = true;
-											ds_list_set(global.moundTypeList, i, 1);
-				
-											global.enemyMap = true;
-											o_hud.enemyMapTime = 0;
-											//set a treasure icon (no library)
-				
-											i = ds_list_size(global.moundXList);
-										}
-									}
-								}
-								
-								items[# ix, iy] = 0;
-								count[# ix, iy] = 0;
-								
-								global.interactingObject = -1;
-								global.interactingLoad = -1;
-							}
-						}
-					} else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && !inventory_full(global.last_item))
+					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && !inventory_full(global.last_item))
 						drag_item(items, count, durability, ix, iy, false);
 					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && inventory_full(global.last_item)) {
 							// Spawning new item					

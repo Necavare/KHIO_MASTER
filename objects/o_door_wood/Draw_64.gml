@@ -34,4 +34,5 @@ if(!global.generatingEnvironment && canInteract){
 	if(global.isInventoryOpen || global.isPaused)
 			options = false;
 		
+	draw_health(health_, 10);
 }

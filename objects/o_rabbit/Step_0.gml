@@ -161,13 +161,13 @@ if(!global.generatingEnvironment){
 		} 
 		
 		var thrown = instance_nearest(x,y, o_tool_thrown);
-		if(place_meeting(x,y,thrown) && thrown.z > 0 && canHit) {
+		if(collision_circle(x,y, 10, o_tool_thrown, true, true) && thrown.z > 0 && canHit) {
 			if(thrown.isLit && (thrown.item_ == item.torch || thrown.item_ == item.flare)){ //set damage tick for fire
 				alarm[11] = 25;
 				damageTick = true;
 				damageTickStatus = 2;
 			}
-			rabbit_health-=thrown.damage*5;
+			rabbit_health-=thrown.damage*3;
 			o_camera.shake = 2;
 	
 			switch(irandom(1)) {

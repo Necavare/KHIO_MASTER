@@ -180,9 +180,9 @@ if(!isIdle) {
 			newFootprint = true;
 		
 		if(img_frame == 7 || img_frame == 3) {
-			repeat(8) {
+			repeat(4) {
 				var snow = instance_create_depth(x, y, depth, o_particles);
-					snow.snow = true;
+				snow.snow = true;
 			}
 		
 			if((place_meeting(x,y,o_lake) || place_meeting(x,y,o_pond) || place_meeting(x,y,o_pond2)) && !global.generatingEnvironment) {
@@ -247,9 +247,9 @@ if(!isIdle) {
 			newFootprint = true;
 		
 		if(img_frame == 0 || img_frame == 3) {
-			repeat(12) {
+			repeat(10) {
 				var snow = instance_create_depth(x, y, depth, o_particles);
-					snow.snow = true;
+				snow.snow = true;
 			}
 			
 			if((place_meeting(x,y,o_lake) || place_meeting(x,y,o_pond) || place_meeting(x,y,o_pond2)) && !global.generatingEnvironment) {
@@ -312,7 +312,7 @@ if(!isIdle) {
 	}
 } else if((isHoldingTool || isHoldingWeapon || isAimingWeapon) && isIdle && alarmRotationAngle != global.camera_angle) {
 	if(img_frame == 5 || img_frame == 0) {
-		repeat(8) {
+		repeat(4) {
 			var snow = instance_create_depth(x, y, depth, o_particles);
 				snow.snow = true;
 		}

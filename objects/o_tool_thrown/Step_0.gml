@@ -40,12 +40,17 @@ if(z > 0) {
 	z-=2.5;
 	
 	switch(range) {
-		case 0: image_angle+=100; break;
-		case 1: image_angle+=80; break;
-		case 2:image_angle+=60; break;
+		case 0: image_angle+=30; break;
+		case 1: image_angle+=30; break;
+		case 2: image_angle+=30; break;
 	}
 } else {
-	speed_ = -1;	
+	if(item_ == item.snowball && speed_ != -1) {
+		audio_emitter_position(emitter, x, y, 0);
+		audio_play_sound_on(emitter, sn_snowwalk_4, 0, 1);
+		audio_play_sound_on(emitter, sn_snowwalk_4, 0, 1);
+	}
+	speed_ = -1;
 }
 
 if(speed_ > 0) {
@@ -55,7 +60,7 @@ if(speed_ > 0) {
 
 
 // Picking up
-if(collision_circle(x,y,5,o_player,true,true) && z <= 1 && !o_player.isDead && !inventory_full(item_) && item_ != item.flare && item_ != item.torch) {
+if(collision_circle(x,y,5,o_player,true,true) && z <= 1 && !o_player.isDead && !inventory_full(item_) && item_ != item.flare && item_ != item.torch && item_ != item.snowball) {
 	if(isTutorial && global.isTutorial){
 		//make it only certain amgles
 		var polarity = choose(true, false);

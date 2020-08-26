@@ -293,6 +293,9 @@ if(!o_player.isRolling && !o_player.isDead && !o_player.isDying && !o_player.isS
 		if(!instance_exists(o_tool) && global.itemEquipped == item.grenade)
 			instance_create_depth(o_player.x, o_player.y, depth, o_tool);
 			
+		if(!instance_exists(o_tool) && global.itemEquipped == item.snowball)
+			instance_create_depth(o_player.x, o_player.y, depth, o_tool);
+			
 		if(!instance_exists(o_tool) && (global.itemEquipped == item.knife || global.itemEquipped == item.poisonknife))
 			instance_create_depth(o_player.x, o_player.y, depth, o_tool);
 	}
@@ -301,7 +304,8 @@ if(!o_player.isRolling && !o_player.isDead && !o_player.isDying && !o_player.isS
 	&& (global.itemEquipped == item.meat || global.itemEquipped == item.cookedmeat
 	|| global.itemEquipped == item.human || global.itemEquipped == item.cookedhuman
 	|| global.itemEquipped == item.berry || global.itemEquipped == item.fungi || global.itemEquipped == item.cookedfungi
-	|| global.itemEquipped == item.bandage || global.itemEquipped == item.medkit || global.itemEquipped == item.soup)) {
+	|| global.itemEquipped == item.bandage || global.itemEquipped == item.medkit || global.itemEquipped == item.soup
+	 || global.itemEquipped == item.treasureMap || global.itemEquipped == item.enemymap)) {
 		instance_create_depth(o_player.x, o_player.y, depth, o_food);
 		global.isHoldingFood = true;
 	}

@@ -16,7 +16,7 @@ canHit = true;
 frame = 0;
 alarm[2] = 5;
 
-health_ = 5;
+health_ = 10;
 
 // Audio
 bird = audio_emitter_create();
