@@ -7,7 +7,7 @@ move_dir = 0;
 move_dis = 0;
 
 playerPrevDetected = false;
-
+wasStumbled = false;
 initialize_movement();
 
 // Player animations/drawing

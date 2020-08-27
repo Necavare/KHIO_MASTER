@@ -791,6 +791,7 @@ if(o_player.isHoldingTool && place_meeting(x,y,o_tool) && o_tool.isSwung && canH
 	if(!(isAttacking && img_frame <= 3) && !o_weapon.isSharp){
 		move(acceleration, point_direction(x,y,o_player.x, o_player.y)+180, p_speed, 5);
 		isStumbled = true;
+		
 	}
 	
 	if(global.itemEquipped == item.torch){ //set damage tick for fire
