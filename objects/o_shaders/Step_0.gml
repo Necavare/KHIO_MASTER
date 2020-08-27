@@ -2,8 +2,10 @@
 if(instance_exists(o_debugger) && o_debugger.pauseDay)
 	hour_of_day = .5;
 	
-if(room == r_testing)
-	hour_of_day = .5;
+if(room == r_testing) {
+	hour_of_day = .6;
+	global.hour = (hour_of_day / (1/24));
+}
 
 // Get key times
 var time		= hour_of_day;

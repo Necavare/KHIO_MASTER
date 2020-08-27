@@ -30,6 +30,7 @@
     {"isDnD":false,"eventNum":2,"eventType":2,"collisionObjectId":null,"parent":{"name":"o_rock","path":"objects/o_rock/o_rock.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"parent":{"name":"o_rock","path":"objects/o_rock/o_rock.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":40,"eventType":7,"collisionObjectId":null,"parent":{"name":"o_rock","path":"objects/o_rock/o_rock.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_rock","path":"objects/o_rock/o_rock.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

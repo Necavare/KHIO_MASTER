@@ -262,7 +262,7 @@ function item_title() {
 			item_desc += "";
 		} if(item_ == 79) {
 			item_name += "Enemy Map";
-			item_desc += "Find the location of enemy camps";
+			item_desc += "Find the location of enemy camps | Equip in hotbar to read";
 		} if(item_ == 80) {
 			item_name += "Leather Chest Plate";
 			item_desc += "Reduces damage";
@@ -316,7 +316,7 @@ function item_title() {
 			item_desc += "Dig up the snow!";
 		} if(item_ == 95) {
 			item_name += "Unknown Map";
-			item_desc += "Find the location of buried loot";
+			item_desc += "Find the location of buried loot | Equip in hotbar to read";
 		} if(item_ == 96) {
 			item_name += "Snow ball";
 			item_desc += "Throw it at your enemies";
@@ -544,7 +544,7 @@ function item_title() {
 			item_desc += "";
 		} if(item_ == 79) {
 			item_name += "Enemy Map";
-			item_desc += "Find the location of enemy camps";
+			item_desc += "Find the location of enemy camps | Equip in hotbar to read";
 		} if(item_ == 80) {
 			item_name += "Leather Chest Plate";
 			item_desc += "Reduces damage";
@@ -598,7 +598,7 @@ function item_title() {
 			item_desc += "Dig up the snow!";
 		} if(item_ == 95) {
 			item_name += "Unknown Map";
-			item_desc += "Find the location of buried loot";
+			item_desc += "Find the location of buried loot | Equip in hotbar to read";
 		} if(item_ == 96) {
 			item_name += "Snow balls";
 			item_desc += "Throw them at your enemies";

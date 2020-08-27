@@ -29,6 +29,7 @@
     {"isDnD":false,"eventNum":2,"eventType":2,"collisionObjectId":null,"parent":{"name":"o_bird","path":"objects/o_bird/o_bird.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":4,"eventType":2,"collisionObjectId":null,"parent":{"name":"o_bird","path":"objects/o_bird/o_bird.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"parent":{"name":"o_bird","path":"objects/o_bird/o_bird.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_bird","path":"objects/o_bird/o_bird.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

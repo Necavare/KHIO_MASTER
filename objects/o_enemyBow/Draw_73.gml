@@ -1,4 +1,4 @@
-if(playerNear)
+if(playerNear || enemy_health < healthMax)
 	for (var i = 0; i < enemy_health; i++) {
 		var offX = 10;
 		var offY = -3.5;

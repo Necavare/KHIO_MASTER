@@ -54,4 +54,6 @@ if(!global.generatingEnvironment){
 		global.isCrateOpen = false;
 		global.crate = 0;
 	}
+	
+	draw_health(health_, 5);
 }

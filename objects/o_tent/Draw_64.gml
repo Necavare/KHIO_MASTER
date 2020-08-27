@@ -24,3 +24,4 @@
 	if(global.isInventoryOpen)
 		options = false;
 }*/
+draw_health(health_, 5);

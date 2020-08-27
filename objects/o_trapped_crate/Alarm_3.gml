@@ -22,14 +22,18 @@
 				if(itemChance < 25 && !weaponSpawned) {// 5% crossbow
 					pickup_item(self, item.crossbow, 1, itemDur);	
 					weaponSpawned = true;
-				} else if(itemChance < 35) {// 10% axe
+				} else if(itemChance < 35 && !weaponSpawned) {// 10% axe
 					pickup_item(self, choose(item.metalaxeS, item.metalaxeB), 1, itemDur);	
-				} else if(itemChance < 45) {// 10% pic
-					pickup_item(self, choose(item.metalpicS, item.metalpicB), 1, itemDur);			
+					weaponSpawned = true;
+				} else if(itemChance < 45 && !weaponSpawned) {// 10% pic
+					pickup_item(self, choose(item.metalpicS, item.metalpicB), 1, itemDur);	
+					weaponSpawned = true;
+				} else {
+					pickup_item(self, item.charcoal, 3, itemDur);	
 				}
 				
 			} else if(itemChance<50) {// 5% flare
-				pickup_item(self, item.flare, 1);
+				pickup_item(self, item.flare, 1, itemDur);
 			} else if(itemChance < 55) {// 5% soup
 				pickup_item(self, item.soup, 1);
 			} else if(itemChance < 60) {// 5% lantern	

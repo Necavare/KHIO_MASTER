@@ -6,7 +6,11 @@ if(place_meeting(x,y,o_player) && canPickup && !o_player.isDead && !inventory_fu
 	item_notification(item_);
 }
 
-image_index = item_+1;
+image_index = item_;
+
+//if(item_ < 48)
+	//image_index = item_ + 1;
+
 // Moving towards player if within range
 if(collision_circle(o_player.x, o_player.y, 30, self, true, false) && !inventory_full(item_) && !o_player.isDead && !moving) {
 	x+=lengthdir_x(.25, point_direction(x, y, o_player.x, o_player.y));

@@ -138,12 +138,13 @@ if(collision_circle(x,y,5,thrown,true,true) && thrown.z > 0 && canHit) {
 		case 1: audio_play_sound_on(enemy, sn_bullet_hit_2, 0, 1); break;
 	}
 	
-	repeat(4) {
-		var blood = instance_create_depth(x, y, depth, o_particles);
-			blood.spurt = true;
-			var angle1 = -global.camera_angle+90;
-			blood.dir_ = irandom_range(angle1-30, angle1+30);
-	}
+	if(o_tool_thrown.item_ != item.snowball)
+		repeat(4) {
+			var blood = instance_create_depth(x, y, depth, o_particles);
+				blood.spurt = true;
+				var angle1 = -global.camera_angle+90;
+				blood.dir_ = irandom_range(angle1-30, angle1+30);
+		}
 	
 	canHit = false;
 	alarm[3] = 20;

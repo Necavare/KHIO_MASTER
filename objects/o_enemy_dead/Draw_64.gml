@@ -1,3 +1,4 @@
+draw_health(health_, 10);
 
 // Drawing item names for the inventory and picked up items
 if(!global.isItemPicked && global.crate == self)

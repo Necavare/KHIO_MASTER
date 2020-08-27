@@ -29,6 +29,8 @@
     {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"parent":{"name":"o_tool_thrown","path":"objects/o_tool_thrown/o_tool_thrown.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"par_3d_object","path":"objects/par_3d_object/par_3d_object.yy",},"parent":{"name":"o_tool_thrown","path":"objects/o_tool_thrown/o_tool_thrown.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_tool_thrown","path":"objects/o_tool_thrown/o_tool_thrown.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"par_flammable","path":"objects/par_flammable/par_flammable.yy",},"parent":{"name":"o_tool_thrown","path":"objects/o_tool_thrown/o_tool_thrown.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"par_flammable_nomap","path":"objects/par_flammable_nomap/par_flammable_nomap.yy",},"parent":{"name":"o_tool_thrown","path":"objects/o_tool_thrown/o_tool_thrown.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

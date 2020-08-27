@@ -10,6 +10,8 @@ if(isEating) {
 	var healthLost = 0;
 	var maxHealthLost = 0;
 	
+	var isMap = false;
+	
 	switch(food) {
 		case item.berry: hungerGained = 10; healthGained = 5; break;
 		case item.fungi: hungerGained = 5; healthLost = 10; break;
@@ -22,9 +24,53 @@ if(isEating) {
 		case item.splint: o_player.isInjured = false; break;
 		case item.bandage: o_player.isBleeding = false; healthGained = 5; break;
 		case item.medkit: o_player.isBleeding = false; o_player.isInjured = false; healthGained = 15; break;
+		case item.enemymap: isMap = true; break;
+		case item.treasureMap: isMap = true; break;
 	}
 	
-	if((hungerGained != 0 && o_player.hunger_ < 100 - hungerGained) || (healthGained != 0 && o_player.health_ < 100 - healthGained)
+	if(isMap) {
+		
+		// Discover enemy camp
+		if(food == item.enemymap) {
+			var uncovered = false;
+			for(var i = 0; i < ds_list_size(global.campIdList); i++){
+				if(!uncovered && ds_list_find_value(global.campCol, i) != 0){
+					uncovered = true;
+					ds_list_set(global.campCol, i, 1);
+		
+					global.enemyMap = true;
+					o_hud.enemyMapTime = 0;
+				}
+			}
+		}
+		
+		// Discover treasure
+		if(food == item.treasureMap) {
+			var uncovered = false;
+			for(var i =0; i < ds_list_size(global.moundXList); i++) {
+				if(!uncovered && ds_list_find_value(global.moundTypeList, i) == 0) {
+					uncovered = true;
+					ds_list_set(global.moundTypeList, i, 1);
+				
+					global.enemyMap = true;
+					o_hud.enemyMapTime = 0;
+					//set a treasure icon (no library)
+				
+					i = ds_list_size(global.moundXList);
+				}
+			}
+		}
+		
+		if(o_hud.hotbarCount[# 0, o_hud.hotbarSlot] > 0)
+			o_hud.hotbarCount[# 0, o_hud.hotbarSlot]--;
+			
+		if(o_hud.hotbarCount[# 0, o_hud.hotbarSlot] <= 0) {
+			o_hud.hotbarItems[# 0, o_hud.hotbarSlot] = 0;
+			o_hud.hotbarDurability[# 0, o_hud.hotbarSlot] = -1;
+			o_hud.hotbarSlot = -1;
+		}
+		
+	} else if((hungerGained != 0 && o_player.hunger_ < 100 - hungerGained) || (healthGained != 0 && o_player.health_ < 100 - healthGained)
 	 || (staminaGained != 0 && o_player.stamina < 100 - staminaGained) || food == item.splint) {
 		
 		if(healthGained != 0 && o_player.health_ < 100 - healthGained)

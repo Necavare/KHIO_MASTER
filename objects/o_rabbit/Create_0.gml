@@ -24,7 +24,7 @@ isAttracted = false;
 neverAttracted = false;
 isTrapped = false;
 
-health_ = 5;
+health_ = 10;
 
 inBush = false;
 

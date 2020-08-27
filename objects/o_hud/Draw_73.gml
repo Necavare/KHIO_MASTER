@@ -23,21 +23,32 @@ if(isAnvil) {
 
 #region Crafting/Recipes
 
+// Drawing divider lines
+var offX = -21;
+var offY = -7;
+var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY, angle-90);
+var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY, angle-90);
+		
+if(global.isCrateOpen)
+	draw_sprite_ext(s_crafting_lines, 0,xx,yy, image_xscale, image_yscale, angle, image_blend, image_alpha);
+else
+	draw_sprite_ext(s_crafting_lines, 1,xx,yy, image_xscale, image_yscale, angle, image_blend, image_alpha);
+
 // Drawing Crafting slots 
 for(var ix = 0; ix < 1; ix++) {	
-	var iy = 0;
+		var iy = 0;
 		// Calculating the slot positions
 		var offX = -20;
 		var offY = -7;
-		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY+(ix*9), angle-90);
-		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY+(ix*9), angle-90);
+		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY, angle-90);
+		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY, angle-90);
 		
 		// Setting slots to highlighted
 		var slot = crafting[# ix, iy];
 		slot.x = xx;
 		slot.y = yy;
 		slot.image_angle = angle;
-		
+			
 		if(crafting[# ix, iy].highlighted && slotAnimated != crafting[# ix, iy]) {
 			global.slotHighlighted = true;
 			animateSlot = true;
@@ -55,29 +66,29 @@ for(var ix = 0; ix < 1; ix++) {
 		}
 		
 		// Drawing slot background
-		draw_sprite_ext(s_slots, 5,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+		draw_sprite_ext(s_slots, 5,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, 1);
 		
 		if(holdSlot && crafting[# ix, iy].highlighted) {
 			// Drawing slots
-			draw_sprite_ext(s_slots, crafting[# ix, iy].highlighted,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+			draw_sprite_ext(s_slots, crafting[# ix, iy].highlighted,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 			// Drawing items
 			if(craftingCount[# ix, iy] > 0)
-				draw_sprite_ext(s_items, craftingItems[# ix, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, image_alpha);
+				draw_sprite_ext(s_items, craftingItems[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 		} else {
 			// Drawing slots
-			draw_sprite_ext(s_slots, crafting[# ix, iy].highlighted,xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+			draw_sprite_ext(s_slots, crafting[# ix, iy].highlighted,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 			// Drawing items
 			if(craftingCount[# ix, iy] > 0)
-				draw_sprite_ext(s_items, craftingItems[# ix, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, image_alpha);
+				draw_sprite_ext(s_items, craftingItems[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 		}
 		
 		// Drawing durability
 		if(craftingDurability[# ix, iy] > -1)
-			draw_sprite_ext(s_durability, item_durability(craftingDurability, craftingItems, ix, iy)  ,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, image_alpha);
+			draw_sprite_ext(s_durability, item_durability(craftingDurability, craftingItems, ix, iy)  ,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, image_alpha);
 			
 		// Drawing quickmove
 		if(quickMoveX == -1 && quickMoveY == iy && quickMove)
-			draw_sprite_ext(s_quickmove, quickMoveLoad+11,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+			draw_sprite_ext(s_quickmove, quickMoveLoad+11,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, 1);
 			
 		#region Dragging items
 			
@@ -204,6 +215,24 @@ for(var ix = 0; ix < 1; ix++) {
 		add_recipe(recipeItems, item.leatherchest);
 		add_recipe(recipeItems, item.sack);
 		add_recipe(recipeItems, item.bedroll);
+		
+		if(!birchOrSpruce)
+			add_recipe(recipeItems, item.metalaxeB);
+		else
+			add_recipe(recipeItems, item.metalaxeS);
+			
+		if(!birchOrSpruce)
+			add_recipe(recipeItems, item.metalpicB);
+		else
+			add_recipe(recipeItems, item.metalpicS);
+			
+		if(!birchOrSpruce)
+			add_recipe(recipeItems, item.metalShovelB);
+		else
+			add_recipe(recipeItems, item.metalShovelS);
+				
+		add_recipe(recipeItems, item.sword);
+		add_recipe(recipeItems, item.knife);
 	} else if(recipeitem == item.planks) {
 		add_recipe(recipeItems, item.splint);
 		add_recipe(recipeItems, item.woodenhead);
@@ -287,10 +316,10 @@ for(var ix = 0; ix < 1; ix++) {
 for(var ix = 0; ix < 10; ix++)
 	for(var iy = 0; iy < 3; iy++) {	
 		// Calculating the slot positions
-		var offX = -30.5;
-		var offY = -28;
-		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(-ix*10.5), angle)+lengthdir_x(offY+(iy*10.5), angle-90);
-		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(-ix*10.5), angle)+lengthdir_y(offY+(iy*10.5), angle-90);
+		var offX = -34;
+		var offY = -36;
+		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(-ix*14.5), angle)+lengthdir_x(offY+(iy*14.5), angle-90);
+		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(-ix*14.5), angle)+lengthdir_y(offY+(iy*14.5), angle-90);
 		
 		// Setting slots to highlightedf
 		var slot = recipe[# ix, iy];
@@ -314,32 +343,27 @@ for(var ix = 0; ix < 10; ix++)
 			audio_play_sound(sn_menu_highlight, 1, 0);
 		}
 		
-		// Drawing divider lines
-		if(ix == 0 && iy == 0 && global.isCrateOpen)
-			draw_sprite_ext(s_crafting_lines, 0,xx,yy, image_xscale, image_yscale, angle, image_blend, image_alpha);
-		else if(ix == 0 && iy == 0)
-			draw_sprite_ext(s_crafting_lines, 1,xx,yy, image_xscale, image_yscale, angle, image_blend, image_alpha);
 		
 		// Drawing slot background
 		if(recipeItems[# ix, iy] > 1)
-			draw_sprite_ext(s_slots, 4,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+			draw_sprite_ext(s_slots, 4,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, 1);
 			
 		if(holdSlot && recipe[# ix, iy].highlighted) {
 			// Drawing slots
 			if(recipeItems[# ix, iy] > 1)
-				draw_sprite_ext(s_items, recipe[# ix, iy].highlighted,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+				draw_sprite_ext(s_items, recipe[# ix, iy].highlighted,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 	
 			// Drawing items
 			if(recipeItems[# ix, iy] > 1)
-				draw_sprite_ext(s_items, recipeItems[# ix, iy],xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+				draw_sprite_ext(s_items, recipeItems[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 		} else {
 			// Drawing slots
 			if(recipeItems[# ix, iy] > 1)
-				draw_sprite_ext(s_items, recipe[# ix, iy].highlighted,xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+				draw_sprite_ext(s_items, recipe[# ix, iy].highlighted,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 	
 			// Drawing items
 			if(recipeItems[# ix, iy] > 1)
-				draw_sprite_ext(s_items, recipeItems[# ix, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+				draw_sprite_ext(s_items, recipeItems[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 		}
 			
 		#region Clicking recipes
@@ -467,14 +491,22 @@ for(var ix = 0; ix < 10; ix++)
 #region Equipment
 
 // Drawing line from player to equip
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 14; i++) {
 	var offX = 13;
 	var offY = 1;
-	var xx = x+lengthdir_x(i+z-10, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY, angle-90);
-	var yy = y+lengthdir_y(i+z-10, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY, angle-90);
+	var xx = x+lengthdir_x(i+z-14, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY, angle-90);
+	var yy = y+lengthdir_y(i+z-14, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY, angle-90);
 	
 	draw_sprite_ext(s_equip_line, i,xx,yy, -image_xscale, image_yscale, angle, image_blend, image_alpha);
 }
+
+// Drawing divider lines
+var offX = 13;
+var offY = 2;
+var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY, angle-90);
+var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY, angle-90);
+		
+draw_sprite_ext(s_equipmentlines, 0,xx,yy, image_xscale, image_yscale, angle, image_blend, image_alpha);
 
 // Drawing equipment slots
 for(var ix = 0; ix < 1; ix++)
@@ -491,10 +523,10 @@ for(var ix = 0; ix < 1; ix++)
 	 		}
 			
 		// Calculating the slot positions
-		var offX = 19;
-		var offY = 6.5;
-		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(ix*11), angle)+lengthdir_x(offY+(iy*10.5), angle-90);
-		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(ix*11), angle)+lengthdir_y(offY+(iy*10.5), angle-90);
+		var offX = 20;
+		var offY = 11.5;
+		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(ix*14.5), angle)+lengthdir_x(offY+(iy*14.5), angle-90);
+		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(ix*14.5), angle)+lengthdir_y(offY+(iy*14.5), angle-90);
 		
 		// Setting slots to highlighted
 		var slot = equip[# ix, iy];
@@ -521,31 +553,31 @@ for(var ix = 0; ix < 1; ix++)
 		}
 		
 		// Drawing slot background
-		draw_sprite_ext(s_slots, 4,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+		draw_sprite_ext(s_slots, 4,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, 1);
 		
 		if(holdSlot && equip[# ix, iy].highlighted) {
 			// Drawing slots
-			draw_sprite_ext(s_slots, equip[# ix, iy].highlighted+(8-(2*iy)),xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+			draw_sprite_ext(s_slots, equip[# ix, iy].highlighted+(8-(2*iy)),xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 	
 			// Drawing items
 			if(equipItems[# ix, iy] > 1)
-				draw_sprite_ext(s_items, equipItems[# ix, iy],xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+				draw_sprite_ext(s_items, equipItems[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 		} else {
 			// Drawing slots
-			draw_sprite_ext(s_slots, equip[# ix, iy].highlighted+(8-(2*iy)),xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+			draw_sprite_ext(s_slots, equip[# ix, iy].highlighted+(8-(2*iy)),xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 	
 			// Drawing items
 			if(equipItems[# ix, iy] > 1)
-				draw_sprite_ext(s_items, equipItems[# ix, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+				draw_sprite_ext(s_items, equipItems[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 		}
 		
 		// Drawing durability
 		if(equipDurability[# ix, iy] > -1)
-			draw_sprite_ext(s_durability, item_durability(equipDurability, equipItems, ix, iy)  ,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, image_alpha);
+			draw_sprite_ext(s_durability, item_durability(equipDurability, equipItems, ix, iy)  ,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 			
 		// Drawing quickmove
 		if(quickMoveX == -2 && quickMoveY == iy && quickMove)
-			draw_sprite_ext(s_quickmove, quickMoveLoad,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+			draw_sprite_ext(s_quickmove, quickMoveLoad,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 		
 		#region Dragging items
 			var canPlace = false;
@@ -672,8 +704,8 @@ for(var ix = 0; ix < 1; ix++)
 #region Journal
 
 // Calculating the slot positions
-var offX = 19;
-var offY = 27.5;
+var offX = 20;
+var offY = 40.5;
 var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY, angle-90);
 var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY, angle-90);
 		
@@ -702,20 +734,20 @@ if(animateSlot && journal[# 0, 0].highlighted) {
 }
 
 // Drawing slot background
-draw_sprite_ext(s_slots, 4,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+draw_sprite_ext(s_slots, 4,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, 1);
 	
 if(holdSlot && journal[# 0, 0].highlighted) {
 	// Drawing slots
-	draw_sprite_ext(s_items, journal[# 0, 0].highlighted,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+	draw_sprite_ext(s_items, journal[# 0, 0].highlighted,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 			
 	//Drawing items
-	draw_sprite_ext(s_items, journalItems[# 0, 0],xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+	draw_sprite_ext(s_items, journalItems[# 0, 0],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 } else {
 	// Drawing slots
-	draw_sprite_ext(s_items, journal[# 0, 0].highlighted,xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+	draw_sprite_ext(s_items, journal[# 0, 0].highlighted,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 	
 	// Drawing items
-	draw_sprite_ext(s_items, journalItems[# 0, 0],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+	draw_sprite_ext(s_items, journalItems[# 0, 0],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 }
 			
 
@@ -748,10 +780,10 @@ for (var i = 0; i < 14; i++) {
 	 				}
 		
 			// Calculating slot position
-			var offX = -47;
-			var offY = 6.5;
-			var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(3*9), angle)+lengthdir_x(offY+(iy*10.5), angle-90);
-			var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(3*9), angle)+lengthdir_y(offY+(iy*10.5), angle-90);
+			var offX = -20;
+			var offY = 11.5;
+			var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY+(iy*14.5), angle-90);
+			var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY+(iy*14.5), angle-90);
 			
 			// Setting slots to highlighted
 			var slot = hotbarSlots[# 0, iy];
@@ -778,87 +810,39 @@ for (var i = 0; i < 14; i++) {
 			}
 			
 			// Drawing slot background
-			draw_sprite_ext(s_slots, 5,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+			draw_sprite_ext(s_slots, 5,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, 1);
 			
 			if(holdSlot && hotbarSlots[# 0, iy].highlighted) {
 				// Drawing slots
-				draw_sprite_ext(s_slots, hotbarSlots[# 0, iy].highlighted+(iy*2)+10,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
-				
-	
+				draw_sprite_ext(s_slots, hotbarSlots[# 0, iy].highlighted+(iy*2)+10,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
+			
 				// Drawing items
 				if(hotbarCount[# 0, iy] > 0)
-					draw_sprite_ext(s_items, hotbarItems[# 0, iy],xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+					draw_sprite_ext(s_items, hotbarItems[# 0, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 			} else {
 				// Drawing slots
-				draw_sprite_ext(s_slots, hotbarSlots[# 0, iy].highlighted+(iy*2)+10,xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+				draw_sprite_ext(s_slots, hotbarSlots[# 0, iy].highlighted+(iy*2)+10,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 	
 				// Drawing items
 				if(hotbarCount[# 0, iy] > 0)
-					draw_sprite_ext(s_items, hotbarItems[# 0, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+					draw_sprite_ext(s_items, hotbarItems[# 0, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 			}
 			
 			// Drawing durability
 			if(hotbarDurability[# 0, iy] > -1)
-				draw_sprite_ext(s_durability, item_durability(hotbarDurability, hotbarItems, 0, iy)  ,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, image_alpha);
+				draw_sprite_ext(s_durability, item_durability(hotbarDurability, hotbarItems, 0, iy)  ,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 		
 				
 			// Drawing quickmove
 			if(quickMoveX == -1 && quickMoveY == iy && quickMove)
-				draw_sprite_ext(s_quickmove, quickMoveLoad+11,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+				draw_sprite_ext(s_quickmove, quickMoveLoad+11,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 				
 			#region Dragging items
 				// Quickmoving / Full stack Dragging
 				if(hotbarSlots[# 0, iy].highlighted) {
 					if(mouse_check_button(global.M_LEFT) && mouseMoving && !global.isItemPicked) 
 						drag_item(hotbarItems, hotbarCount, hotbarDurability, 0, iy, false);
-					else if((mouse_check_button(global.M_LEFT) && !mouseMoving && !global.isItemPicked)) {
-						if(hotbarItems[# ix, iy] == item.treasureMap || hotbarItems[# ix, iy] == item.enemymap) {
-							// Clicking to load interact
-							global.interactingObject = self;
-							if(mouse_check_button(global.M_LEFT) && global.interactingLoad < 16) 
-								global.interactingLoad+=1;
-		
-							// Clicking to interact
-							if(mouse_check_button(global.M_LEFT) && global.interactingLoad >= 16) {
-								// Discover enemy camp
-								if(hotbarItems[# ix, iy] == item.enemymap) {
-									var uncovered = false;
-									for(var i = 0; i < ds_list_size(global.campIdList); i++){
-										if(!uncovered && ds_list_find_value(global.campCol, i) != 0){
-											uncovered = true;
-											ds_list_set(global.campCol, i, 1);
-				
-											global.enemyMap = true;
-											o_hud.enemyMapTime = 0;
-										}
-									}
-								}
-								
-								// Discover treasure
-								if(hotbarItems[# ix, iy] == item.treasureMap) {
-									var uncovered = false;
-									for(var i =0; i < ds_list_size(global.moundXList); i++){
-										if(!uncovered && ds_list_find_value(global.moundTypeList, i) == 0) {
-											uncovered = true;
-											ds_list_set(global.moundTypeList, i, 1);
-				
-											global.enemyMap = true;
-											o_hud.enemyMapTime = 0;
-											//set a treasure icon (no library)
-				
-											i = ds_list_size(global.moundXList);
-										}
-									}
-								}
-								
-								hotbarItems[# ix, iy] = 0;
-								hotbarCount[# ix, iy] = 0;
-								
-								global.interactingObject = -1;
-								global.interactingLoad = -1;
-							}
-						}
-					} else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && !inventory_full(global.last_item))
+					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && !inventory_full(global.last_item))
 						drag_item(hotbarItems, hotbarCount, hotbarDurability, 0, iy, false);
 					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && inventory_full(global.last_item)) {
 						// Spawning new item					
@@ -925,10 +909,10 @@ for(var ix = 0; ix < width; ix++)
 	 			}
 		
 		// Calculating slot position
-		var offX = -51.5;
-		var offY = 6.5;
-		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(ix*10.5), angle)+lengthdir_x(offY+(iy*10.5), angle-90);
-		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(ix*10.5), angle)+lengthdir_y(offY+(iy*10.5), angle-90);
+		var offX = -77.5;
+		var offY = 11.5;
+		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(ix*14.5), angle)+lengthdir_x(offY+(iy*14.5), angle-90);
+		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(ix*14.5), angle)+lengthdir_y(offY+(iy*14.5), angle-90);
 
 		// Setting slots to highlighted
 		var slot = slots[# ix, iy];
@@ -956,84 +940,37 @@ for(var ix = 0; ix < width; ix++)
 		
 		
 		// Drawing slot background
-		draw_sprite_ext(s_slots, 4,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+		draw_sprite_ext(s_slots, 4,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, 1);
 		
 		if(holdSlot && slots[# ix, iy].highlighted) {
 			// Drawing slots
-			draw_sprite_ext(s_items, slots[# ix, iy].highlighted,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+			draw_sprite_ext(s_items, slots[# ix, iy].highlighted,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, 1);
 			// Drawing items
 			if(count[# ix, iy] > 0)
-				draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, image_alpha);
+				draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, image_alpha);
 		} else {
 			// Drawing slots
-			draw_sprite_ext(s_items, slots[# ix, iy].highlighted,xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, 1);
+			draw_sprite_ext(s_items, slots[# ix, iy].highlighted,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 			// Drawing items
 			if(count[# ix, iy] > 0)
-				draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, image_alpha);
+				draw_sprite_ext(s_items, items[# ix, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 		}
 		
 		// Drawing durability
 		if(durability[# ix, iy] > -1)
-			draw_sprite_ext(s_durability, item_durability(durability, items, ix, iy)  ,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, image_alpha);
+			draw_sprite_ext(s_durability, item_durability(durability, items, ix, iy)  ,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, image_alpha);
 			
 		if(quickMove && quickMoveX == ix && quickMoveY == iy)
-			draw_sprite_ext(s_quickmove, quickMoveLoad,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, 1);
+			draw_sprite_ext(s_quickmove, quickMoveLoad,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, 1);
 		
 		#region Dragging items
 		
 				
 				// Quickmoving / Full stack Dragging
 				if(slots[# ix, iy].highlighted) {
-					if((mouse_check_button(global.M_LEFT) && mouseMoving && !global.isItemPicked)) {
+					if((mouse_check_button(global.M_LEFT) && mouseMoving && !global.isItemPicked))
 						drag_item(items, count, durability, ix, iy, false);
-					} else if((mouse_check_button(global.M_LEFT) && !mouseMoving && !global.isItemPicked)) {
-						if(items[# ix, iy] == item.treasureMap || items[# ix, iy] == item.enemymap) {
-							// Clicking to load interact
-							global.interactingObject = self;
-							if(mouse_check_button(global.M_LEFT) && global.interactingLoad < 16) 
-								global.interactingLoad+=1;
-		
-							// Clicking to interact
-							if(mouse_check_button(global.M_LEFT) && global.interactingLoad >= 16) {
-								// Discover enemy camp
-								if(items[# ix, iy] == item.enemymap) {
-									var uncovered = false;
-									for(var i = 0; i < ds_list_size(global.campIdList); i++){
-										if(!uncovered && ds_list_find_value(global.campCol, i) != 0){
-											uncovered = true;
-											ds_list_set(global.campCol, i, 1);
-				
-											global.enemyMap = true;
-											o_hud.enemyMapTime = 0;
-										}
-									}
-								}
-								
-								// Discover treasure
-								if(items[# ix, iy] == item.treasureMap) {
-									var uncovered = false;
-									for(var i =0; i < ds_list_size(global.moundXList); i++){
-										if(!uncovered && ds_list_find_value(global.moundTypeList, i) == 0) {
-											uncovered = true;
-											ds_list_set(global.moundTypeList, i, 1);
-				
-											global.enemyMap = true;
-											o_hud.enemyMapTime = 0;
-											//set a treasure icon (no library)
-				
-											i = ds_list_size(global.moundXList);
-										}
-									}
-								}
-								
-								items[# ix, iy] = 0;
-								count[# ix, iy] = 0;
-								
-								global.interactingObject = -1;
-								global.interactingLoad = -1;
-							}
-						}
-					} else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && !inventory_full(global.last_item))
+					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && !inventory_full(global.last_item))
 						drag_item(items, count, durability, ix, iy, false);
 					else if(mouse_check_button_released(global.M_LEFT) && global.isItemPicked && inventory_full(global.last_item)) {
 							// Spawning new item					
@@ -1154,24 +1091,24 @@ if(global.isItemPicked && !global.slotHighlighted) {
 	 				}
 			
 			// Calculating slot position
-			var offX = -47;
-			var offY = 6.5;
-			var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(3*9), angle)+lengthdir_x(offY+(iy*10.5), angle-90);
-			var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(3*9), angle)+lengthdir_y(offY+(iy*10.5), angle-90);
+			var offX = -20;
+			var offY = 11.5;
+			var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX, angle)+lengthdir_x(offY+(iy*14.5), angle-90);
+			var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX, angle)+lengthdir_y(offY+(iy*14.5), angle-90);
 			
 			// Drawing slot background
-			draw_sprite_ext(s_slots, 5,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, hotbarAlpha);
+			draw_sprite_ext(s_slots, 5,xx,yy, image_xscale/1.15, image_yscale/1.15, angle, image_blend, hotbarAlpha);
 			
 			// Drawing slots
-			draw_sprite_ext(s_slots,(iy == hotbarSlot)+(iy*2)+10,xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, hotbarAlpha);
+			draw_sprite_ext(s_slots,(iy == hotbarSlot)+(iy*2)+10,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, hotbarAlpha);
 	
 			// Drawing items
 			if(hotbarItems[# 0, iy] > 0)
-				draw_sprite_ext(s_items, hotbarItems[# 0, iy],xx,yy, image_xscale/1.75, image_yscale/1.75, angle, image_blend, hotbarAlpha);
+				draw_sprite_ext(s_items, hotbarItems[# 0, iy],xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, hotbarAlpha);
 				
 			// Drawing durability
 			if(hotbarDurability[# 0, iy] > -1)
-				draw_sprite_ext(s_durability, item_durability(hotbarDurability, hotbarItems, 0, iy) ,xx,yy, image_xscale/1.5, image_yscale/1.5, angle, image_blend, hotbarAlpha);
+				draw_sprite_ext(s_durability, item_durability(hotbarDurability, hotbarItems, 0, iy) ,xx,yy, image_xscale/1.45, image_yscale/1.45, angle, image_blend, hotbarAlpha);
 				
 			// Setting the global equipped item
 			if(hotbarSlot == -1) {

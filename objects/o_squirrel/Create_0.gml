@@ -32,7 +32,7 @@ mouseY = -1;
 
 inTree = false;
 
-health_ = 5;
+health_ = 10;
 
 // Audio
 squirrel = audio_emitter_create();

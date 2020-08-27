@@ -20,7 +20,7 @@ if(room != r_title) {
 			} else if(itemChance < 48) { // 20% Medkit
 				pickup_item(self, item.medkit, 1);
 			} else if(itemChance < 68) {// 20% flare
-				pickup_item(self, item.flare, 1);
+				pickup_item(self, item.flare, 1, itemDur);
 			} else if(itemChance < 78) {// 10% planks
 				pickup_item(self, item.planks, choose(2,2,3,3,4));
 			} else if(itemChance < 88) {// 10% metal

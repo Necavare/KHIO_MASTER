@@ -17,7 +17,7 @@ isLocked = false;
 
 // Flammable stuff
 z = 0;
-health_ = 5;
+health_ = 10;
 isLong = true;
 isDoor = true;
 

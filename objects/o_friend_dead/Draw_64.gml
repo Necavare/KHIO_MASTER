@@ -32,3 +32,5 @@ if(options) {
 
 if(global.isInventoryOpen || global.isPaused)
 	options = false;
+	
+draw_health(health_, 10);

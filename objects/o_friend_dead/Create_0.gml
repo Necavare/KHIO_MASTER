@@ -13,7 +13,7 @@ dir_ref = 0;
 spawnCount = 0;
 
 z = 12;
-health_ = 5;
+health_ = 10;
 
 options = false;
 optionsX = -1;

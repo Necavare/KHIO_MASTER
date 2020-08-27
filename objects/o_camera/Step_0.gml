@@ -63,7 +63,7 @@ if((keyboard_check(vk_alt) || device_mouse_check_button(0, mb_middle)) && !globa
 	initialAngleChange = false;
 }	
 	
-if((keyboard_check(global.K_RIGHT) || keyboard_check(global.K_LEFT)) && !global.no_angle  && !global.isInventoryOpen || (o_player.isHoldingTool && (keyboard_check_direct(global.K_RIGHT) || keyboard_check_direct(global.K_LEFT)))) {
+if((keyboard_check(global.K_RIGHT) || keyboard_check(global.K_LEFT)) && !global.no_angle || (o_player.isHoldingTool && (keyboard_check_direct(global.K_RIGHT) || keyboard_check_direct(global.K_LEFT)))) {
 	
 		// Rotating left
 		if(keyboard_check_direct(global.K_RIGHT)) {
@@ -78,7 +78,7 @@ if((keyboard_check(global.K_RIGHT) || keyboard_check(global.K_LEFT)) && !global.
 		delay_loops = .5;
 }
 
-if((keyboard_check(ord("Q")) || keyboard_check(ord("E"))) && !global.no_angle && !instance_exists(o_builder)  && !global.isInventoryOpen || (o_player.isHoldingTool && (keyboard_check_direct(global.K_RIGHT) || keyboard_check_direct(global.K_LEFT)))) {
+if((keyboard_check(ord("Q")) || keyboard_check(ord("E"))) && !global.no_angle && !instance_exists(o_builder) || (o_player.isHoldingTool && (keyboard_check_direct(global.K_RIGHT) || keyboard_check_direct(global.K_LEFT)))) {
 	
 		// Rotating left
 		if(keyboard_check_direct(ord("Q"))) {

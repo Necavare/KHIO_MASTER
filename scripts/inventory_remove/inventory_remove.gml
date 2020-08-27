@@ -15,8 +15,6 @@ function inventory_remove() {
 		
 			if(o_hud.craftingCount[# 0, 0] == 0) 
 				o_hud.craftingDurability[# 0, 0] = -1;
-			
-			show_debug_message("STUCK HERE!!!!!!!!!!!!")
 		}
 
 	// Looking through inventory

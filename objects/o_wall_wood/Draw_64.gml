@@ -34,6 +34,11 @@ if(options) {
 		
 } 
 
+if(upgraded)
+	draw_health(health_, 25);
+else
+	draw_health(health_, 20);
+
 if(global.isInventoryOpen || isCamp)
 	options = false;
 }

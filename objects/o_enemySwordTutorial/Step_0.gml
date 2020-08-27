@@ -238,7 +238,7 @@ if(instance_exists(nade) && (collision_circle(nade.x,nade.y,35,self, true, false
 		}
 		
 		var rangeDis = 15;
-		if((o_player.isWalking || o_player.isRunning) && (!o_player.isBlocking || !o_player.isAttacking))
+		if((o_player.isWalking || o_player.isRunning) && (!o_player.isBlocking || !o_player.isSwinging))
 			rangeDis = 10;
 		if(point_distance(x,y,o_player.x, o_player.y)< rangeDis && !playerFlee && !freakOut){
 			if(!cowardlyFellow){

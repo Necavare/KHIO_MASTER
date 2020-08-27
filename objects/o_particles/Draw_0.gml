@@ -1,4 +1,4 @@
-if(spark) {
+if(spark || snow) {
 	image_xscale = 2;
 	image_yscale = 2;
 }

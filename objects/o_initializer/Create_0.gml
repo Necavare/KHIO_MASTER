@@ -1,9 +1,9 @@
 		//IMPORTANT DEV ONLY 
 //set this to true to draw map at the start of a world, not draw overhead, and any other dev only things
 global.isDev = true;
-global.minimapActive = true;
-global.isDev = true;
 global.minimapActive = false;
+//global.isDev = false;
+//global.minimapActive = true;
 
 #region o_input set up stuff
 global.wind = random(pi*2);
@@ -56,8 +56,8 @@ global.hints = true;
 global.drawLoad = false;
 
 // Ideal dimensions
-ideal_width = 384;
-ideal_height = 216;
+ideal_width = 432//384;
+ideal_height = 243//216;
 
 // Display dimensions
 global.display_width = display_get_width();

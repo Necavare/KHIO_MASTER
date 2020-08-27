@@ -6,6 +6,9 @@ function take_hit(argument0, argument1) {
 
 	var xx = o_tool.x;
 	var yy = o_tool.y;
+	
+	if(global.itemEquipped == item.snowball)
+		type = 5;
 
 	if(!o_tool.isHitting && o_tool.isSwung) {
 		o_tool.isHitting = true;
@@ -152,6 +155,13 @@ function take_hit(argument0, argument1) {
 						chip.grass = true;
 				}
 			//}
+		} else if(type == 5) { // SNOW
+			o_tool.isHitting = true;
+			repeat(5) {
+				var chip = instance_create_depth(x, y, depth, o_particles);
+				chip.snow = true;
+			}
+			object.isOnFire = false;
 		}
 	}
 

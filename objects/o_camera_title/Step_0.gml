@@ -41,7 +41,7 @@ if(isMoving)
 #endregion
 
 instance_deactivate_all(true);
-instance_activate_region(o_camera_title.x-200, o_camera_title.y-200, 500, 500, true);
+instance_activate_region(o_camera_title.x-500, o_camera_title.y-500, 1000, 1000, true);
 instance_activate_object(o_player);
 instance_activate_object(o_title_hud);
 instance_activate_object(o_shaders);	

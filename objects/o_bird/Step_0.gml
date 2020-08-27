@@ -128,6 +128,33 @@ if(instance_exists(nade) && collision_circle(nade.x,nade.y,35,self, true, false)
 	deathAngle = -point_direction(x,y,nade.x,nade.y);
 }
 
+var thrown = instance_nearest(x,y, o_tool_thrown);
+if(collision_circle(x,y, 10, o_tool_thrown, true, true) && thrown.z > 0 && canHit) {
+	bird_health-=thrown.damage*3;
+	o_camera.shake = 2;
+	
+	switch(irandom(1)) {
+		case 0: audio_play_sound_on(bird, sn_bullet_hit_1, 0, 1); break;
+		case 1: audio_play_sound_on(bird, sn_bullet_hit_2, 0, 1); break;
+	}
+	
+	repeat(3) {
+		var blood = instance_create_depth(x, y, depth, o_particles);
+			blood.spurt = true;
+			var angle = -global.camera_angle+90;
+			blood.dir_ = irandom_range(angle-30, angle+30);
+		}
+	
+	canHit = false;
+	alarm[3] = 20;
+	chopFrame = 0;
+	
+	// Setting new target
+	var ang = irandom_range(0, 360);
+	targetX = x + lengthdir_x(8, ang);
+	targetY = y + lengthdir_y(8, ang);
+}
+
 if(isDead) {
 	if(o_player.isHoldingTool && place_meeting(x,y,o_tool) && o_tool.isSwung && health_ > 0)
 		take_hit(self, 3);

@@ -1,17 +1,20 @@
-if(irandom_range(0,5) == 0) {
-	var stick = instance_create_depth(x,y,depth, o_item);
-	stick.item_ = item.stick;
-	stick.direction = irandom_range(0,360);
-	stick.bounce = true;
-}
+var snow = instance_create_depth(x,y,depth, o_item);
+snow.item_ = item.snowball;
+snow.item_count = irandom_range(0,3);
+snow.direction = irandom_range(0,360);
+snow.bounce = true;
 
-if(irandom_range(0,5) == 0) {
-	var metal = instance_create_depth(x,y,depth, o_item);
-	metal.item_ = item.metal;
-	metal.direction = irandom_range(0,360);
-	metal.bounce = true;
-}
+var stick = instance_create_depth(x,y,depth, o_item);
+stick.item_ = item.stick;
+stick.item_count = choose(0,1,1,2,3,4,5);
+stick.direction = irandom_range(0,360);
+stick.bounce = true;
 
+var metal = instance_create_depth(x,y,depth, o_item);
+metal.item_ = item.metal;
+metal.item_count = choose(0,1,1,2,3,4,5);
+metal.direction = irandom_range(0,360);
+metal.bounce = true;
 
 if(isTreasure) {
 	var weapon = instance_create_depth(x,y,depth, o_item);

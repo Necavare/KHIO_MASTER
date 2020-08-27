@@ -42,7 +42,7 @@ if(spurt && !change) {
 if(snow && !change) {
 	image_index = irandom_range(24,26);
 	change = true;
-	vel = 4;
+	vel = 2.5;
 }
 
 if(drone && !change) {
@@ -58,8 +58,8 @@ if(grenade && !change) {
 }
 
 if(z > 0) {
-	x+=lengthdir_x(dist*4, dir_);
-	y+=lengthdir_y(dist*4, dir_);
+	x+=lengthdir_x(dist*3, dir_);
+	y+=lengthdir_y(dist*3, dir_);
 	
 	z-=vel;
 	
@@ -75,6 +75,8 @@ if((blood || spurt) && !changeToBlood && z <= 0) {
 
 if(spark)
 	depth = -9000;
+else
+	depth = 8999;
 	
 if(!global.generatingEnvironment && !global.isPaused && o_weather.isSnowing && alarm[0] == -1)
 	alarm[0] = room_speed * 5;
