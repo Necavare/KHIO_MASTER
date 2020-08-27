@@ -1,7 +1,7 @@
 		//IMPORTANT DEV ONLY 
 //set this to true to draw map at the start of a world, not draw overhead, and any other dev only things
 global.isDev = true;
-global.minimapActive = false;
+global.minimapActive = true;
 //global.isDev = false;
 //global.minimapActive = true;
 

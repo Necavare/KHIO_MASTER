@@ -788,7 +788,7 @@ if(o_player.isHoldingTool && place_meeting(x,y,o_tool) && o_tool.isSwung && canH
 	p_speed = 25;
 	acceleration = 3;
 	
-	if(!(isAttacking && img_frame <= 3)){
+	if(!(isAttacking && img_frame <= 3) && !o_weapon.isSharp){
 		move(acceleration, point_direction(x,y,o_player.x, o_player.y)+180, p_speed, 5);
 		isStumbled = true;
 	}
