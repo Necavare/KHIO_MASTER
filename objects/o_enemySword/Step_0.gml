@@ -227,13 +227,32 @@ if(instance_exists(nade) && (collision_circle(nade.x,nade.y,35,self, true, false
 				}
 				playerFlee = true;
 			}
-			else if(!o_player.isDead && !o_player.isDying)
+			else if(!o_player.isDead && !o_player.isDying){
+				if(!playerDetected){
+					audio_play_sound_on(self, sn_enemy_notice, 0, 1);
+					playerPrevDetected = true;
+					alarm[9] = 60*90;
+				}
 				playerDetected = true;	
-			else
-				playerDetected = false;
+			}
 		}
+		else if(!playerPrevDetected)
+			playerDetected = false;
 		
 		if((distance_to_object(o_bullet) <= 45)){
+			if(!playerDetected){
+				audio_play_sound_on(self, sn_enemy_notice, 0, 1);
+				playerPrevDetected = true;
+				alarm[9] = 60*90;
+			}
+			playerDetected = true;
+		}
+		if((distance_to_object(o_tool_thrown) <= 45)){
+			if(!playerDetected){
+				audio_play_sound_on(self, sn_enemy_notice, 0, 1);
+				playerPrevDetected = true;	
+				alarm[9] = 60*90;
+			}
 			playerDetected = true;
 		}
 		
@@ -317,7 +336,6 @@ if(instance_exists(nade) && (collision_circle(nade.x,nade.y,35,self, true, false
 			if(parried){
 				isStunned = true;	
 				canParry = false;
-				alarm[9] = 90;
 				move(3, point_direction(o_player.x, o_player.y, x,y), 10, 10);		
 				audio_play_sound(sn_parry, 1, 0);
 			}
@@ -768,7 +786,6 @@ if(enemy_health <= 0 && !isDying) {
 if(o_player.isHoldingTool && place_meeting(x,y,o_tool) && o_tool.isSwung && canHit) {
 	p_speed = 25;
 	acceleration = 3;
-
 	
 	if(!(isAttacking && img_frame <= 3)){
 		move(acceleration, point_direction(x,y,o_player.x, o_player.y)+180, p_speed, 5);

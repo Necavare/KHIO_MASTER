@@ -317,7 +317,7 @@ y = 0;
 				
 				
 				//also generate a water tower close to the player i guess
-				var waterDis = irandom_range(600,900);
+				var waterDis = irandom_range(800,900);
 				var waterAng = irandom(360);
 
 				var waterTowerX = (townX)+lengthdir_x(waterDis, waterAng);

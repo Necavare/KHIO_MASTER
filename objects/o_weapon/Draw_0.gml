@@ -80,7 +80,7 @@ if(options && ((mouse_check_button(global.M_LEFT)) || keyboard_check_released( o
 	options = false;
 	// 0 = normal, 1 = poison, 2= fire, 3=bone normal, 4=bone poison, 5=flint normal, 6= flint poison,
 	// 7 = metal normal, 8 = metal poison
-	/*
+	
 	if(highlightLoad = -1){
 		if(wBoltP)
 			boltLoad = 0;
@@ -101,7 +101,7 @@ if(options && ((mouse_check_button(global.M_LEFT)) || keyboard_check_released( o
 		else if(fBoltP)
 			boltLoad = 2;
 	}
-	else*/
+	else
 		boltLoad = highlightLoad;
 	/*
 	//choose how many options their will be
