@@ -1155,7 +1155,7 @@ if(global.isInventoryOpen && !global.isPaused){
 		}
 	}
 	
-	
+
 	//do the same thing with misc icons
 	for(var h = 0; h < ds_list_size(global.moundXList); h++){
 		if(ds_list_find_value(global.moundTypeList, h) == 1){//if its visible
@@ -1169,6 +1169,8 @@ if(global.isInventoryOpen && !global.isPaused){
 			var campY = ds_list_find_value(global.moundYList, h);
 			var mkx = ((campX/xscale)+global.xoffset)*xscale;
 			var mky = ((campY/yscale)+global.yoffset)*yscale;
+			
+			
 			//if marker is within the viewport of the minimap
 			if(mkx > left - 11 && mkx < left + (trueWidth) + 11 && 
 			mky > top - 11 && mky < top + (trueHeight) + 11){
