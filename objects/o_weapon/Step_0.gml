@@ -24,14 +24,11 @@ else if(weaponMode == 1)
 else if(weaponMode == 2)
 	ds_map_replace(global.weaponAmmo, item.crossbow, ammo);
 
-
-
 // Bobbing
 if(o_player.bob)
 	z = 18;
 else
 	z = 17;
-
 
 // Destroying if tool is not in hand slot
 // need to find something else to tell if in hand slot or not

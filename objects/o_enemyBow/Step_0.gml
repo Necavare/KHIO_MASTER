@@ -191,14 +191,32 @@ if(instance_exists(nade) && (collision_circle(nade.x,nade.y,35,self, true, false
 				alarm[5] = 	60*15;//afte 15 seconds they stop being cowardly
 			}
 			playerFlee = true;
-		}else if(!o_player.isDead && !o_player.isDying)
+		}else if(!o_player.isDead && !o_player.isDying){
+			if(!playerDetected){
+				audio_play_sound_on(self, sn_enemy_notice, 0, 1);
+				playerPrevDetected = true;
+				alarm[9] = 60*90;	
+			}
 			playerDetected = true;
-		else
+		}else if(!playerPrevDetected)
 			playerDetected = false;
 	}
 	
 	if((distance_to_object(o_bullet) <= 45)){
+			if(!playerDetected){
+				audio_play_sound_on(self, sn_enemy_notice, 0, 1);
+				playerPrevDetected = true;
+				alarm[9] = 60*90;
+			}
 			playerDetected = true;
+	}
+	if((distance_to_object(o_tool_thrown) <= 45)){
+		if(!playerDetected){
+			audio_play_sound_on(self, sn_enemy_notice, 0, 1);
+			playerPrevDetected = true;
+			alarm[9] = 60*90;
+		}
+		playerDetected = true;
 	}
 		
 	if((point_distance(x,y,o_player.x, o_player.y)< 60)&&(point_distance(x,y,o_player.x, o_player.y)> 40)&&!playerFlee&&!freakOut){

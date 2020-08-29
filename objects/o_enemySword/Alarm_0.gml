@@ -13,6 +13,8 @@ if(isIdle && !playerInRange && !isAttacking) { // Idle framerate
 		else{
 			img_frame = 0;
 			isStunned = false;
+			if(isStumbled)
+				wasStumbled = true;
 			isStumbled = false;
 			parried = false;
 		}
@@ -34,6 +36,8 @@ if(isIdle && !playerInRange && !isAttacking) { // Idle framerate
 			if(img_frame < 	11)
 				img_frame++;
 			else{
+				if(wasStumbled)
+					wasStumbled = false;
 				img_frame = 0;
 				hasSwung = false;	
 				heavyAttack = false;
@@ -60,6 +64,8 @@ if(isIdle && !playerInRange && !isAttacking) { // Idle framerate
 				img_frame++;
 			else{
 				img_frame = 0;
+				if(wasStumbled)
+					wasStumbled = false;
 				hasSwung = false;
 				heavyAttack = false;
 				//random chance next will be heavy

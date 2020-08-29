@@ -138,13 +138,12 @@ if(collision_circle(x,y,5,thrown,true,true) && thrown.z > 0 && canHit) {
 		case 1: audio_play_sound_on(enemy, sn_bullet_hit_2, 0, 1); break;
 	}
 	
-	if(o_tool_thrown.item_ != item.snowball)
-		repeat(4) {
-			var blood = instance_create_depth(x, y, depth, o_particles);
-				blood.spurt = true;
-				var angle1 = -global.camera_angle+90;
-				blood.dir_ = irandom_range(angle1-30, angle1+30);
-		}
+	repeat(4) {
+		var blood = instance_create_depth(x, y, depth, o_particles);
+			blood.spurt = true;
+			var angle1 = -global.camera_angle+90;
+			blood.dir_ = irandom_range(angle1-30, angle1+30);
+	}
 	
 	canHit = false;
 	alarm[3] = 20;
@@ -788,10 +787,9 @@ if(o_player.isHoldingTool && place_meeting(x,y,o_tool) && o_tool.isSwung && canH
 	p_speed = 25;
 	acceleration = 3;
 	
-	if(!(isAttacking && img_frame <= 3) && !o_weapon.isSharp){
+	if(!(isAttacking && img_frame <= 3)){
 		move(acceleration, point_direction(x,y,o_player.x, o_player.y)+180, p_speed, 5);
 		isStumbled = true;
-		
 	}
 	
 	if(global.itemEquipped == item.torch){ //set damage tick for fire

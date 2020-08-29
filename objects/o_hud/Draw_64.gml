@@ -1155,7 +1155,7 @@ if(global.isInventoryOpen && !global.isPaused){
 		}
 	}
 	
-	
+
 	//do the same thing with misc icons
 	for(var h = 0; h < ds_list_size(global.moundXList); h++){
 		if(ds_list_find_value(global.moundTypeList, h) == 1){//if its visible
@@ -1169,6 +1169,8 @@ if(global.isInventoryOpen && !global.isPaused){
 			var campY = ds_list_find_value(global.moundYList, h);
 			var mkx = ((campX/xscale)+global.xoffset)*xscale;
 			var mky = ((campY/yscale)+global.yoffset)*yscale;
+			
+			
 			//if marker is within the viewport of the minimap
 			if(mkx > left - 11 && mkx < left + (trueWidth) + 11 && 
 			mky > top - 11 && mky < top + (trueHeight) + 11){
@@ -1547,7 +1549,8 @@ if(global.isInventoryOpen && !global.isPaused){
 			gpu_set_blendmode(bm_max);
 			//gpu_set
 			
-			draw_circle(xp+(mmWidth/2), yp+(mmHeight/2), mmWidth/2, false);
+			//draw_circle(xp+(mmWidth/2), yp+(mmHeight/2), mmWidth/2, false);
+			draw_circle(xp+(mmWidth/2), yp+(mmHeight/2), 200, false);
 			
 			//draw_sprite_stretched(s_mm_circle, 0, xp, yp, mmWidth+1, mmHeight+1);		
 			gpu_set_blendmode(bm_normal);
@@ -1911,7 +1914,9 @@ if(global.minimapActive && !global.generatingEnvironment && !global.isInventoryO
 			
 			gpu_set_blendmode(bm_max);
 			//gpu_set
-			draw_circle(mmWidth/2, mmHeight/2, 150, false);
+			//draw_circle(mmWidth/2, mmHeight/2, 150, false);
+			draw_circle(xp+mmWidth/2, yp+mmHeight/2, 200, false);
+			
 			//draw_circle(xp+(mmWidth/2), yp+(mmHeight/2), mmWidth/2, false);
 			
 			//draw_sprite_stretched(s_mm_circle, 0, xp, yp, mmWidth+1, mmHeight+1);		

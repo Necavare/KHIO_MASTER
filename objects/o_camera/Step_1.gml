@@ -171,6 +171,23 @@ if (point_distance(o_player.x, o_player.y, room_center_x, room_center_y) >= (roo
 			ds_list_set(global.campXList, h, realX*xscale);
 			ds_list_set(global.campYList, h, realY*yscale);
 		}
+		//for all misc camps
+		for(var mc = 0; mc < ds_list_size(global.moundXList); mc++){
+			var realX = ds_list_find_value(global.moundXList, mc)/xscale;
+			var realY = ds_list_find_value(global.moundYList, mc)/yscale;
+	
+			realX -= xoffset2;
+			realY -= yoffset2;
+			
+			//if (realY < 0) {realY += room_height; }
+			//if (realY >= room_height) { realY -=room_height; }
+			//if (realX < 0) {realX += room_width; }
+			//if (realX >= room_width) {realX -= room_width; }
+			
+			ds_list_set(global.moundXList, mc, realX*xscale);
+			ds_list_set(global.moundYList, mc, realY*yscale);
+		}
+		
 	
 }
 
@@ -245,6 +262,23 @@ if((xoffset2 != 0 || yoffset2 != 0) && (!global.loadingWorld) && !global.generat
 			
 			ds_list_set(global.campXList, h, realX*xscale);
 			ds_list_set(global.campYList, h, realY*yscale);
+		}
+		
+		//for all misc camps
+		for(var mc = 0; mc < ds_list_size(global.moundXList); mc++){
+			var realX = ds_list_find_value(global.moundXList, mc)/xscale;
+			var realY = ds_list_find_value(global.moundYList, mc)/yscale;
+	
+			realX -= xoffset2;
+			realY -= yoffset2;
+			
+			//if (realY < 0) {realY += room_height; }
+			//if (realY >= room_height) { realY -=room_height; }
+			//if (realX < 0) {realX += room_width; }
+			//if (realX >= room_width) {realX -= room_width; }
+			
+			ds_list_set(global.moundXList, mc, realX*xscale);
+			ds_list_set(global.moundYList, mc, realY*yscale);
 		}
 
 }
