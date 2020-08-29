@@ -855,9 +855,9 @@
   },
   "RoomOrder": [
     {"name":"r_display_init","path":"rooms/r_display_init/r_display_init.yy",},
+    {"name":"r_testing","path":"rooms/r_testing/r_testing.yy",},
     {"name":"r_title","path":"rooms/r_title/r_title.yy",},
     {"name":"r_new","path":"rooms/r_new/r_new.yy",},
-    {"name":"r_testing","path":"rooms/r_testing/r_testing.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

@@ -1,6 +1,11 @@
-if(spark || snow) {
+if(spark) {
 	image_xscale = 2;
 	image_yscale = 2;
+}
+
+if(snow) {
+	image_xscale = 1.5;
+	image_yscale = 1.5;
 }
 
 // Drawing the item floating

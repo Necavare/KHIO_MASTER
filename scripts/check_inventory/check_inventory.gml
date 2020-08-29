@@ -12,7 +12,7 @@ function check_inventory() {
 	if(o_hud.craftingItems[# 0, 0] == item && o_hud.craftingDurability[# 0, 0] >= durability)
 		counting += o_hud.craftingCount[# 0, 0];
 
-	for(var ix = 0; ix < 3; ix++)
+	for(var ix = 0; ix < 4; ix++)
 		for(var iy = 0; iy < 3; iy++) {
 			if(counting < count) {
 				// Looking through hotbar

@@ -316,7 +316,7 @@ for(var ix = 0; ix < 1; ix++) {
 for(var ix = 0; ix < 10; ix++)
 	for(var iy = 0; iy < 3; iy++) {	
 		// Calculating the slot positions
-		var offX = -34;
+		var offX = -35;
 		var offY = -36;
 		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(-ix*14.5), angle)+lengthdir_x(offY+(iy*14.5), angle-90);
 		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(-ix*14.5), angle)+lengthdir_y(offY+(iy*14.5), angle-90);
@@ -909,7 +909,7 @@ for(var ix = 0; ix < width; ix++)
 	 			}
 		
 		// Calculating slot position
-		var offX = -77.5;
+		var offX = -78.5;
 		var offY = 11.5;
 		var xx = x+lengthdir_x(z, -global.camera_angle+90)+lengthdir_x(offX+(ix*14.5), angle)+lengthdir_x(offY+(iy*14.5), angle-90);
 		var yy = y+lengthdir_y(z, -global.camera_angle+90)+lengthdir_y(offX+(ix*14.5), angle)+lengthdir_y(offY+(iy*14.5), angle-90);

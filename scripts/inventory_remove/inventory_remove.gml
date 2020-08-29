@@ -19,7 +19,7 @@ function inventory_remove() {
 
 	// Looking through inventory
 	if(countTotal > 0)
-		for(var ix = 0; ix < 3; ix++)
+		for(var ix = 0; ix < 4; ix++)
 			for(var iy = 0; iy < 3; iy++)
 				if(o_hud.items[# ix, iy] == item && o_hud.count[# ix, iy] > 0)
 					while(o_hud.count[# ix, iy] > 0 && countTotal > 0) {

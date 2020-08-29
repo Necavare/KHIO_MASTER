@@ -566,9 +566,8 @@ lanternInst = -1;
 //since the inventory is saved this would add them on top and be weird
 if(!global.loadingWorld && global.isDev){
 // Test pickup stuff
-pickup_item(o_hud, item.treasureMap, 1);
-pickup_item(o_hud, item.rifleammo, 7);
-pickup_item(o_hud, item.metalaxeB, 1, 11);
+pickup_item(o_hud, item.metalShovelB, 1, 11);
+pickup_item(o_hud, item.rifleammo, 8);
 
 }
 
