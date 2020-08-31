@@ -564,14 +564,15 @@ while(y <= room_height){
 			
 			//if its not
 			if(!dontGenerate){
+				if(point_distance(x,y,compoundX, compoundY) > 900){	
 				var ranXR = irandom(bS);
 				var ranYR = irandom(bS);
 				var moundObj = instance_create_depth(x+ranXR, y+ranYR, 1, o_digmound);
 				ds_stack_push(objectStack, moundObj);
 				scr_clipping_special(moundObj, false);
 				ds_queue_enqueue(activationQueue, moundObj);
-				
 				//VALUES ARE BEING ADDED AT THE ACTIVATION PHASE (in case stuff gets removed)
+				}
 			}	
 		//}
 	}
