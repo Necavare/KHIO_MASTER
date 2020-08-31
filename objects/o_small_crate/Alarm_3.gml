@@ -5,9 +5,6 @@ if(isCamp){
 	
 	// First decided how many slots should be filled
 	var itemCount = irandom_range(3,8);
-	
-	if(isShed)
-		itemCount = irandom_range(2,4);
 		
 	var oversize = 0;
 		
@@ -18,39 +15,72 @@ if(isCamp){
 		
 			var itemChance = irandom(99);
 	
-			if(itemChance < 5) { // 5% Bandage
-				pickup_item(self, item.bandage, choose(1,1,1,2,2,2,2,2,2,3,3)); 
-			} else if(itemChance < 10) { //5% Splint
-				pickup_item(self, item.splint, 1);
-			} else if(itemChance < 45) { // 35% Tools/Knifes/Armor
-				if(itemChance < 15) {// 5% knife
-					if(choose(true,false))
-						pickup_item(self, item.poisonknife, 1, itemDur);
+			if(itemChance < 10) { // 10% Bandage
+				pickup_item(self, item.bandage, choose(0,0,1)); 
+			} else if(itemChance < 20) { // 10% Splint
+				pickup_item(self, item.splint, choose(0,0,0,1));
+			} else if(itemChance < 45 && !weaponSpawned) { // 25% Tools/Knifes/Armor
+				if(itemChance < 25) {// 5% knife
+					pickup_item(self, choose(item.knife, item.poisonknife), 1, itemDur);
+				} else if(itemChance < 30) {// 5% axe
+					if(isShed)
+						pickup_item(self, item.metalaxeS, 1, itemDur);	
 					else
-						pickup_item(self, item.poisonknife, 1, itemDur);
-				} else if(itemChance < 20) {// 5% chest
-					pickup_item(self, item.metalchest, 1, itemDur);
-				} else if(itemChance < 25) {// 5% head
-					pickup_item(self, item.metalhead, 1, itemDur);	
-				} else if(itemChance < 35) {// 10% axe
-					pickup_item(self, choose(item.metalaxeS, item.metalaxeB), 1, itemDur);	
-				} else if(itemChance < 45) {// 10% pic
-					pickup_item(self, choose(item.metalpicS, item.metalpicB), 1, itemDur);			
-				}
-			} else if(itemChance<50) {// 5% flare
-				pickup_item(self, item.flare, 1);
+						pickup_item(self, item.boneaxeB, 1, itemDur);	
+				} else if(itemChance < 35) {// 5% pic
+					if(isShed)
+						pickup_item(self, item.metalpicS, 1, itemDur);	
+					else
+						pickup_item(self, item.bonepicB, 1, itemDur);		
+				} else if(itemChance < 40) {// 5% chest
+					if(isShed)
+						pickup_item(self, item.metalchest, 1, itemDur);	
+					else
+						pickup_item(self, item.leatherchest, 1, itemDur);	
+				} else if(itemChance < 45) {// 5% head
+					if(isShed)
+						pickup_item(self, item.metalhead, 1, itemDur);	
+					else
+						pickup_item(self, item.leatherhead, 1, itemDur);	
+				} 
+				
+				weaponSpawned = true;
+			} else if(itemChance < 50) {// 5% flare
+				if(isShed)
+					pickup_item(self, item.flare, choose(0,0,0,1), 11);
+				else
+					pickup_item(self, item.lantern, choose(0,0,0,1), itemDur);
 			} else if(itemChance < 55) {// 5% soup
 				pickup_item(self, item.soup, 1);
 			} else if(itemChance < 60) {// 5% lantern	
-				pickup_item(self, item.lantern, 1, itemDur);
+				if(isShed)
+					pickup_item(self, item.lantern, choose(0,0,0,1), itemDur);
+				else
+					pickup_item(self, item.knife, choose(0,0,1), itemDur);
 			} else if(itemChance < 75) {// 15% planks
-				pickup_item(self, item.planks, choose(2,2,3,3), 11);
+				if(isShed)
+					pickup_item(self, item.planks, choose(0,0,0,0,1,1));
+				else
+					pickup_item(self, item.metalspikes, choose(0,1));
 			} else if(itemChance < 90) {// 15% metal
-				pickup_item(self, item.metal, choose(1,1,2), 11);
+				if(isShed)
+					pickup_item(self, item.metal, choose(0,0,0,0,1,1));
+				else
+					pickup_item(self, item.metalspikes, choose(0,1));
 			} else if(itemChance < 95){// 5% ammo by itself
-				pickup_item(self, choose(item.buckshot, item.rifleammo), choose(1,1,2,2,3,3,3,4), 11);
-			} else if(itemChance < 100 && !weaponSpawned){//5% gun
-				pickup_item(self, item.treasureMap, 1);
+				if(isShed)
+					pickup_item(self, item.buckshot, choose(1,1,1,2,2), 11);
+				else
+					pickup_item(self, item.rifleammo, choose(1,1,1,2,2), 11);
+			} else if(itemChance < 100 && !weaponSpawned){//5% Gun
+				if(isCamp && !isShed) {
+					pickup_item(self, item.rifle, 1, 11);
+					pickup_item(self, item.rifleammo, choose(1,1,1,2,2), 11);
+				} else if(isShed) {
+					pickup_item(self, item.shotgun, 1, 11);
+					pickup_item(self, item.buckshot, choose(1,1,1,2,2), 11);
+				}
+					
 				weaponSpawned = true;
 			}
 			
@@ -73,9 +103,8 @@ if(isCamp){
 				pickup_item(self, item.cluethree, 1 , 11);
 			if(global.clueSpawned == 3)
 				pickup_item(self, item.cluefour, 1, 11);
+				
 			global.clueSpawned++;
-		
-
 		}
 	}
 }

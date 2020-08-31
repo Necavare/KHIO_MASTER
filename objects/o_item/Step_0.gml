@@ -1,3 +1,6 @@
+if(item_count <= 0)
+	instance_destroy(self);
+
 if(place_meeting(x,y,o_player) && canPickup && !o_player.isDead && !inventory_full(item_)) {
 	instance_destroy(self);
 	

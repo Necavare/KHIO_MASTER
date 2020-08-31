@@ -81,7 +81,7 @@ createAsh = false;
 canHit = true;
 
 //enemy camp stuff
-isCamp = false;
+isCamp = true;
 isShed = false;
 
 //enemy attack variable

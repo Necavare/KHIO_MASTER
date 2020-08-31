@@ -16,7 +16,7 @@ function check_count() {
 			totalCount += o_hud.hotbarCount[# 0, ix];
 		
 	// Searching through inventory for item
-	for(var ix = 0; ix < 3; ix++)
+	for(var ix = 0; ix < 4; ix++)
 		for(var iy = 0; iy < 3; iy++) {
 			if(items[# ix, iy] == itemToCount)
 				totalCount += count[# ix, iy];

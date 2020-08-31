@@ -311,9 +311,11 @@ function item_title() {
 		} if(item_ == 93) {
 			item_name += "Metal Shovel";
 			item_desc += "Dig up the snow!";
+			isAnvilrequired = true;
 		} if(item_ == 94) {
 			item_name += "Metal Shovel";
 			item_desc += "Dig up the snow!";
+			isAnvilrequired = true;
 		} if(item_ == 95) {
 			item_name += "Unknown Map";
 			item_desc += "Find the location of buried loot | Equip in hotbar to read";
@@ -593,9 +595,11 @@ function item_title() {
 		} if(item_ == 93) {
 			item_name += "Metal Shovel";
 			item_desc += "Dig up the snow!";
+			isAnvilrequired = true;
 		} if(item_ == 94) {
 			item_name += "Metal Shovel";
 			item_desc += "Dig up the snow!";
+			isAnvilrequired = true;
 		} if(item_ == 95) {
 			item_name += "Unknown Map";
 			item_desc += "Find the location of buried loot | Equip in hotbar to read";
@@ -626,6 +630,8 @@ function item_title() {
 	// Drawing icons
 	if(isAnvilrequired) {
 		var xx = startX+9.5;
+		if(count_ > 1)
+			xx += 23;
 		var yy = startY-6;
 	
 		if(o_hud.typer)

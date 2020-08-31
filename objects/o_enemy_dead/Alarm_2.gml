@@ -26,10 +26,9 @@
 	
 if(spawnItems){
 	// First decided how many slots should be filled
-	var itemCount = irandom_range(2,4);
-	var isMap = false;
-	
+	var itemCount = irandom_range(3,6);
 	var isTool = false;
+	var isAmmo = false;
 
 	repeat(itemCount){
 		// Randomize items durability
@@ -37,40 +36,41 @@ if(spawnItems){
 	
 		var itemChance = irandom(99);
 		
-		if(itemChance < 10 && !isMap){//10% map
-			pickup_item(self, item.enemymap, 1);
-			isMap = true;
-		}else if(itemChance < 25){// 15 % bandage
-			pickup_item(self, item.bandage, choose(1,1,1,2,2,2,2,2,2,3,3)); 
-		}else if(itemChance < 40){//15 % splint
-			pickup_item(self, item.splint, 1);
-		}else if(itemChance < 80){//40% tool and knife
+		if(itemChance < 15){//15% meat
+			pickup_item(self, item.cookedmeat, choose(1,1,2,2,3,3), 11);
+		}else if(itemChance < 30){// 15 % bandage
+			pickup_item(self, item.bandage, choose(0,0,1)); 
+		}else if(itemChance < 45){//15 % splint
+			pickup_item(self, item.splint, choose(0,0,0,1));
+		}else if(itemChance < 85 && !isTool){//40% tool and knife
 			if(itemChance < 50){//10% knife
 				if(choose(false,true))
-					pickup_item(self, item.poisonknife, 1, itemDur);
+					pickup_item(self, item.knife, 1, itemDur);
 				else
 					pickup_item(self, item.poisonknife, 1, itemDur);
 			}
-			else if(itemChance <55){//5% chest
+			else if(itemChance < 60){//10% chest
 				pickup_item(self, item.metalchest, 1, itemDur);
 			}
-			else if(itemChance < 60){//5% head
+			else if(itemChance < 70){//10% head
 				pickup_item(self, item.metalhead, 1, itemDur);	
 			}
-			else if(itemChance < 70 && !isTool){//10% axe
+			else if(itemChance < 75){//5% axe
 				pickup_item(self, choose(item.metalaxeS, item.metalaxeB), 1, itemDur);	
-				isTool = true;
 			}
-			else if(itemChance < 80 && !isTool){//10% pic
+			else if(itemChance < 80){//5% pic
 				pickup_item(self, choose(item.metalpicS, item.metalpicB), 1, itemDur);	
-				isTool = true;
 			}
-		}else if(itemChance<90){//10% flare
-			pickup_item(self, item.flare, choose(1,1,1,2,2,3), 11);
-		}else if(itemChance < 95){//5 % poisio
-			pickup_item(self, item.poison, choose(1,1,2,2,3,3,4,4,5));
-		}else if(itemChance < 100){//5 % lantern	
-			pickup_item(self, item.lantern, 1, itemDur);
+			
+			isTool = true;
+		}else if(itemChance<95 && !isTool){//10% lantern
+			pickup_item(self, item.lantern, choose(0,0,0,1), 11);
+			
+			isTool = true;
+		} else if(itemChance < 100 && !isAmmo){//5 % ammo
+			pickup_item(self, choose(item.buckshot, item.rifleammo), choose(0,0,1,1,2), 11);
+			
+			isAmmo = true;
 		}
 	}
 
