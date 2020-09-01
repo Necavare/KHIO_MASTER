@@ -13,7 +13,8 @@ if(logCount > 0) {
 
 if(point_distance(x,y,o_player.x,o_player.y) < 450 && isLit && !audio_is_playing(sn_fire) && logCount > 0) {
 	audio_emitter_position(fire, x, y, 0);
-	audio_play_sound_on(fire, sn_fire, true, 1);
+	if(!audio_is_playing(sn_fire))
+		audio_play_sound_on(fire, sn_fire, false, 1);
 } else if((point_distance(x,y,o_player.x,o_player.y) > 450 || !isLit || logCount <= 0 ) && audio_is_playing(sn_fire)) {
 	audio_stop_sound(sn_fire);
 }

@@ -11,8 +11,7 @@ function pickup_item() {
 
 	if(argument_count > 3)
 		durability = argument[3];
-	repeat(200)
-	show_debug_message("ITEM ADDING!: " + string(itemToAdd))
+		
 	var addedCount = 0;
 
 	var width = object.width;

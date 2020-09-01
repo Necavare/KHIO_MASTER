@@ -30,29 +30,29 @@ equipped = global.itemEquipped;
 switch(global.itemEquipped) {
 	case item.torch: sprite_index = s_torch_spruce; if(irandom_range(0,1) == 0) sprite_index = s_torch_birch; damage = 1; durability = 1; alarm[2] = 60; range = 0; break;
 	case item.flare: sprite_index = s_flare; damage = 1; durability = 1; alarm[2] = 60; range = 0;  break;
-	case item.sword: sprite_index = s_sword; damage = 5; durability = .35; range = 0; isSharp = true; break;
-	case item.poisonsword: sprite_index = s_poisonsword; damage = 5; durability = .35; poison = true; range = 0; isSharp = true; break;
-	case item.poisonknife: sprite_index = s_poisonknife; damage = 3; durability = .35; poison = true; range = 0; isSharp = true; break;
-	case item.knife: sprite_index = s_knife; damage = 3; durability = .35; range = 0; isSharp = true; break;
+	case item.sword: sprite_index = s_sword; damage = 6; durability = .8; range = 0; isSharp = true; break;
+	case item.poisonsword: sprite_index = s_poisonsword; damage = 6; durability = .8; poison = true; range = 0; isSharp = true; break;
+	case item.poisonknife: sprite_index = s_poisonknife; damage = 3; durability = .8; poison = true; range = 0; isSharp = true; break;
+	case item.knife: sprite_index = s_knife; damage = 3; durability = .5; range = 0; isSharp = true; break;
 	case item.grenade: sprite_index = s_tool; image_index = 14; damage = 1; durability = .35; range = 0; break;
-	case item.stoneaxeB: sprite_index = s_tool; image_index = 0; damage = 2; durability = .25; range = 0; break;
-	case item.stoneaxeS: sprite_index = s_tool; image_index = 1; damage = 2; durability = .25; range = 0; break;
-	case item.stonepicB: sprite_index = s_tool; image_index = 2; damage = 2; durability = .8; range = 0; isSharp = true; break;
-	case item.stonepicS: sprite_index = s_tool; image_index = 3; damage = 2; durability = .8; range = 0; isSharp = true; break;
-	case item.metalaxeB: sprite_index = s_tool; image_index = 4; damage = 3; durability = .25; range = 0; isSharp = true;break;
-	case item.metalaxeS: sprite_index = s_tool; image_index = 5; damage = 3; durability = .25; range = 0; isSharp = true; break;
-	case item.metalpicB: sprite_index = s_tool; image_index = 6; damage = 3; durability = .4; range = 0; isSharp = true; break;
-	case item.metalpicS: sprite_index = s_tool; image_index = 7; damage = 3; durability = .4; range = 0; isSharp = true; break;
-	case item.boneaxeB: sprite_index = s_tool; image_index = 8; damage = 3; durability = .6; range = 0; break;
-	case item.boneaxeS: sprite_index = s_tool; image_index = 9; damage = 3; durability = .6; range = 0; break;
-	case item.bonepicB: sprite_index = s_tool; image_index = 10; damage = 3; durability = .6; range = 0; isSharp = true; break;
-	case item.bonepicS: sprite_index = s_tool; image_index = 11; damage = 3; durability = .6; range = 0; isSharp = true; break;
-	case item.boneclubB: sprite_index = s_tool; image_index = 12; damage = 4; durability = .6; range = 0; break;
-	case item.boneclubS: sprite_index = s_tool; image_index = 13; damage = 4; durability = .6; range = 0; break;
-	case item.stoneShovelB: sprite_index = s_tool; image_index = 16; damage = 1; durability = .8; range = 0; break;
-	case item.stoneShovelS: sprite_index = s_tool; image_index = 15; damage = 1; durability = .8; range = 0; break;
-	case item.metalShovelB: sprite_index = s_tool; image_index = 18; damage = 2; durability = .4; range = 0; break;
-	case item.metalShovelS: sprite_index = s_tool; image_index = 17; damage = 2; durability = .4; range = 0; break;
+	case item.stoneaxeB: sprite_index = s_tool; image_index = 0; damage = 2; durability = .6; range = 0; break;
+	case item.stoneaxeS: sprite_index = s_tool; image_index = 1; damage = 2; durability = .6; range = 0; break;
+	case item.stonepicB: sprite_index = s_tool; image_index = 2; damage = 2; durability = .6; range = 0; isSharp = true; break;
+	case item.stonepicS: sprite_index = s_tool; image_index = 3; damage = 2; durability = .6; range = 0; isSharp = true; break;
+	case item.metalaxeB: sprite_index = s_tool; image_index = 4; damage = 4; durability = .5; range = 0; isSharp = true;break;
+	case item.metalaxeS: sprite_index = s_tool; image_index = 5; damage = 4; durability = .5; range = 0; isSharp = true; break;
+	case item.metalpicB: sprite_index = s_tool; image_index = 6; damage = 4; durability = .5; range = 0; isSharp = true; break;
+	case item.metalpicS: sprite_index = s_tool; image_index = 7; damage = 4; durability = .5; range = 0; isSharp = true; break;
+	case item.boneaxeB: sprite_index = s_tool; image_index = 8; damage = 3; durability = .7; range = 0; break;
+	case item.boneaxeS: sprite_index = s_tool; image_index = 9; damage = 3; durability = .7; range = 0; break;
+	case item.bonepicB: sprite_index = s_tool; image_index = 10; damage = 3; durability = .7; range = 0; isSharp = true; break;
+	case item.bonepicS: sprite_index = s_tool; image_index = 11; damage = 3; durability = .7; range = 0; isSharp = true; break;
+	case item.boneclubB: sprite_index = s_tool; image_index = 12; damage = 5; durability = .8; range = 0; break;
+	case item.boneclubS: sprite_index = s_tool; image_index = 13; damage = 5; durability = .8; range = 0; break;
+	case item.stoneShovelB: sprite_index = s_tool; image_index = 16; damage = 2; durability = .8; range = 0; break;
+	case item.stoneShovelS: sprite_index = s_tool; image_index = 15; damage = 2; durability = .8; range = 0; break;
+	case item.metalShovelB: sprite_index = s_tool; image_index = 18; damage = 4; durability = .8; range = 0; break;
+	case item.metalShovelS: sprite_index = s_tool; image_index = 17; damage = 4; durability = .8; range = 0; break;
 	case item.snowball: sprite_index = s_tool; image_index = 19; damage = 1; durability = 1; range = 0; break;
 }
 
@@ -93,9 +93,6 @@ switch(irandom_range(0,3)) {
 	case 2: audio_play_sound_on(tool, sn_equip_3, 0, 1); break;
 	case 3: audio_play_sound_on(tool, sn_equip_4, 0, 1); break;
 }
-
-repeat(10)
-show_debug_message("EQUIPPING FOR SOME REASON!!!!!!!!!!!!!!!")
 
 if(global.itemEquipped == item.torch)
 	audio_play_sound(sn_swing_torch, 1, 0);

@@ -1,3 +1,5 @@
+global.grabbed = -1;
+
 if(o_player.isDead || o_player.isDying || o_player.isSitting || o_player.isSleeping)
 	instance_destroy(self);
 

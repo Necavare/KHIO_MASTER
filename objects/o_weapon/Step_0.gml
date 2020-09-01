@@ -1,6 +1,7 @@
+
 //rmeove cursor if holding weapon period
 
-
+global.grabbed = -1;
 audio_emitter_position(weapon, x, y, 0);
 
 if(window_mouse_get_y() > window_get_height()/2 && !global.isInventoryOpen)

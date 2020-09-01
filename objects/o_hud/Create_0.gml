@@ -567,7 +567,8 @@ lanternInst = -1;
 if(!global.loadingWorld && global.isDev){
 // Test pickup stuff
 pickup_item(o_hud, item.metalShovelB, 1, 11);
-pickup_item(o_hud, item.rifleammo, 8);
+pickup_item(o_hud, item.stoneaxeB, 1, 11);
+pickup_item(o_hud, item.metalaxeB, 1, 11);
 
 }
 

@@ -258,7 +258,7 @@ if(instance_exists(nade) && (collision_circle(nade.x,nade.y,35,self, true, false
 		}
 		
 		var rangeDis = 15;
-		if((o_player.isWalking || o_player.isRunning) && (!o_player.isBlocking || !o_player.isAttacking))
+		if((o_player.isWalking || o_player.isRunning) && (!o_player.isBlocking || !o_player.isSwinging))
 			rangeDis = 10;
 		if(point_distance(x,y,o_player.x, o_player.y)< rangeDis && !playerFlee && !freakOut){
 			if(!cowardlyFellow){
@@ -788,8 +788,8 @@ if(o_player.isHoldingTool && place_meeting(x,y,o_tool) && o_tool.isSwung && canH
 	p_speed = 25;
 	acceleration = 3;
 	
-	if(!(isAttacking && img_frame <= 3) && !o_weapon.isSharp){
-		move(acceleration, point_direction(x,y,o_player.x, o_player.y)+180, p_speed, 5);
+	if(img_frame > 2 && !o_tool.isSharp){
+		move(acceleration, point_direction(o_player.x, o_player.y, x, y), p_speed, 10);
 		isStumbled = true;
 		
 	}

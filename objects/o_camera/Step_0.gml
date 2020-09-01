@@ -1,7 +1,7 @@
-if(global.finishedLoading){
-	show_debug_message("globalXoffset: "+string(global.xoffset));
-	show_debug_message("globalYoffset: "+string(global.yoffset));
-}
+//if(global.finishedLoading){
+	//show_debug_message("globalXoffset: "+string(global.xoffset));
+	//show_debug_message("globalYoffset: "+string(global.yoffset));
+//}
 
 global.cameraSetupDone = setupActivation;
 
