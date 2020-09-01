@@ -931,7 +931,7 @@ if(((img_frame == 4) && (playerInRange || isAttacking) && !hasSwung && !heavyAtt
 			//o_tool.isBlocking = false;
 		
 		}
-		else{
+		else if(parried){
 			move(3, point_direction(o_player.x, o_player.y, x,y), 10, 10);	
 		}
 	}

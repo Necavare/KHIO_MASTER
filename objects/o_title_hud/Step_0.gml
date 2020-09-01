@@ -846,6 +846,7 @@ if(newGameFade) {
 		ds_list_add(global.saveFileNames, string(string_upper(keyboard_string)));
 		global.currentFile = keyboard_string;
 		save_nameHub(); // save this change
+		save_settingsHub();
 	}
 	else if(!o_shaders.fadeOutWorld)
 	{

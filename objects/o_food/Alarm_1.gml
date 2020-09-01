@@ -34,10 +34,11 @@ if(isEating) {
 		if(food == item.enemymap) {
 			var uncovered = false;
 			for(var i = 0; i < ds_list_size(global.campIdList); i++){
-				if(!uncovered && ds_list_find_value(global.campCol, i) != 0){
+				if(!uncovered && ds_list_find_value(global.campCol, i) == 0){
 					uncovered = true;
 					ds_list_set(global.campCol, i, 1);
 		
+					show_debug_message("uncovered map index: "+string(i));
 					global.enemyMap = true;
 					o_hud.enemyMapTime = 0;
 				}
