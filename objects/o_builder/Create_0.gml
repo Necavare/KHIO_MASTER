@@ -47,6 +47,9 @@ buildables[# 11, 1] = o_marker;
 buildables[# 12, 0] = s_lillyofthevalley;
 buildables[# 12, 1] = o_lillyofthevalley;
 
+buildables[# 13, 0] = s_spikes_bone;
+buildables[# 13, 1] = o_spikes_bone;
+
 // Building variables
 object = -1;
 spaceFree = false;
@@ -67,6 +70,7 @@ switch(global.itemEquipped) {
 	case item.firepit: object = 10; break;
 	case item.marker: object = 11; break;
 	case item.lilly: object = 12; break;
+	case item.bonespikes: object = 13; break;
 }
 
 itemEquip = global.itemEquipped;

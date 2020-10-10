@@ -616,11 +616,16 @@ if(healthKick && !kickBack) {
 
 #endregion
 
+if(place_meeting(x,y,o_cavefloor) || room == r_cave) {
+	isCave = true;
+} else
+	isCave = false;
+
 //turn it off when generating for now cus it looks weird and just slows it down more
 
 #region Creating Footprints
 
-if(!isIdle && !isRolling) {
+if(!isIdle && !isRolling && !isCave) {
 	// Creating footprint objects
 	if(img_index == 0) {
 		if(isRunning) {	
@@ -848,7 +853,7 @@ if(!isIdle && !isRolling) {
 			}
 		}
 	}
-} else if(isIdle && isHoldingTool) {
+} else if(isIdle && isHoldingTool && !isCave) {
 	// Creating walking footprint
 	if(newFootprint) {
 		if(img_frame == 0) {
@@ -861,7 +866,7 @@ if(!isIdle && !isRolling) {
 					
 		newFootprint = false;
 	}
-} else if(isRolling && img_frame == 4 && newFootprint) {
+} else if(isRolling && img_frame == 4 && newFootprint && !isCave) {
 	var footprint = instance_create_depth(x,y,9001,o_footprint);
 	footprint.objectIndex = self;
 	footprint.isRolling = true;

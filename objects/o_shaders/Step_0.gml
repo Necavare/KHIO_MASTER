@@ -7,6 +7,11 @@ if(room == r_testing) {
 	global.hour = (hour_of_day / (1/24));
 }
 
+if(room == r_cave) {
+	hour_of_day = .15;
+	global.hour = (hour_of_day / (1/24));
+}
+
 // Get key times
 var time		= hour_of_day;
 

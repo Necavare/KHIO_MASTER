@@ -169,7 +169,7 @@
   ],
   "parent": {
     "name": "Markers",
-    "path": "folders/Sprites/Buildables/Markers.yy",
+    "path": "folders/Sprites/Environment/Buildables/Markers.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_marker_blue_1",

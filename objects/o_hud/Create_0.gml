@@ -225,7 +225,10 @@ enum item {
 	metalShovelS = 93,
 	metalShovelB = 94,
 	treasureMap = 95,
-	snowball = 96
+	snowball = 96,
+	bluecloak = 97,
+	pumpkin = 98,
+	bonespikes = 99
 }
 
 birchOrSpruce = false; // Used for randomizing which version is crafted. Birch = false; Spruce = true;
@@ -276,6 +279,8 @@ global.singleItems[41] = item.stoneShovelS;
 global.singleItems[42] = item.stoneShovelB;
 global.singleItems[43] = item.metalShovelS;
 global.singleItems[44] = item.metalShovelB;
+global.singleItems[45] = item.bluecloak;
+global.singleItems[46] = item.pumpkin;
 
 global.durabilityItems[0] = item.stoneaxeB;
 global.durabilityItems[1] = item.stoneaxeS;
@@ -331,13 +336,17 @@ global.buildableItems[10] = item.anvil;
 global.buildableItems[11] = item.smallcrate;
 global.buildableItems[12] = item.largecrate;
 global.buildableItems[13] = item.lilly;
+global.buildableItems[14] = item.bonespikes;
 
 global.bodyItems[0] = item.woodenchest;
 global.bodyItems[1] = item.metalchest;
 global.bodyItems[2] = item.leatherchest;
+global.bodyItems[3] = item.bluecloak;
+
 global.headItems[0] = item.woodenhead;
 global.headItems[1] = item.metalhead;
 global.headItems[2] = item.leatherhead;
+global.headItems[3] = item.pumpkin;
 #endregion
 
 #region Crafting/Recipes
@@ -566,9 +575,12 @@ lanternInst = -1;
 //since the inventory is saved this would add them on top and be weird
 if(!global.loadingWorld && global.isDev){
 // Test pickup stuff
-pickup_item(o_hud, item.metalShovelB, 1, 11);
-pickup_item(o_hud, item.stoneaxeB, 1, 11);
-pickup_item(o_hud, item.metalaxeB, 1, 11);
+pickup_item(o_hud, item.torch, 1, 11);
+pickup_item(o_hud, item.bonespikes, 5);
+pickup_item(o_hud, item.bluecloak, 1);
+pickup_item(o_hud, item.pumpkin, 1);
+pickup_item(o_hud, item.bones, 16);
+
 
 }
 

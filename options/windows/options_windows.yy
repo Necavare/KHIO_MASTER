@@ -1,7 +1,7 @@
 {
   "option_windows_display_name": "KHIO",
   "option_windows_executable_name": "KHIO",
-  "option_windows_version": "0.1.6.3",
+  "option_windows_version": "0.1.7.0",
   "option_windows_company_info": "Necavare",
   "option_windows_product_info": "",
   "option_windows_copyright_info": "(c) 2019 Necavare",

@@ -211,6 +211,11 @@ function recipe_title() {
 		item_count2 = 4;
 		countCheck2 = check_inventory(item.grass, item_count2, -1);
 		item2 = item.grass;
+	} else if(item_ == item.bonespikes) {
+		item_name += "Bones";
+		item_count = 6;
+		countCheck = check_inventory(item.bones, item_count, -1);
+		item1 = item.bones;
 	} else if(item_ == item.woodspikes) {
 		item_name += "Sticks";
 		item_count = 6;
@@ -218,7 +223,7 @@ function recipe_title() {
 		item1 = item.stick;
 	} else if(item_ == item.metalspikes) {
 		item_name += "Metal";
-		item_count = 6;
+		item_count = 4;
 		countCheck = check_inventory(item.metal, item_count, -1);
 		item1 = item.metal;
 	} else if(item_ == item.bedroll) {

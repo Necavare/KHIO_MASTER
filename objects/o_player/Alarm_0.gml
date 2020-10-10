@@ -180,10 +180,11 @@ if(!isIdle) {
 			newFootprint = true;
 		
 		if(img_frame == 7 || img_frame == 3) {
-			repeat(4) {
-				var snow = instance_create_depth(x, y, depth, o_particles);
-				snow.snow = true;
-			}
+			if(!isCave)
+				repeat(4) {
+					var snow = instance_create_depth(x, y, depth, o_particles);
+					snow.snow = true;
+				}
 		
 			if((place_meeting(x,y,o_lake) || place_meeting(x,y,o_pond) || place_meeting(x,y,o_pond2)) && !global.generatingEnvironment) {
 				if(lastNoise < 4)
@@ -214,16 +215,26 @@ if(!isIdle) {
 					
 				while(isRunning && lastNoise == 5)
 					lastNoise = irandom_range(0,3);
-				
-				switch(lastNoise) {
-					case 0: audio_play_sound(sn_snowwalk_1, 1, 0); break;
-					case 1: audio_play_sound(sn_snowwalk_2, 1, 0); break;
-					case 2: audio_play_sound(sn_snowwalk_3, 1, 0); break;
-					case 3: audio_play_sound(sn_snowwalk_4, 1, 0); break;
-					case 4: audio_play_sound(sn_snowwalk_5, 1, 0); break;
-					case 5: audio_play_sound(sn_snowwalk_6, 1, 0); break; 
+					
+				if(!isCave) {
+					switch(lastNoise) {
+						case 0: audio_play_sound(sn_snowwalk_1, 1, 0); break;
+						case 1: audio_play_sound(sn_snowwalk_2, 1, 0); break;
+						case 2: audio_play_sound(sn_snowwalk_3, 1, 0); break;
+						case 3: audio_play_sound(sn_snowwalk_4, 1, 0); break;
+						case 4: audio_play_sound(sn_snowwalk_5, 1, 0); break;
+						case 5: audio_play_sound(sn_snowwalk_6, 1, 0); break; 
+					}
+				} else {
+					switch(lastNoise) {
+						case 0: audio_play_sound(sn_cavewalk_1, 1, 0); break;
+						case 1: audio_play_sound(sn_cavewalk_2, 1, 0); break;
+						case 2: audio_play_sound(sn_cavewalk_3, 1, 0); break;
+						case 3: audio_play_sound(sn_cavewalk_4, 1, 0); break;
+						case 4: audio_play_sound(sn_cavewalk_5, 1, 0); break;
+						case 5: audio_play_sound(sn_cavewalk_6, 1, 0); break; 
+					}
 				}
-				
 			}
 			
 			if(lastGrassNoise < 3)
@@ -247,10 +258,11 @@ if(!isIdle) {
 			newFootprint = true;
 		
 		if(img_frame == 0 || img_frame == 3) {
-			repeat(10) {
-				var snow = instance_create_depth(x, y, depth, o_particles);
-				snow.snow = true;
-			}
+			if(!isCave)
+				repeat(10) {
+					var snow = instance_create_depth(x, y, depth, o_particles);
+					snow.snow = true;
+				}
 			
 			if((place_meeting(x,y,o_lake) || place_meeting(x,y,o_pond) || place_meeting(x,y,o_pond2)) && !global.generatingEnvironment) {
 				if(lastNoise < 4)
@@ -282,13 +294,24 @@ if(!isIdle) {
 				while(isRunning && lastNoise == 5)
 					lastNoise = irandom_range(0,3);
 				
-				switch(lastNoise) {
-					case 0: audio_play_sound(sn_snowwalk_1, 1, 0); break;
-					case 1: audio_play_sound(sn_snowwalk_2, 1, 0); break;
-					case 2: audio_play_sound(sn_snowwalk_3, 1, 0); break;
-					case 3: audio_play_sound(sn_snowwalk_4, 1, 0); break;
-					case 4: audio_play_sound(sn_snowwalk_5, 1, 0); break;
-					case 5: audio_play_sound(sn_snowwalk_6, 1, 0); break; 
+				if(!isCave) {
+					switch(lastNoise) {
+						case 0: audio_play_sound(sn_snowwalk_1, 1, 0); break;
+						case 1: audio_play_sound(sn_snowwalk_2, 1, 0); break;
+						case 2: audio_play_sound(sn_snowwalk_3, 1, 0); break;
+						case 3: audio_play_sound(sn_snowwalk_4, 1, 0); break;
+						case 4: audio_play_sound(sn_snowwalk_5, 1, 0); break;
+						case 5: audio_play_sound(sn_snowwalk_6, 1, 0); break; 
+					}
+				} else {
+					switch(lastNoise) {
+						case 0: audio_play_sound(sn_cavewalk_1, 1, 0); break;
+						case 1: audio_play_sound(sn_cavewalk_2, 1, 0); break;
+						case 2: audio_play_sound(sn_cavewalk_3, 1, 0); break;
+						case 3: audio_play_sound(sn_cavewalk_4, 1, 0); break;
+						case 4: audio_play_sound(sn_cavewalk_5, 1, 0); break;
+						case 5: audio_play_sound(sn_cavewalk_6, 1, 0); break; 
+					}
 				}
 			}
 		}
@@ -312,10 +335,11 @@ if(!isIdle) {
 	}
 } else if((isHoldingTool || isHoldingWeapon || isAimingWeapon) && isIdle && alarmRotationAngle != global.camera_angle) {
 	if(img_frame == 5 || img_frame == 0) {
-		repeat(4) {
-			var snow = instance_create_depth(x, y, depth, o_particles);
-				snow.snow = true;
-		}
+		if(!isCave)
+			repeat(4) {
+				var snow = instance_create_depth(x, y, depth, o_particles);
+					snow.snow = true;
+			}
 			
 		if(newFootprint == false)
 			newFootprint = true;
@@ -350,13 +374,24 @@ if(!isIdle) {
 				while(isRunning && lastNoise == 5)
 					lastNoise = irandom_range(0,3);
 				
-				switch(lastNoise) {
-					case 0: audio_play_sound(sn_snowwalk_1, 1, 0); break;
-					case 1: audio_play_sound(sn_snowwalk_2, 1, 0); break;
-					case 2: audio_play_sound(sn_snowwalk_3, 1, 0); break;
-					case 3: audio_play_sound(sn_snowwalk_4, 1, 0); break;
-					case 4: audio_play_sound(sn_snowwalk_5, 1, 0); break;
-					case 5: audio_play_sound(sn_snowwalk_6, 1, 0); break; 
+				if(!isCave) {
+					switch(lastNoise) {
+						case 0: audio_play_sound(sn_snowwalk_1, 1, 0); break;
+						case 1: audio_play_sound(sn_snowwalk_2, 1, 0); break;
+						case 2: audio_play_sound(sn_snowwalk_3, 1, 0); break;
+						case 3: audio_play_sound(sn_snowwalk_4, 1, 0); break;
+						case 4: audio_play_sound(sn_snowwalk_5, 1, 0); break;
+						case 5: audio_play_sound(sn_snowwalk_6, 1, 0); break; 
+					}
+				} else {
+					switch(lastNoise) {
+						case 0: audio_play_sound(sn_cavewalk_1, 1, 0); break;
+						case 1: audio_play_sound(sn_cavewalk_2, 1, 0); break;
+						case 2: audio_play_sound(sn_cavewalk_3, 1, 0); break;
+						case 3: audio_play_sound(sn_cavewalk_4, 1, 0); break;
+						case 4: audio_play_sound(sn_cavewalk_5, 1, 0); break;
+						case 5: audio_play_sound(sn_cavewalk_6, 1, 0); break; 
+					}
 				}
 			}
 			
@@ -380,7 +415,7 @@ if(!isIdle) {
 if(alarmRotationAngle != global.camera_angle)
 	alarmRotationAngle = global.camera_angle;
 	
-if(img_frame == 3 && isRolling) {
+if(img_frame == 3 && isRolling && !isCave) {
 	switch(irandom_range(0, 1)) {
 		case 0: audio_play_sound(sn_dodge_1, 1, 0); break;
 		case 1: audio_play_sound(sn_dodge_2, 1, 0); break;

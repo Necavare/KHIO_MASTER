@@ -55,13 +55,13 @@ global.hints = true;
 
 global.drawLoad = false;
 
-// Ideal dimensions
-ideal_width = 432//384;
-ideal_height = 243//216;
-
 // Display dimensions
 global.display_width = display_get_width();
 global.display_height = display_get_height();
+
+// Ideal dimensions
+ideal_height = 243;
+ideal_width = 432;
 
 save_loadSettingsHub();
 

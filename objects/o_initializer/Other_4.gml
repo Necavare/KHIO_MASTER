@@ -21,7 +21,7 @@ if(room == r_title) {
 	//ds_map_clear(global.minimapVar);//clear map of minimap variables
 	
 	//if its not loading
-	if(room == r_testing){
+	if(room == r_testing || room == r_cave){
 		
 		global.demoRoom = true;
 		instance_create_layer(0,0,main,o_shaders);

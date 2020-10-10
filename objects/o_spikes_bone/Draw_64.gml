@@ -1,0 +1,1 @@
+draw_health(health_, 5);

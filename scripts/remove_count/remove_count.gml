@@ -134,12 +134,15 @@ function remove_count() {
 		countToRemove = 6;
 		itemToRemove2 = item.grass;
 		countToRemove2 = 4;
+	} else if(recipeItem == item.bonespikes) {
+		itemToRemove = item.bones;
+		countToRemove = 6;
 	} else if(recipeItem == item.woodspikes) {
 		itemToRemove = item.stick;
 		countToRemove = 6;
 	} else if(recipeItem == item.metalspikes) {
 		itemToRemove = item.metal;
-		countToRemove = 6;
+		countToRemove = 4;
 	} else if(recipeItem == item.bedroll) {
 		itemToRemove = item.furpelt;
 		countToRemove = 8;

@@ -28,4 +28,11 @@ if(!global.generatingEnvironment) {
 		bone.direction = irandom_range(0,360);
 		bone.bounce = true;
 		bone.item_count = irandom_range(4, 8);
+		
+	// Create bone item
+	var coat = instance_create_depth(x,y,depth, o_item);
+		coat.item_ = item.bluecloak;
+		coat.direction = irandom_range(0,360);
+		coat.bounce = true;
+		coat.item_count = 1;
 }

@@ -274,6 +274,8 @@ for(var ix = 0; ix < 1; ix++) {
 		add_recipe(recipeItems, item.rifleammo);
 		add_recipe(recipeItems, item.buckshot);	
 	} else if(recipeitem == item.bones) {
+		add_recipe(recipeItems, item.bonespikes);
+		
 		if(!birchOrSpruce)
 			add_recipe(recipeItems, item.boneaxeB);
 		else
@@ -583,13 +585,13 @@ for(var ix = 0; ix < 1; ix++)
 			var canPlace = false;
 			// Checking if head armor
 			if(iy == 0)
-				for(var i = 0; i < 3; i++)
+				for(var i = 0; i < 4; i++)
 					if(equipItems == global.headItems[i] || (global.isItemPicked && global.last_item == global.headItems[i]) || equipItems[# ix, iy] == global.headItems[i])
 						canPlace = true;
 			
 			// Checking if body armor
 			if(iy == 1)
-				for(var i = 0; i < 3; i++)
+				for(var i = 0; i < 4; i++)
 					if(equipItems == global.bodyItems[i] || (global.isItemPicked && global.last_item == global.bodyItems[i]) || equipItems[# ix, iy] == global.bodyItems[i])
 						canPlace = true;
 			

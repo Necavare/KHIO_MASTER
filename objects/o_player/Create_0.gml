@@ -1,3 +1,7 @@
+isCave = false;
+
+player_surf = -1;
+
 player_scale = .6;
 
 isSpawning = false;
@@ -5,7 +9,7 @@ isSpawning = false;
 checkNearestShed = true;
 
 //create his hitbox
-if(room == r_new || room == r_testing)
+if(room == r_new || room == r_testing || room == r_cave)
 	instance_create_depth(x,y,1,o_player_hitBox);
 
 // Player movements

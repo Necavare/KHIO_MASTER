@@ -137,7 +137,7 @@
   ],
   "parent": {
     "name": "Firepit_Bloomery",
-    "path": "folders/Sprites/Buildables/Firepit_Bloomery.yy",
+    "path": "folders/Sprites/Environment/Buildables/Firepit_Bloomery.yy",
   },
   "resourceVersion": "1.0",
   "name": "s_bloomery_5",

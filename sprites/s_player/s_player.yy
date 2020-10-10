@@ -88,7 +88,7 @@
     "eventStubScript": null,
     "parent": {"name":"s_player","path":"sprites/s_player/s_player.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "s_player",
     "tags": [],
     "resourceType": "GMSequence",
   },

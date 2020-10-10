@@ -39,3 +39,6 @@ if(isSnowing) {
 } else {
 	alarm[0] = -1;
 }
+
+if(room == r_cave)
+	isSnowing = false;

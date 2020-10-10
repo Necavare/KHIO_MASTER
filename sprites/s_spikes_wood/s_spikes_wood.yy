@@ -88,7 +88,7 @@
     "eventStubScript": null,
     "parent": {"name":"s_spikes_wood","path":"sprites/s_spikes_wood/s_spikes_wood.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "s_spikes_wood",
     "tags": [],
     "resourceType": "GMSequence",
   },

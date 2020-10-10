@@ -21,11 +21,12 @@ function take_hit(argument0, argument1) {
 			if(object_index == o_birch || object_index == o_birch_stump || object_index == o_birch_log)
 				spruce = false;
 		
-			repeat(6) {
-				var chip = instance_create_depth(x, y, depth, o_particles);
-				if(!spruce)
-					chip.birch = true;
-			}
+			if(o_tool.damage > 1)
+				repeat(6) {
+					var chip = instance_create_depth(x, y, depth, o_particles);
+					if(!spruce)
+						chip.birch = true;
+				}
 		
 			// Play sound
 			switch(irandom_range(0,4)) {
@@ -63,16 +64,18 @@ function take_hit(argument0, argument1) {
 			|| global.itemEquipped == item.bonepicB || global.itemEquipped == item.bonepicS 
 			|| global.itemEquipped == item.metalpicB || global.itemEquipped == item.metalpicS) {
 				object.health_ -= o_tool.damage;
-				repeat(5) {
-					var chip = instance_create_depth(x, y, depth, o_particles);
-						chip.rock = true;
+				if(o_tool.damage > 1)
+					repeat(5) {
+						var chip = instance_create_depth(x, y, depth, o_particles);
+							chip.rock = true;
+					}
+			}
+			
+			if(o_tool.damage > 1)
+				repeat(8) {
+					var chip = instance_create_depth(xx, yy, depth, o_particles);
+						chip.spark = true;
 				}
-			}
-		
-			repeat(8) {
-				var chip = instance_create_depth(xx, yy, depth, o_particles);
-					chip.spark = true;
-			}
 
 		} else if(type == 2) { // Metal objects
 		
@@ -94,11 +97,12 @@ function take_hit(argument0, argument1) {
 				|| global.itemEquipped == item.metalaxeB || global.itemEquipped == item.metalaxeS
 				|| global.itemEquipped == item.boneclubB || global.itemEquipped == item.boneclubS)
 					object.health_ -= o_tool.damage/20;
-				
-			repeat(8) {
-				var chip = instance_create_depth(xx, yy, depth, o_particles);
-					chip.spark = true;
-			}
+			
+			if(o_tool.damage > 1)
+				repeat(8) {
+					var chip = instance_create_depth(xx, yy, depth, o_particles);
+						chip.spark = true;
+				}
 	
 		} else if(type == 3) { // Flesh objects
 			switch(irandom(2)) {
@@ -147,6 +151,7 @@ function take_hit(argument0, argument1) {
 			
 			// Effect
 			//if(object.health_ <= 0) {
+			if(o_tool.damage > 1)
 				repeat(2) {
 					var chip = instance_create_depth(x, y, depth, o_particles);
 					if(object_index == o_bush || object_index == o_big_bush)
@@ -162,6 +167,15 @@ function take_hit(argument0, argument1) {
 				chip.snow = true;
 			}
 			object.isOnFire = false;
+		} else if(type == 6) { // BONE
+			o_tool.isHitting = true;
+			
+			object.health_ -= o_tool.damage;
+			
+			switch(irandom(1)) {
+					case 0: audio_play_sound(sn_bonebreak_1, 1, 0); break;
+					case 1: audio_play_sound(sn_bonebreak_2, 1, 0); break;
+				}
 		}
 	}
 

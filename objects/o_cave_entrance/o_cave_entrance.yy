@@ -25,12 +25,14 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_cave_entrance","path":"objects/o_cave_entrance/o_cave_entrance.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"o_cave_entrance","path":"objects/o_cave_entrance/o_cave_entrance.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":64,"eventType":8,"collisionObjectId":null,"parent":{"name":"o_cave_entrance","path":"objects/o_cave_entrance/o_cave_entrance.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Rocks",
-    "path": "folders/Objects/Environment/Rocks.yy",
+    "name": "Caves",
+    "path": "folders/Objects/Environment/Caves.yy",
   },
   "resourceVersion": "1.0",
   "name": "o_cave_entrance",

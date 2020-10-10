@@ -9,7 +9,7 @@ if(exitPressed&&instanceActivated){
 }*/
 
 if(savingWorld){
-	if(room != r_testing)
+	if(room != r_testing && room != r_cave)
 		save_createNew(global.currentFile);
 	savingWorld = false;
 	

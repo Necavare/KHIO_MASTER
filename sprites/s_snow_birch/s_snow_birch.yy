@@ -68,7 +68,7 @@
     "eventStubScript": null,
     "parent": {"name":"s_snow_birch","path":"sprites/s_snow_birch/s_snow_birch.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "s_snow_birch",
     "tags": [],
     "resourceType": "GMSequence",
   },

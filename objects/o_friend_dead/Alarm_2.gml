@@ -1,6 +1,4 @@
 if(ds_stack_empty(global.newGamePlusItemList)){
-	pickup_item(self, item.treasureMap, 1);
-	pickup_item(self, item.enemymap, 1);
 	
 	//pickup_item(self, item.metalaxeS, 1, choose(4,5,6));
 	pickup_item(self, item.guide, 1);
@@ -19,20 +17,14 @@ if(ds_stack_empty(global.newGamePlusItemList)){
 	axe.z = 0;
 	axe.isTutorial = true;
 
-	//pickup_item(self, item.treasureMap, 1);
-	
 	// Chance to pickup berries
-	repeat(irandom_range(0,2)){
-		pickup_item(self, item.berry, 1, 5);
-	}
+	pickup_item(self, item.berry, irandom_range(0,4), 5);
+	
 	// Chance to pickup bandage
-	repeat(irandom_range(0,1)){
-		pickup_item(self, item.bandage, 1);
-	}
+	pickup_item(self, item.bandage, irandom_range(0,2));
+	
 	// Chance to spawn with torch
-	if(irandom_range(0, 10) == 0){
-		pickup_item(self, item.torch, 1, 11);
-	}
+	pickup_item(self, item.torch, 1, irandom_range(6,9));
 }
 else{
 	var itemNum = 0;
@@ -48,22 +40,16 @@ else{
 			ds_stack_pop(global.newGamePlusDurList);
 		}
 	}
-	
-	pickup_item(self, item.treasureMap, 1);
+	if(itemNum < 4) {
 	// Chance to pickup berries
-	repeat(irandom_range(0,2)){
-		pickup_item(self, item.berry, 1, 5);
-	}
+	pickup_item(self, item.berry, irandom_range(0,4), 5);
+	
 	// Chance to pickup bandage
-	repeat(irandom_range(0,1)){
-		pickup_item(self, item.bandage, 1);
-	}
+	pickup_item(self, item.bandage, irandom_range(0,2));
+	
 	// Chance to spawn with torch
-	if(irandom_range(0, 10) == 0){
-		pickup_item(self, item.torch, 1, 11);
+	pickup_item(self, item.torch, 1, irandom_range(6,9));
+	
 	}
-	
-	
-	
 	
 }

@@ -322,6 +322,15 @@ function item_title() {
 		} if(item_ == 96) {
 			item_name += "Snow ball";
 			item_desc += "Throw it at your enemies";
+		} if(item_ == 97) {
+			item_name += "Blue Cloak";
+			item_desc += "Dress like your enemies";
+		} if(item_ == 98) {
+			item_name += "Pumpkin";
+			item_desc += "Wear it on your head";
+		} if(item_ == 99) {
+			item_name += "Bone Spikes";
+			item_desc += "Defend your camp";
 		} 
 	} else {
 		if(item_ == 2) {
@@ -606,6 +615,15 @@ function item_title() {
 		} if(item_ == 96) {
 			item_name += "Snow balls";
 			item_desc += "Throw them at your enemies";
+		} if(item_ == 97) {
+			item_name += "Blue Cloak";
+			item_desc += "Dress like your enemies";
+		} if(item_ == 98) {
+			item_name += "Pumpkin";
+			item_desc += "Wear it on your head";
+		} if(item_ == 99) {
+			item_name += "Bone Spikes";
+			item_desc += "Defend your camp";
 		} 
 	}
 	

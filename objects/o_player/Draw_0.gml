@@ -352,18 +352,43 @@ if(isBleeding || isInjured || kickBack) {
 		kick+=.1;
 }
 
-if(!isDead) {
-	if(isHoldingTool && !global.isHoldingFood && o_tool.side) {
+if(global.bodyEquipped == item.bluecloak) {
+	shader_set(sh_player);
+
+	if(!isDead) {
+		if(isHoldingTool && !global.isHoldingFood && o_tool.side) {
+			draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,image_blend,image_alpha);
+			if(isBleeding || isInjured || hunger_ <= 0 || kickBack)
+				draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,c_red,.5+irandom_range(-1,0)+kick);
+		} else {
+			draw_sprite_ext(spr_index,img_frame,x,y,scale,scale,angle,image_blend,image_alpha);
+			if(isBleeding || isInjured || hunger_ <= 0 || kickBack)
+				draw_sprite_ext(spr_index,img_frame,x,y,scale,scale,angle,c_red,.5+irandom_range(-1,0)+kick);
+		}
+	} else
 		draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,image_blend,image_alpha);
-		if(isBleeding || isInjured || hunger_ <= 0 || kickBack)
-			draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,c_red,.5+irandom_range(-1,0)+kick);
-	} else {
-		draw_sprite_ext(spr_index,img_frame,x,y,scale,scale,angle,image_blend,image_alpha);
-		if(isBleeding || isInjured || hunger_ <= 0 || kickBack)
-			draw_sprite_ext(spr_index,img_frame,x,y,scale,scale,angle,c_red,.5+irandom_range(-1,0)+kick);
-	}
-} else
-	draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,image_blend,image_alpha);
+
+	if(global.headEquipped == item.pumpkin && !isRolling)
+		draw_sprite_ext(s_player_pumpkin,img_index,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
+
+	shader_reset();
+} else {
+	if(!isDead) {
+		if(isHoldingTool && !global.isHoldingFood && o_tool.side) {
+			draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,image_blend,image_alpha);
+			if(isBleeding || isInjured || hunger_ <= 0 || kickBack)
+				draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,c_red,.5+irandom_range(-1,0)+kick);
+		} else {
+			draw_sprite_ext(spr_index,img_frame,x,y,scale,scale,angle,image_blend,image_alpha);
+			if(isBleeding || isInjured || hunger_ <= 0 || kickBack)
+				draw_sprite_ext(spr_index,img_frame,x,y,scale,scale,angle,c_red,.5+irandom_range(-1,0)+kick);
+		}
+	} else
+		draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,image_blend,image_alpha);
+		
+	if(global.headEquipped == item.pumpkin && !isRolling)
+		draw_sprite_ext(s_player_pumpkin,img_index,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
+}
 
 // Drawing radius around player if anything is picked up or building
 /*if(global.grabbed != -1 || instance_exists(o_builder)) {

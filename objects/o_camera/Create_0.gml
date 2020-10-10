@@ -24,7 +24,7 @@ roomShift = false;
 
 angle = 0;
 
-if(room == r_new || room == r_testing) {
+if(room == r_new || room == r_testing || room == r_cave) {
 	x = o_player.x;
 	y = o_player.y;
 }

@@ -17,3 +17,5 @@ if(audio_is_playing(sn_flare_burn))
 	audio_stop_sound(sn_flare_burn);
 	
 global.canMove = true;
+
+isHitting = false;
