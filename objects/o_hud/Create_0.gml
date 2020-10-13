@@ -1,3 +1,7 @@
+//persistant
+if(room != r_title && room != r_display_init)
+	persistent = true;
+
 // Tips/tooltips
 tips[0] = "Use 'ALT' to freely rotate the camera";
 tips[1] = "It is wise to cook certain foods before eating";

@@ -32,6 +32,10 @@ if(options && (!mouse_check_button(global.M_LEFT) || !collision_circle(o_player.
 	
 	if(window_mouse_get_x() > mouseX + 10) {
 		// EXIT CAVE HERE
+		room_goto(r_new);
+		global.reLoad = true;
+		o_player.x = global.caveX;
+		o_player.y = global.caveY;
 	} 
 }
 

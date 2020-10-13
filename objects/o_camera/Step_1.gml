@@ -1,3 +1,5 @@
+//if(room == r_new){
+
 //set >= accordingly, this value might make it glitch on small rooms but it will make it happen less often in large rooms
 //			only happening when absolutely necessary
 if(global.worldShifted = true)
@@ -20,6 +22,8 @@ if (point_distance(o_player.x, o_player.y, room_center_x, room_center_y) >= (roo
     var xoffset, yoffset;
     xoffset = o_player.x - room_center_x; 
     yoffset = o_player.y - room_center_y;
+	if(room != r_new && room != r_title)
+		show_debug_message("xoffset: "+string(xoffset));
 	
 	global.xoffset += xoffset;
 	global.yoffset += yoffset;
@@ -176,8 +180,9 @@ if (point_distance(o_player.x, o_player.y, room_center_x, room_center_y) >= (roo
 			var realX = ds_list_find_value(global.moundXList, mc)/xscale;
 			var realY = ds_list_find_value(global.moundYList, mc)/yscale;
 	
-			realX -= xoffset2;
-			realY -= yoffset2;
+			//USED TO BE XOFFSET2
+			realX -= xoffset;
+			realY -= yoffset;
 			
 			//if (realY < 0) {realY += room_height; }
 			//if (realY >= room_height) { realY -=room_height; }
@@ -286,3 +291,6 @@ if((xoffset2 != 0 || yoffset2 != 0) && (!global.loadingWorld) && !global.generat
 if(!global.finishedLoading && !global.generatingEnvironment && !global.loadingWorld && !global.loading){
 	alarm[0] = 2;
 }
+
+
+//}

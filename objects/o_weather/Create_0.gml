@@ -1,3 +1,9 @@
+//persistant
+/*
+if(room != r_title && room != r_display_init)
+	persistent = true;
+*/
+
 dir = irandom_range(0,3);
 // Clouds
 cloudX = 0;

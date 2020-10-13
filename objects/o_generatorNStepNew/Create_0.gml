@@ -1321,6 +1321,10 @@ var friendO = instance_create_depth(room_width/2-30, (room_height/2)+30, 1, o_fr
 scr_clipping_priority(friendO, false);
 ds_queue_enqueue(activationQueue, friendO);
 
+var caveEntrance = instance_create_depth(room_width/2-50, room_height/2, 1, o_cave_entrance);
+caveEntrance.listIndex = scr_createCave_new();
+
+
 var objective = instance_create_depth(room_width/2, room_height/2, 1, o_findkey);
 
 //cowardly enemy nearby
