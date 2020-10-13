@@ -260,7 +260,6 @@
     {"id":{"name":"s_hold_left","path":"sprites/s_hold_left/s_hold_left.yy",},"order":2,},
     {"id":{"name":"s_hold_walk_down","path":"sprites/s_hold_walk_down/s_hold_walk_down.yy",},"order":3,},
     {"id":{"name":"s_hold_walk_down_right","path":"sprites/s_hold_walk_down_right/s_hold_walk_down_right.yy",},"order":4,},
-    {"id":{"name":"scr_createCave_new","path":"scripts/scr_createCave_new/scr_createCave_new.yy",},"order":16,},
     {"id":{"name":"s_hold_walk_right","path":"sprites/s_hold_walk_right/s_hold_walk_right.yy",},"order":5,},
     {"id":{"name":"s_hold_walk_up_right","path":"sprites/s_hold_walk_up_right/s_hold_walk_up_right.yy",},"order":6,},
     {"id":{"name":"s_hold_walk_up","path":"sprites/s_hold_walk_up/s_hold_walk_up.yy",},"order":7,},
@@ -876,8 +875,8 @@
     {"name":"r_display_init","path":"rooms/r_display_init/r_display_init.yy",},
     {"name":"r_title","path":"rooms/r_title/r_title.yy",},
     {"name":"r_new","path":"rooms/r_new/r_new.yy",},
-    {"name":"r_testing","path":"rooms/r_testing/r_testing.yy",},
     {"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},
+    {"name":"r_testing","path":"rooms/r_testing/r_testing.yy",},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
