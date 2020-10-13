@@ -1,3 +1,9 @@
+//persistant
+/*
+if(room != r_title && room != r_display_init)
+	persistent = true;
+*/
+
 // Camera effects
 shake = 0;
 inst = -1;
@@ -24,7 +30,13 @@ roomShift = false;
 
 angle = 0;
 
+/*
 if(room == r_new || room == r_testing || room == r_cave) {
+	x = o_player.x;
+	y = o_player.y;
+}*/
+
+if(room != r_title){
 	x = o_player.x;
 	y = o_player.y;
 }

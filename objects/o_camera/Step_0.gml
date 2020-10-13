@@ -1,9 +1,14 @@
+if(room != r_new)
+	show_debug_message("width: "+string(camera_get_view_width(view_camera[0])));
+if(room != r_new)
+	show_debug_message("height: "+string(camera_get_view_height(view_camera[0])));
+
 //if(global.finishedLoading){
 	//show_debug_message("globalXoffset: "+string(global.xoffset));
 	//show_debug_message("globalYoffset: "+string(global.yoffset));
 //}
 
-global.cameraSetupDone = setupActivation;
+//global.cameraSetupDone = setupActivation;
 
 if(deactivateFrame < 60)
 	deactivateFrame++;

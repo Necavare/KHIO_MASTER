@@ -70,6 +70,10 @@ display_set_gui_size(1920, 1080);
 
 // Setting surface and window size
 surface_resize(application_surface,1920,1080);
+//persistant
+if(room != r_title && room != r_display_init)
+	persistent = true;
+
 window_set_size(global.display_width,global.display_height);
 
 // Going to the next room
@@ -251,6 +255,12 @@ global.moundTypeList = ds_list_create(); //0 normal, 1 treasure, 2, uncovered
 global.moundXList = ds_list_create();
 global.moundYList = ds_list_create();
 global.moundPointerList = ds_list_create();
+
+global.reLoad = false;
+global.caveLoadList = ds_list_create();
+global.caveList = ds_list_create();
+global.caveX = -1;
+global.caveY = -1;
 
 //ds_list_add(o_hud.campNameList, "Enemy Camp");
 //ds_list_add(o_hud.campXList, x-500);

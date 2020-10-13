@@ -1,3 +1,9 @@
+//persistant
+/*
+if(room != r_title && room != r_display_init)
+	persistent = true;
+*/
+
 // Shaders
 shader			= sh_lighting;
 u_col			= shader_get_uniform(shader, "col");

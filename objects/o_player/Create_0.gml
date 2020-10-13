@@ -1,3 +1,7 @@
+//persistant
+if(room != r_title && room != r_display_init)
+	persistent = true;
+
 isCave = false;
 
 player_surf = -1;

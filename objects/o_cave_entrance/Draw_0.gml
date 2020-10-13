@@ -33,6 +33,11 @@ if(options && (!mouse_check_button(global.M_LEFT) || !collision_circle(o_player.
 	
 	if(window_mouse_get_x() > mouseX + 10) {
 		// ENTER CAVE HERE
+		if(ds_list_find_value(global.caveLoadList, listIndex))
+			global.reLoad = true;
+		room_goto(ds_list_find_value(global.caveList, listIndex));
+		global.caveX = o_player.x;
+		global.caveY = o_player.y;
 	} 
 }
 

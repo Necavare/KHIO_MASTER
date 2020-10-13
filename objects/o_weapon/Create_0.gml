@@ -1,3 +1,7 @@
+//persistant
+if(room != r_title && room != r_display_init)
+	persistent = true;
+
 //add it to the activation queue in camera
 	ds_queue_enqueue(o_camera.activationQueue, id);
 

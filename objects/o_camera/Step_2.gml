@@ -1,3 +1,5 @@
+//if(room == r_new){
+
 if(roomShiftDelay)
 	roomShift = true;
 else
@@ -8,6 +10,8 @@ if (point_distance(o_player.x, o_player.y, room_center_x, room_center_y) >= (roo
 	roomShiftDelay = true;
 	global.drawLoad = true;
 }
+
+//}
 /*
 else
 	roomShift = false;
