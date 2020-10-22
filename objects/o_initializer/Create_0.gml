@@ -44,6 +44,8 @@ SN_MUSIC = .2;
 
 #endregion
 
+global.loadingIndex = 0;
+
 // Tutorial variables
 global.isTutorial = true;
 global.tutorialDodge = false;
@@ -71,8 +73,8 @@ display_set_gui_size(1920, 1080);
 // Setting surface and window size
 surface_resize(application_surface,1920,1080);
 //persistant
-if(room != r_title && room != r_display_init)
-	persistent = true;
+//if(room != r_title && room != r_display_init)
+	//persistent = true;
 
 window_set_size(global.display_width,global.display_height);
 

@@ -1,10 +1,3 @@
-// Setting the camera view size
-camera_set_view_size(view_camera[0], ideal_width, ideal_height);
-
-// Initializing view variables
-view_enabled = true;
-view_visible[0] = true;
-
 if(!global.reLoad){
 
 	// Creating instances for each room
@@ -24,11 +17,6 @@ if(!global.reLoad){
 	
 		//loading a cave:
 		if(room != r_cave && room != r_display_init && room != r_new && room != r_testing && room != r_title){
-			//view_visible[0] = true;
-			view_enabled = true;
-			view_hport[0] = 1080;
-			view_wport[0] = 1920;
-			view_camera[0] = camera_create_view(0,0,320, 180, 0, -1, -1, -1, 160, 120);
 		
 			o_player.x = 2500;
 			o_player.y = 2500;
@@ -44,8 +32,6 @@ if(!global.reLoad){
 			layer_create(3, "Ground");	
 		
 			//everything should be set to persistant before moving
-		
-		
 		
 			var main = layer_get_id("Player");
 			var ground = layer_get_id("Ground");
@@ -217,3 +203,11 @@ else{
 }
 */
 global.reLoad = false;
+
+// Initializing view variables
+view_enabled = true;
+view_visible[0] = true;
+
+// Setting the camera view size
+view_camera[0] = camera_create_view(0,0,ideal_width, ideal_height, 0, -1, -1, -1, ideal_width/2, ideal_height/2);
+camera_set_view_size(view_camera[0], ideal_width, ideal_height);
