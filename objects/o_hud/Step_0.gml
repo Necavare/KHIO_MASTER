@@ -122,7 +122,7 @@ if(exitPressed){
 	instance_activate_all();
 	instanceActivated = true;
 }
-if(keyboard_check_pressed(global.K_PAUSE) && !global.isInventoryOpen && !global.generatingEnvironment && !confirm && !global.options && !global.cameraSetupDone && !savingWorld && !o_player.isDead) {
+if(keyboard_check_pressed(global.K_PAUSE) && !global.isInventoryOpen && !global.generatingEnvironment && !confirm && !global.options  && !savingWorld && !o_player.isDead) {
 	if(instance_exists(o_tool))
 		instance_destroy(o_tool);
 		

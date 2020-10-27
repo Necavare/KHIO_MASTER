@@ -337,6 +337,7 @@
     {"id":{"name":"s_roll_down_left","path":"sprites/s_roll_down_left/s_roll_down_left.yy",},"order":28,},
     {"id":{"name":"s_findkey","path":"sprites/s_findkey/s_findkey.yy",},"order":29,},
     {"id":{"name":"s_tent","path":"sprites/s_tent/s_tent.yy",},"order":0,},
+    {"id":{"name":"scr_generateCave","path":"scripts/scr_generateCave/scr_generateCave.yy",},"order":17,},
     {"id":{"name":"s_bedroll","path":"sprites/s_bedroll/s_bedroll.yy",},"order":1,},
     {"id":{"name":"s_anvil","path":"sprites/s_anvil/s_anvil.yy",},"order":2,},
     {"id":{"name":"s_wall_wood","path":"sprites/s_wall_wood/s_wall_wood.yy",},"order":3,},

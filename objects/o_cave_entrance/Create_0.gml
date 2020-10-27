@@ -1,3 +1,5 @@
+image_angle = irandom(360);
+
 options = false;
 optionsX = -1;
 optionsY = -1;

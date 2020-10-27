@@ -33,11 +33,19 @@ if(options && (!mouse_check_button(global.M_LEFT) || !collision_circle(o_player.
 	
 	if(window_mouse_get_x() > mouseX + 10) {
 		// ENTER CAVE HERE
-		if(ds_list_find_value(global.caveLoadList, listIndex))
-			global.reLoad = true;
+		
+		//if(ds_list_find_value(global.caveLoadList, listIndex))
+		//	global.reLoad = true;
 		room_goto(ds_list_find_value(global.caveList, listIndex));
 		global.caveX = o_player.x;
 		global.caveY = o_player.y;
+		
+		//CHECK THE INITIALIZER FOR O_PLAYER POSITION
+		//o_player.x = 2500;
+		//o_player.y = 2500;
+		//o_player.x = 2249;
+		//o_player.y = 1327;
+		
 	} 
 }
 

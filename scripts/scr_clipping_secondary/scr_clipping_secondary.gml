@@ -29,7 +29,7 @@ function scr_clipping_secondary(argument0, argument1) {
 			instance_destroy(self);
 	
 		//keep it out of compound if its a tree
-		if(object_index== o_spruce || object_index == o_birch || object_index == o_birch_stump || object_index == o_spruce_stump || object_index == o_rock || object_index == o_bigrock || object_index == o_rocks){
+		if(object_index== o_spruce || object_index == o_birch || object_index == o_birch_stump || object_index == o_spruce_stump || object_index == o_rock || object_index == o_cave_entrance || object_index == o_rocks){
 			if(point_distance(x,y,global.compoundX, global.compoundY)< 380){
 				show_debug_message("too close to compound");
 				instance_destroy(self);	

@@ -60,7 +60,7 @@ function scr_clipping_special(argument0, argument1) {
 		*/
 		
 		if(place_meeting(x,y, o_lake)||place_meeting(x,y,o_pond)||place_meeting(x,y,o_pond2)||
-		place_meeting(x,y,o_grass)||place_meeting(x,y,o_cattail)||place_meeting(x,y,o_bigrock)||
+		place_meeting(x,y,o_grass)||place_meeting(x,y,o_cattail)||place_meeting(x,y,o_cave_entrance)||
 		place_meeting(x,y,o_house_floor)||place_meeting(x,y,o_shed_floor)||place_meeting(x,y,o_bush)||place_meeting(x,y,o_big_bush)
 		||place_meeting(x,y,o_firepit)||place_meeting(x,y,o_watertower)||place_meeting(x,y,o_rock)||place_meeting(x,y, o_digmound)
 		||place_meeting(x,y,o_car)||place_meeting(x,y,o_wall_wood)||place_meeting(x,y,o_door_wood)||

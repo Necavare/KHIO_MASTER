@@ -30,7 +30,7 @@ function scr_clipping_primary(argument0, argument1) {
 			instance_destroy(self);
 	
 		//keep it out of compound if its a big rock
-		if(object_index == o_bigrock){
+		if(object_index == o_cave_entrance){
 			if(point_distance(x,y,global.compoundX, global.compoundY)< 380){
 				show_debug_message("too close to compound");
 				instance_destroy(self);	

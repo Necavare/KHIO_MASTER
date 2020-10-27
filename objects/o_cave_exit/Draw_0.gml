@@ -31,6 +31,7 @@ if(options && (!mouse_check_button(global.M_LEFT) || !collision_circle(o_player.
 	global.interactingObject = -1;
 	
 	if(window_mouse_get_x() > mouseX + 10) {
+		room_set_persistent(room, true);
 		// EXIT CAVE HERE
 		room_goto(r_new);
 		global.reLoad = true;
