@@ -368,8 +368,11 @@ if(global.bodyEquipped == item.bluecloak) {
 	} else
 		draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,image_blend,image_alpha);
 
-	if(global.headEquipped == item.pumpkin && !isRolling)
-		draw_sprite_ext(s_player_pumpkin,img_index,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
+	if(global.headEquipped == item.pumpkin)
+		if(isHoldingTool || isHoldingWeapon)
+			draw_sprite_ext(s_player_pumpkin,4,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
+		else if(!isRolling)
+			draw_sprite_ext(s_player_pumpkin,img_index,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
 
 	shader_reset();
 } else {
@@ -385,9 +388,12 @@ if(global.bodyEquipped == item.bluecloak) {
 		}
 	} else
 		draw_sprite_ext(spr_index,img_frame,x,y,-scale,scale,angle,image_blend,image_alpha);
-		
-	if(global.headEquipped == item.pumpkin && !isRolling)
-		draw_sprite_ext(s_player_pumpkin,img_index,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
+	
+	if(global.headEquipped == item.pumpkin)
+		if(isHoldingTool || isHoldingWeapon)
+			draw_sprite_ext(s_player_pumpkin,4,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
+		else if(!isRolling)
+			draw_sprite_ext(s_player_pumpkin,img_index,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
 }
 
 // Drawing radius around player if anything is picked up or building

@@ -1,5 +1,8 @@
 if(isCamp || room==r_testing)
 	logCount = 2;
+	
+if(room == r_cave)
+	sprite_index = s_firepit_cave;
 
 if(!global.generatingEnvironment && !global.loadingWorld &&  spawnStartingEnemy){
 	alarm[9] = 60*60;//1 minutes after starting

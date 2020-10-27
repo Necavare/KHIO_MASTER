@@ -580,11 +580,11 @@ lanternInst = -1;
 if(!global.loadingWorld && global.isDev){
 // Test pickup stuff
 pickup_item(o_hud, item.torch, 1, 11);
+pickup_item(o_hud, item.crossbow, 1, 11);
 pickup_item(o_hud, item.bonespikes, 5);
 pickup_item(o_hud, item.bluecloak, 1);
 pickup_item(o_hud, item.pumpkin, 1);
 pickup_item(o_hud, item.bones, 16);
-
 
 }
 

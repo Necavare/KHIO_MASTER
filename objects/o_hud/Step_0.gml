@@ -118,6 +118,8 @@ if(!global.isHolding && !keyboard_check_direct(vk_alt))
 	
 #region Pause Menu
 
+//show_debug_message(string(global.isPaused))
+
 if(exitPressed){
 	instance_activate_all();
 	instanceActivated = true;
