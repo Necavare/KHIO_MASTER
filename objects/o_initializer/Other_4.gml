@@ -1,3 +1,4 @@
+
 if(!global.reLoad){
 
 	// Creating instances for each room

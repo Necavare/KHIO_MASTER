@@ -17,63 +17,71 @@ if(!global.reLoad){
 	
 		//loading a cave:
 		if(room != r_cave && room != r_display_init && room != r_new && room != r_testing && room != r_title){
+			o_player.x = 2249;
+			o_player.y = 1327;
+			var index = ds_list_find_index(global.caveList, room);
+			if(!ds_list_find_value(global.caveLoadList, index)){
 		
-			o_player.x = 2500;
-			o_player.y = 2500;
+				//o_player.x = 2500;
+				//o_player.y = 2500;
+			
+				//create layers:
+				//items
+				layer_create(0, "items");
+				//main
+				layer_create(1, "Main");
+				//player
+				layer_create(2, "Player");
+				//ground
+				layer_create(3, "Ground");	
 		
-			//create layers:
-			//items
-			layer_create(0, "items");
-			//main
-			layer_create(1, "Main");
-			//player
-			layer_create(2, "Player");
-			//ground
-			layer_create(3, "Ground");	
+				//everything should be set to persistant before moving
 		
-			//everything should be set to persistant before moving
+				var main = layer_get_id("Player");
+				var ground = layer_get_id("Ground");
 		
-			var main = layer_get_id("Player");
-			var ground = layer_get_id("Ground");
+				///copy pasta from demo room
 		
-			///copy pasta from demo room
+				//global.demoRoom = true;
+				instance_create_layer(0,0,main,o_shaders);
 		
-			//global.demoRoom = true;
-			instance_create_layer(0,0,main,o_shaders);
-		
-			generatorWallAngle = 0;
+				generatorWallAngle = 0;
 
-			//variables for size of blocks 
-			/*
-			global.blockXNum = room_width/1000; //  <- NEED TO MANUALLY CHANGE WHEN ROOM SIZE CHANGES
-			global.blockYNum = room_height/1000;
+				//variables for size of blocks 
+				/*
+				global.blockXNum = room_width/1000; //  <- NEED TO MANUALLY CHANGE WHEN ROOM SIZE CHANGES
+				global.blockYNum = room_height/1000;
 		
-			global.minimapVar = ds_map_create();//map which will be filled with 1d arrays for every object 
-			global.chunkLoaded = array_create(global.blockXNum*global.blockYNum, false);
-			global.blockUpdateArr = array_create(global.blockXNum*global.blockYNum, false);
-			global.blockUpdateHistory = ds_list_create();
-			//fill the history list with false
-			for(var iv = 0; iv < global.blockXNum*global.blockYNum; iv++){
-				ds_list_add(global.blockUpdateHistory, false);
+				global.minimapVar = ds_map_create();//map which will be filled with 1d arrays for every object 
+				global.chunkLoaded = array_create(global.blockXNum*global.blockYNum, false);
+				global.blockUpdateArr = array_create(global.blockXNum*global.blockYNum, false);
+				global.blockUpdateHistory = ds_list_create();
+				//fill the history list with false
+				for(var iv = 0; iv < global.blockXNum*global.blockYNum; iv++){
+					ds_list_add(global.blockUpdateHistory, false);
+				}
+				global.activemm = ds_list_create();
+				global.blockArr = array_create(global.blockXNum*global.blockYNum);
+
+				//instance_create_layer(250, 400, main, o_player);
+				global.canMove = true;
+				o_shaders.fadeOutWorld = false;
+				*/
+		
+				//global.generatingEnvironment = false; //<- this is only for debugging, delete in actual runs with generator
+		
+				//instance_create_layer(0,0,main,o_hud);
+				instance_create_layer(0,0,main,o_camera);
+		
+		
+				//instance_create_layer(0,0,main,o_shaders);
+				instance_create_layer(0,0,main,o_debugger);
+				instance_create_layer(0,0,main,o_input);
+				instance_create_layer(0,0,main,o_weather);
+	
+				scr_generateCave();
+				ds_list_set(global.caveLoadList, index, true);
 			}
-			global.activemm = ds_list_create();
-			global.blockArr = array_create(global.blockXNum*global.blockYNum);
-
-			//instance_create_layer(250, 400, main, o_player);
-			global.canMove = true;
-			o_shaders.fadeOutWorld = false;
-			*/
-		
-			//global.generatingEnvironment = false; //<- this is only for debugging, delete in actual runs with generator
-		
-			//instance_create_layer(0,0,main,o_hud);
-			instance_create_layer(0,0,main,o_camera);
-		
-		
-			//instance_create_layer(0,0,main,o_shaders);
-			instance_create_layer(0,0,main,o_debugger);
-			instance_create_layer(0,0,main,o_input);
-			instance_create_layer(0,0,main,o_weather);
 		}
 	
 		//loading a normal room

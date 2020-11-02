@@ -125,7 +125,7 @@ global.loading = false;
 global.loadingMove = false;
 global.menuAlpha = 1;
 
-global.cameraSetupDone = true;
+//global.cameraSetupDone = true;
 
 // Menus
 global.mainMenu = false;
