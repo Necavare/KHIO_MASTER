@@ -12,7 +12,6 @@ if(setupActivation){
 	//ds_queue_enqueue(activationQueue, o_debugger.id);
 	ds_queue_enqueue(activationQueue, o_input.id);
 
-
 	setupActivation = false;
 }
 
@@ -286,7 +285,7 @@ repeat(800){
 			#region misc elements
 		
 			//********************************
-			//misc elements (rocks, flowers, etc.)
+			//misc elements (rocks (commented out), flowers, etc.)
 			//********************************
 			//check if a large misc element has already taken up this slot
 			//ensure you dont create something on the player (foundation are under player so doesnt matter)
@@ -296,6 +295,9 @@ repeat(800){
 				var rockOdds=1;
 				//if their are rocks nearby increase likelyhood of making a rock
 				//if(scr_checkR(bS, 4, o_rocks)||scr_checkR(bS, 4, o_rock))
+				
+				
+				/*
 				if(collision_circle(x,y,bS*4, o_rocks, true, true)||collision_circle(x,y,bS*4, o_rock, true, true))
 					rockOdds+=2;
 				if(collision_circle(x,y,bS*3, o_bigrock, true, true))
@@ -341,10 +343,11 @@ repeat(800){
 						ds_stack_push(objectStack, objr2);
 						
 					}
-				}
+				}*/
 				//flowers
 				//10% chance put between the max chance the rock can have so it doesnt messs with it
-				else if((miscOdds>=95)&&(miscOdds<96)&&birch){
+				// (else)
+				if((miscOdds>=95)&&(miscOdds<96)&&birch){
 					var moreFlowers = choose(2,2,1,1,1,0,0,0); //choose wether to make 3,2 or 1 flowers per square
 					while(moreFlowers >= 0){
 							var ranFX = irandom(bS); //size of lily of the vally 8x9
@@ -889,6 +892,32 @@ if(!ds_stack_empty(objectStack)){
 			miniValues_t[4] = dy_t; //general depth, some objects can set this to 0 or other small number if bottom layer
 		
 			ds_map_add(global.minimapVar, id, miniValues_t);
+			ds_list_add(global.activemm, id); //add it to list of active minimap symbols
+		}else if(object_index == o_cave_entrance){
+			//copy paste from par_3d_object  create to do minimap stuff
+			//take into account room shift
+			//var nx = x+global.xoffset;
+			//var ny = y+global.yoffset;
+			show_debug_message("creating cave minimap image");
+		
+	        nx_cave = x;
+			ny_cave = y;
+		
+			if (ny_cave < 0) { ny_cave += room_height; }
+			if (ny_cave >= room_height) { ny_cave -= room_height; }
+			if (nx_cave < 0) { nx_cave += room_width; }
+			if (nx_cave >= room_width) { nx_cave -= room_width; }
+
+			dy_cave = -2;
+				//scr_checkWrap(id, 1);
+		
+			miniValues_cave[0] = sprite_index; //set sprite for minimap
+			miniValues_cave[1] = image_angle; //set angle of rotation
+			miniValues_cave[2] = nx_cave; //x position
+			miniValues_cave[3] = ny_cave; //y position
+			miniValues_cave[4] = dy_cave; //general depth, some objects can set this to 0 or other small number if bottom layer
+		
+			ds_map_add(global.minimapVar, id, miniValues_cave);
 			ds_list_add(global.activemm, id); //add it to list of active minimap symbols
 		}
 	

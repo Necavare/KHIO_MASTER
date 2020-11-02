@@ -515,6 +515,25 @@ while(y <= room_height){
 				dontGenerate = true;
 		}
 		
+		//spawn cave entrence
+		if(!dontGenerate){
+			var ranXR = irandom(bS);
+			var ranYR= irandom(bS);
+			var caveEntrance = instance_create_depth(x+ranXR, y+ranYR, 1, o_cave_entrance);
+			show_debug_message("created cave entrance pos -> x: "+string(x+ranXR)+"  y: "+string(y+ranYR));
+			caveEntrance.listIndex = scr_createCave_new();
+			ds_stack_push(objectStack, caveEntrance);
+			scr_clipping_primary(caveEntrance, false);
+			ds_queue_enqueue(activationQueue, caveEntrance);
+		}	
+		/*
+		//make sure its not inside of a camp
+		var dontGenerate = false;
+		for(var i = 0; i < ds_list_size(enemyCampX_list); i++){
+			if(point_distance(x,y,ds_list_find_value(enemyCampX_list, i), ds_list_find_value(enemyCampY_list, i)) < ds_list_find_value(enemyCampR_list, i))
+				dontGenerate = true;
+		}
+		
 		if(!dontGenerate){
 			var ranXR = irandom(bS);
 			var ranYR= irandom(bS);
@@ -522,7 +541,7 @@ while(y <= room_height){
 			ds_stack_push(objectStack, bigRock);
 			scr_clipping_primary(bigRock, false);
 			ds_queue_enqueue(activationQueue, bigRock);
-		}
+		}*/
 	}
 	
 	else if(rockOdds < 17){
@@ -1321,8 +1340,8 @@ var friendO = instance_create_depth(room_width/2-30, (room_height/2)+30, 1, o_fr
 scr_clipping_priority(friendO, false);
 ds_queue_enqueue(activationQueue, friendO);
 
-var caveEntrance = instance_create_depth(room_width/2-50, room_height/2, 1, o_cave_entrance);
-caveEntrance.listIndex = scr_createCave_new();
+//var caveEntrance = instance_create_depth(room_width/2-50, room_height/2, 1, o_cave_entrance);
+//caveEntrance.listIndex = scr_createCave_new();
 
 
 var objective = instance_create_depth(room_width/2, room_height/2, 1, o_findkey);

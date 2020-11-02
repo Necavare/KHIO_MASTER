@@ -17,10 +17,40 @@ if(!global.reLoad){
 	
 		//loading a cave:
 		if(room != r_cave && room != r_display_init && room != r_new && room != r_testing && room != r_title){
+<<<<<<< HEAD
+		
+			o_player.x = 2500;
+			o_player.y = 2500;
+		
+			//create layers:
+			//items
+			layer_create(0, "items");
+			//main
+			layer_create(1, "Main");
+			//player
+			layer_create(2, "Player");
+			//ground
+			layer_create(3, "Ground");	
+		
+			//everything should be set to persistant before moving
+		
+			var main = layer_get_id("Player");
+			var ground = layer_get_id("Ground");
+		
+			///copy pasta from demo room
+		
+			//global.demoRoom = true;
+			instance_create_layer(0,0,main,o_shaders);
+=======
 			o_player.x = 2249;
 			o_player.y = 1327;
 			var index = ds_list_find_index(global.caveList, room);
 			if(!ds_list_find_value(global.caveLoadList, index)){
+				//view_visible[0] = true;
+				view_enabled = true;
+				view_hport[0] = 1080;
+				view_wport[0] = 1920;
+				view_camera[0] = camera_create_view(0,0,320, 180, 0, -1, -1, -1, 160, 120);
 		
 				//o_player.x = 2500;
 				//o_player.y = 2500;
@@ -44,6 +74,7 @@ if(!global.reLoad){
 		
 				//global.demoRoom = true;
 				instance_create_layer(0,0,main,o_shaders);
+>>>>>>> master
 		
 				generatorWallAngle = 0;
 

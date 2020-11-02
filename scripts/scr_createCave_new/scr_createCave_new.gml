@@ -1,6 +1,9 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_createCave_new(){
+	
+	//this script creates the room itself and sets it up in its dat astructures
+	
 	room_pointer = room_add();
 	ds_list_add(global.caveList, room_pointer); //add it to the list
 	ds_list_add(global.caveLoadList, false);
@@ -20,12 +23,6 @@ function scr_createCave_new(){
 	layer_create(2, "Player");
 	//ground
 	layer_create(3, "Ground");
-	
-	room_instance_add(room_pointer, 2250, 2250, o_cavefloor);//add floor
-	room_instance_add(room_pointer, 2250, 2500, o_cavefloor);
-	room_instance_add(room_pointer, 2500, 2250, o_cavefloor);
-	room_instance_add(room_pointer, 2500, 2500, o_cavefloor);
-	room_instance_add(room_pointer, 2250, 2500, o_cave_exit);//add exit
 	
 	return listIndex;
 }
