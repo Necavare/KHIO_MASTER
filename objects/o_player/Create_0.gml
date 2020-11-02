@@ -12,6 +12,8 @@ isSpawning = false;
 
 checkNearestShed = true;
 
+isBatHit = false;
+
 //create his hitbox
 if(room == r_new || room == r_testing || room == r_cave)
 	instance_create_depth(x,y,1,o_player_hitBox);

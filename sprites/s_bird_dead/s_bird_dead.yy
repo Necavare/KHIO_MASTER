@@ -64,7 +64,7 @@
     "eventStubScript": null,
     "parent": {"name":"s_bird_dead","path":"sprites/s_bird_dead/s_bird_dead.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "s_bird_dead",
     "tags": [],
     "resourceType": "GMSequence",
   },

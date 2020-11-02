@@ -80,7 +80,7 @@
     "eventStubScript": null,
     "parent": {"name":"s_bird_fly_1","path":"sprites/s_bird_fly_1/s_bird_fly_1.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "s_bird_fly_1",
     "tags": [],
     "resourceType": "GMSequence",
   },

@@ -200,6 +200,8 @@ global.targetAngle = -1;
 
 global.days = 1;
 
+global.noSleep = 0;
+
 //wall cycles
 global.wallCycleIndex = 1;
 

@@ -1,1 +1,2 @@
-draw_health(health_, 10);
+if(isDead)
+	draw_health(health_, 10);
