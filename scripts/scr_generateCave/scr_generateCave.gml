@@ -17,7 +17,6 @@ function scr_generateCave(){
 	//room_instance_add(room, 2250, 1250, o_cavefloor);
 	//room_instance_add(room, 2250, 1500, o_cavefloor);
 	
-	
 	instance_create_depth(2249, 1207, 1, o_cave_exit);
 	//room_instance_add(room, 2249, 1207, o_cave_exit);//add exit
 	

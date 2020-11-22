@@ -14,6 +14,8 @@ tips[7] = "Use 'G' to quickly open and view the map";
 tips[8] = "Crafting items makes time go by faster";
 tips[9] = "Armor can protect you from breaking bones";
 tips[10] = "Chop logs or stumps for planks";
+tips[11] = "Pumpkins and Blue Cloaks can be equipped to disguise yourself in camps";
+tips[12] = "Pumpkins are unequipped if sitting, looting, or sleeping";
 
 tipNumber = irandom_range(0, array_length(tips)-1);
 
@@ -579,11 +581,13 @@ lanternInst = -1;
 //since the inventory is saved this would add them on top and be weird
 if(!global.loadingWorld && global.isDev){
 // Test pickup stuff
-	pickup_item(o_hud, item.torch, 1, 11);
-	pickup_item(o_hud, item.bonespikes, 5);
-	pickup_item(o_hud, item.bluecloak, 1);
-	pickup_item(o_hud, item.pumpkin, 1);
-	pickup_item(o_hud, item.bones, 16);
+pickup_item(o_hud, item.sword, 1, 11);
+pickup_item(o_hud, item.torch, 1, 11);
+pickup_item(o_hud, item.bonespikes, 5);
+pickup_item(o_hud, item.bluecloak, 1);
+pickup_item(o_hud, item.pumpkin, 1);
+pickup_item(o_hud, item.bones, 16);
+
 }
 
 #region minimap pre variables

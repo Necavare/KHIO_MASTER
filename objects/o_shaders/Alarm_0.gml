@@ -5,6 +5,7 @@ if(room != r_title) {
 		} else {
 			minute_of_day = 0;
 			global.days++;
+			global.noSleep++;
 		}
 		
 		if(global.isDev)
@@ -12,6 +13,8 @@ if(room != r_title) {
 		else
 			alarm[0] = 30;
 	} else if(o_player.isSleeping) { // JUST USED FOR SLEEPING
+		
+		global.noSleep = 0;
 	
 		if(minute_of_day > 1140 || o_shaders.minute_of_day < 480) {
 			if(minute_of_day < 1440) {

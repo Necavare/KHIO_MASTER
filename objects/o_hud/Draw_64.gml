@@ -2994,7 +2994,12 @@ if(saveAlarm){
 }
 
 if(global.generatingEnvironment) {
-	draw_sprite(s_loading, image_index/2, x_to_gui(o_player.x,o_player.y-28), y_to_gui(o_player.x,o_player.y-28));
+	draw_sprite(s_loading, global.loadingIndex, x_to_gui(o_player.x,o_player.y-28), y_to_gui(o_player.x,o_player.y-28));
+	
+	if(global.loadingIndex < 16)
+		global.loadingIndex+=.5;
+	else
+		global.loadingIndex = 0;
 	
 	// Tips
 	if(global.hour > 8 && global.hour < 19)

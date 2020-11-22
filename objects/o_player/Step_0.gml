@@ -15,6 +15,22 @@ if(isInjured && check_inventory(item.splint, 1, -1)) {
 
 if(health_ > 100)
 	health_ = 100;
+	
+if(isBatHit) {
+	isBatHit = false;
+	
+	healthKick = true;
+
+	health_ -= 2.5*armor;
+
+	var bat = instance_nearest(x,y,o_bat)
+	move(2, point_direction(bat.x, bat.y, x,y), 10, 10);
+
+	switch(irandom_range(0,1)) {
+		case 0: audio_play_sound(sn_spike_1, 1, 0); break;
+		case 1: audio_play_sound(sn_spike_2, 1, 0); break;
+	}
+}
 
 if(place_meeting(x,y,o_compound_wall)) {
 	var wall = instance_nearest(x,y,o_compound_wall);
@@ -72,7 +88,6 @@ if(instance_exists(camp) && camp.isCamp) {
 	else
 		nearCamp = false;
 }	
-
 
 if(nearCamp || nearSword || nearBow) {	
 	if(audio_group_is_loaded(camp_music))

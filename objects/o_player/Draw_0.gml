@@ -396,12 +396,11 @@ if(global.bodyEquipped == item.bluecloak) {
 			draw_sprite_ext(s_player_pumpkin,img_index,x,y,-scale*1.25,scale*1.25,angle,image_blend,image_alpha);
 }
 
-// Drawing radius around player if anything is picked up or building
-/*if(global.grabbed != -1 || instance_exists(o_builder)) {
-	draw_set_color($333128);
-	draw_circle(o_player.x, o_player.y, 60, true);
-	global.interactingLoad = -1;
-}*/
+if(global.headEquipped == item.pumpkin && (isSitting || isSleeping || isHarvesting)) {
+	o_hud.equipItems[# 0, 0] = 0;
+	global.headEquipped = o_hud.equipItems[# 0, 0];
+	pickup_item(o_hud, item.pumpkin, 1, -1);
+}
 
 if(spr_index == s_bag_down && img_frame == 3 && !bagSound) {
 	

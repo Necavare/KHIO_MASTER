@@ -361,6 +361,20 @@ repeat(800){
 							moreFlowers--;
 						}
 				}
+				else if (miscOdds > 90 && miscOdds < 92){
+					var moreRocks = choose(2,2,1,1,1,0,0,0); //choose wether to make 3,2 or 1 flowers per square
+					while(moreRocks >= 0){
+							var ranRX = irandom(bS); //size of lily of the vally 8x9
+							var ranRY = irandom(bS);
+							var objSmallRock=instance_create_depth(x+ranRX,y+ranRY,1,o_rocks);
+							//ds_stack_push(objStack, objflower);
+							
+							//was primary
+							scr_clipping_special(objSmallRock, false);
+							ds_stack_push(objectStack, objSmallRock);
+							moreRocks--;
+						}
+				}
 				
 				#endregion
 
