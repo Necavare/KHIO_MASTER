@@ -209,6 +209,14 @@ if(global.bodyEquipped != -1){
 	}	
 }
 
+stealth = 0;
+if(global.bodyEquipped == item.bluecloak){
+	stealth = 1;	
+}
+if (global.headEquipped == item.pumpkin){
+	stealth = 2;	
+}
+
 if(room == r_title) {
 	isDying = false;
 	isDead = false;

@@ -94,6 +94,7 @@ bob = false;
 newFootprint = true;
 
 // Player stats
+stealth = 0;
 timeBled = 0;
 armor = 1;
 maxStamina = 100;

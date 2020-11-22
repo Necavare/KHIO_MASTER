@@ -105,8 +105,19 @@ function scr_generateCave(){
 	
 	//random number of rocks to generate
 	var curRocks = 0;
+	var chestSpawned = false;
 	var maxRocks = 4;
 	while(curRocks < maxRocks){
+		if(!chestSpawned){
+			var ranDirC = irandom(360);
+			var ranLenC = irandom_range(10,30);
+			var chestX = xCen+lengthdir_x(ranDirC, ranLenC);
+			var chestY = yCen+lengthdir_y(ranDirC, ranLenC);
+			var chest = instance_create_depth(chestX, chestY, 1, o_small_crate);
+			chest.isCave = true;
+			chestSpawned = true;
+		}
+		
 		//random direction
 		var ranDir = irandom(360);
 		var ranLen = irandom_range(70, 150);

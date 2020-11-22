@@ -185,6 +185,12 @@ if(instance_exists(nade) && (collision_circle(nade.x,nade.y,35,self, true, false
 	var detectDis = 80;
 	if(global.itemEquipped == item.torch || global.itemEquipped == item.lantern)
 		detectDis = 110;
+	if(global.bodyEquipped == item.bluecloak)
+		detectDis -= 80;
+	if(global.headEquipped == item.pumpkin)
+		detectDis -= 40;
+	if(detectDis <= 10)
+		detectDis = 10;
 	if((point_distance(x,y,o_player.x, o_player.y) <= detectDis)&&!playerFlee&&!freakOut){
 		if(cowardlyFellow){
 			if(!playerFlee){

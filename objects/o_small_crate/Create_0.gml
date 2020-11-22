@@ -83,6 +83,7 @@ canHit = true;
 //enemy camp stuff
 isCamp = true;
 isShed = false;
+isCave = false;
 
 //enemy attack variable
 isTargetable = false;
