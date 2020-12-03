@@ -70,18 +70,22 @@ if(isCamp){
 			} else if(itemChance < 95){// 5% ammo by itself
 				if(isShed)
 					pickup_item(self, item.buckshot, choose(1,1,1,2,2), 11);
-				else
+				else if(!isCave)
 					pickup_item(self, item.rifleammo, choose(1,1,1,2,2), 11);
-			} else if(itemChance < 100 && !weaponSpawned){//5% Gun
-				if(isCamp && !isShed) {
+				else
+					pickup_item(self, item.pumpkin, 1, 11);
+			} else if(itemChance < 100 && !weaponSpawned){//5% Gun (if cave pumpkin)
+				if(isCamp && !isShed && !isCave) {
 					pickup_item(self, item.rifle, 1, 11);
 					pickup_item(self, item.rifleammo, choose(1,1,1,2,2), 11);
 				} else if(isShed) {
 					pickup_item(self, item.shotgun, 1, 11);
 					pickup_item(self, item.buckshot, choose(1,1,1,2,2), 11);
+				} else if (isCave) {
+					pickup_item(self, item.pumpkin, 1, 11);
 				}
-					
 				weaponSpawned = true;
+				
 			}
 			
 			oversize++;

@@ -17,7 +17,6 @@ function scr_generateCave(){
 	//room_instance_add(room, 2250, 1250, o_cavefloor);
 	//room_instance_add(room, 2250, 1500, o_cavefloor);
 	
-	
 	instance_create_depth(2249, 1207, 1, o_cave_exit);
 	//room_instance_add(room, 2249, 1207, o_cave_exit);//add exit
 	
@@ -105,8 +104,19 @@ function scr_generateCave(){
 	
 	//random number of rocks to generate
 	var curRocks = 0;
+	var chestSpawned = false;
 	var maxRocks = 4;
 	while(curRocks < maxRocks){
+		if(!chestSpawned){
+			var ranDirC = irandom(360);
+			var ranLenC = irandom_range(10,30);
+			var chestX = xCen+lengthdir_x(ranDirC, ranLenC);
+			var chestY = yCen+lengthdir_y(ranDirC, ranLenC);
+			var chest = instance_create_depth(chestX, chestY, 1, o_small_crate);
+			chest.isCave = true;
+			chestSpawned = true;
+		}
+		
 		//random direction
 		var ranDir = irandom(360);
 		var ranLen = irandom_range(70, 150);

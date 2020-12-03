@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"scr_createCave_new","path":"scripts/scr_createCave_new/scr_createCave_new.yy",},"order":18,},
     {"id":{"name":"s_mouse_cursor","path":"sprites/s_mouse_cursor/s_mouse_cursor.yy",},"order":0,},
     {"id":{"name":"s_loading","path":"sprites/s_loading/s_loading.yy",},"order":1,},
     {"id":{"name":"s_mouse_cursor_out","path":"sprites/s_mouse_cursor_out/s_mouse_cursor_out.yy",},"order":2,},
@@ -13,7 +14,6 @@
     {"id":{"name":"s_items","path":"sprites/s_items/s_items.yy",},"order":0,},
     {"id":{"name":"s_durability","path":"sprites/s_durability/s_durability.yy",},"order":1,},
     {"id":{"name":"s_quickmove","path":"sprites/s_quickmove/s_quickmove.yy",},"order":2,},
-    {"id":{"name":"scr_createCave_new","path":"scripts/scr_createCave_new/scr_createCave_new.yy",},"order":17,},
     {"id":{"name":"s_drop","path":"sprites/s_drop/s_drop.yy",},"order":3,},
     {"id":{"name":"s_inventory_line","path":"sprites/s_inventory_line/s_inventory_line.yy",},"order":4,},
     {"id":{"name":"s_equip_line","path":"sprites/s_equip_line/s_equip_line.yy",},"order":5,},
@@ -342,6 +342,7 @@
     {"id":{"name":"s_roll_down_left","path":"sprites/s_roll_down_left/s_roll_down_left.yy",},"order":28,},
     {"id":{"name":"s_findkey","path":"sprites/s_findkey/s_findkey.yy",},"order":29,},
     {"id":{"name":"s_tent","path":"sprites/s_tent/s_tent.yy",},"order":0,},
+    {"id":{"name":"scr_generateCave","path":"scripts/scr_generateCave/scr_generateCave.yy",},"order":17,},
     {"id":{"name":"s_bedroll","path":"sprites/s_bedroll/s_bedroll.yy",},"order":1,},
     {"id":{"name":"s_anvil","path":"sprites/s_anvil/s_anvil.yy",},"order":2,},
     {"id":{"name":"s_wall_wood","path":"sprites/s_wall_wood/s_wall_wood.yy",},"order":3,},
@@ -576,7 +577,6 @@
     {"id":{"name":"sn_pack_2","path":"sounds/sn_pack_2/sn_pack_2.yy",},"order":3,},
     {"id":{"name":"sn_fire","path":"sounds/sn_fire/sn_fire.yy",},"order":4,},
     {"id":{"name":"sn_lock","path":"sounds/sn_lock/sn_lock.yy",},"order":5,},
-    {"id":{"name":"scr_generateCave","path":"scripts/scr_generateCave/scr_generateCave.yy",},"order":16,},
     {"id":{"name":"sn_smallcrate_open","path":"sounds/sn_smallcrate_open/sn_smallcrate_open.yy",},"order":6,},
     {"id":{"name":"sn_largecrate_open","path":"sounds/sn_largecrate_open/sn_largecrate_open.yy",},"order":7,},
     {"id":{"name":"sn_compoundentry","path":"sounds/sn_compoundentry/sn_compoundentry.yy",},"order":8,},
@@ -884,10 +884,10 @@
     "children": [],
   },
   "RoomOrderNodes": [
+    {"roomId":{"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},},
     {"roomId":{"name":"r_display_init","path":"rooms/r_display_init/r_display_init.yy",},},
     {"roomId":{"name":"r_title","path":"rooms/r_title/r_title.yy",},},
     {"roomId":{"name":"r_new","path":"rooms/r_new/r_new.yy",},},
-    {"roomId":{"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},},
     {"roomId":{"name":"r_testing","path":"rooms/r_testing/r_testing.yy",},},
   ],
   "Folders": [

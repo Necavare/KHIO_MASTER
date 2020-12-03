@@ -517,14 +517,18 @@ while(y <= room_height){
 		
 		//spawn cave entrence
 		if(!dontGenerate){
-			var ranXR = irandom(bS);
-			var ranYR= irandom(bS);
-			var caveEntrance = instance_create_depth(x+ranXR, y+ranYR, 1, o_cave_entrance);
-			show_debug_message("created cave entrance pos -> x: "+string(x+ranXR)+"  y: "+string(y+ranYR));
-			caveEntrance.listIndex = scr_createCave_new();
-			ds_stack_push(objectStack, caveEntrance);
-			scr_clipping_primary(caveEntrance, false);
-			ds_queue_enqueue(activationQueue, caveEntrance);
+			//keep distance
+			if(distance_to_object(o_cave_entrance) > 500){
+				show_debug_message("number of objects : "+string(instance_number(o_cave_entrance)));
+				var ranXR = irandom(bS);
+				var ranYR= irandom(bS);
+				var caveEntrance = instance_create_depth(x+ranXR, y+ranYR, 1, o_cave_entrance);
+				show_debug_message("created cave entrance pos -> x: "+string(x+ranXR)+"  y: "+string(y+ranYR));
+				caveEntrance.listIndex = scr_createCave_new();
+				ds_stack_push(objectStack, caveEntrance);
+				scr_clipping_primary(caveEntrance, false);
+				ds_queue_enqueue(activationQueue, caveEntrance);
+			}
 		}	
 		/*
 		//make sure its not inside of a camp
