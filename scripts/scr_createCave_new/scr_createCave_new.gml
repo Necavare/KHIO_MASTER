@@ -12,6 +12,7 @@ function scr_createCave_new(){
 	
 	room_set_width(room_pointer, 5000);//set width
 	room_set_height(room_pointer, 5000);//set height
+	room_set_background_color(room_pointer, $333128, true)
 	room_set_persistent(room_pointer, true); //makes all instances saved within the room, SLOW
 	
 	//create layers:
