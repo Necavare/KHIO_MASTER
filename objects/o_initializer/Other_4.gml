@@ -80,7 +80,7 @@ if(!global.reLoad){
 				instance_create_layer(0,0,main,o_input);
 				instance_create_layer(0,0,main,o_weather);
 	
-				scr_generateCave();
+				scr_generateCave(index);
 				ds_list_set(global.caveLoadList, index, true);
 			}
 		}

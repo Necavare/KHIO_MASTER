@@ -119,6 +119,11 @@ global.saveFileMax = 0;
 global.loadingWorld = false;
 save_loadNameHub(); //<-load the save names right away
 
+//cave instance lists
+global.caveInstances = ds_list_create();
+global.caveInstanceIndexVal = ds_list_create();
+global.caveInstanceLoaded = ds_list_create();
+
 // Loading transition
 global.demoRoom = false;
 global.loading = false;

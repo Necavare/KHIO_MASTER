@@ -1,6 +1,6 @@
-/// @desc save_loadFile(filename)
+/// @desc save_cave_loadFile(filename)
 /// @arg filename
-function save_loadFile(argument0) {
+function save_cave_loadFile(argument0) {
 
 	var _filename = argument0;
 
@@ -306,12 +306,6 @@ function save_loadFile(argument0) {
 					}
 				#endregion
 				
-				#region o_cave_entrance
-				
-				listIndex = _map[? "listIndex"];
-				
-				#endregion
-				
 				
 					//change its minimap values now that its correctly made
 					if(ds_list_find_index(global.activemm,_inst.id)){//if it is registered active
@@ -361,11 +355,6 @@ function save_loadFile(argument0) {
 					global.chunkLoaded[chunkLI] = _map[? ("chunkLoaded["+string(chunkLI)+"]")];
 				}
 	
-			
-				//read from string back to list for caves
-				ds_list_read(global.caveLoadList, _map[? "caveLoad_"]);
-
-				
 				//global.blockArr = _map[? "blockArr"];
 				//global.biomeArr = _map[? "biomeArr"];
 			}

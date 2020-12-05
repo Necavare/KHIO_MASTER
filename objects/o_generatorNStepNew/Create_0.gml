@@ -1,3 +1,5 @@
+//make the cave load
+
 //mound debugging
 moundNum = 0;
 
@@ -528,6 +530,9 @@ while(y <= room_height){
 				ds_stack_push(objectStack, caveEntrance);
 				scr_clipping_primary(caveEntrance, false);
 				ds_queue_enqueue(activationQueue, caveEntrance);
+				
+				//add the cave to the list of loaded
+				ds_list_add(global.caveInstanceLoaded, false);
 			}
 		}	
 		/*
