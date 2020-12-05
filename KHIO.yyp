@@ -884,11 +884,11 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},},
     {"roomId":{"name":"r_display_init","path":"rooms/r_display_init/r_display_init.yy",},},
     {"roomId":{"name":"r_title","path":"rooms/r_title/r_title.yy",},},
     {"roomId":{"name":"r_new","path":"rooms/r_new/r_new.yy",},},
     {"roomId":{"name":"r_testing","path":"rooms/r_testing/r_testing.yy",},},
+    {"roomId":{"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
