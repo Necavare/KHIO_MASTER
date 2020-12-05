@@ -22,7 +22,7 @@ if(global.isInventoryOpen || global.isPaused)
 	options = false;
 
 // Drawing item names for the inventory and picked up items
-if(takeAllSlot.highlighted && global.crate == self)
+if(global.crate == self && takeAllSlot.highlighted)
 	draw_title("Take All", 0, -1, -1);
 
 if(!global.isItemPicked && global.crate == self)

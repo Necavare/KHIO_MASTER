@@ -8,7 +8,7 @@ if(!global.isItemPicked && global.crate == self)
 				item_title(items[# ix, iy], count[# ix, iy]);
 		}
 		
-if(takeAllSlot.highlighted && global.crate == self)
+if(global.crate == self && takeAllSlot.highlighted)
 	draw_title("Take All", 0, -1, -1);
 		
 if(!global.isCrateOpen && playerNear && global.grabbed == -1 && !options)
