@@ -279,18 +279,40 @@ if( i < listSize){
 					
 					#endregion
 				
+					#region o_cave_entrance
+					
+					if(object_index == o_cave_entrance){
+						listIndex = _map[? "listIndex"];
+						
+						//load 
+						scr_createCave_load(listIndex);
+						
+						
+					}
+					#endregion
+					
 					#region o_enemySword and bow
 				
 					with(o_enemySword){
+						show_debug_message("loading enemy sword :::::")
 						acceleration = _map[? "acceleration"];
+						show_debug_message("acceleration : "+string(acceleration));
 						p_speed = _map[? "p_speed"];
+						show_debug_message("p_speed : "+string(p_speed));
 						xdir = _map[? "xdir"];
+						show_debug_message("xdir : "+string(xdir));
 						ydir = _map[? "ydir"];
+						show_debug_message("ydir : "+string(ydir));
 						move_dir = _map[? "move_dir"];
+						show_debug_message("move_dir : " +string(move_dir));
 						move_dis = _map[? "move_dis"];
+						show_debug_message("move_dis : "+string(move_dis));
 						img_index = _map[? "img_index"];
+						show_debug_message("img_index : "+string(img_index));
 						dir_ref = _map[? "dir_ref"];
+						show_debug_message("dir_ref : "+string(dir_ref));
 						img_frame = _map[? "img_frame"];
+						show_debug_message("img_frame : "+string(img_frame));
 						enemy_health = _map[? "enemy_health"];
 						healthMax = _map[? "healthMax"];
 						isDying = _map[? "isDying"];
@@ -298,18 +320,29 @@ if( i < listSize){
 						isIdle = _map[? "isIdle"];
 						isWalking = _map[? "isWalking"];
 						isRunning = _map[? "isRunning"];
+						show_debug_message("---------------------------------------------------");
 					}
 	
 					with(o_enemyBow){
+						show_debug_message("loading enemy bow :::::")
 						acceleration = _map[? "acceleration"];
+						show_debug_message("acceleration : "+string(acceleration));
 						p_speed = _map[? "p_speed"];
+						show_debug_message("p_speed : "+string(p_speed));
 						xdir = _map[? "xdir"];
+						show_debug_message("xdir : "+string(xdir));
 						ydir = _map[? "ydir"];
+						show_debug_message("ydir : "+string(ydir));
 						move_dir = _map[? "move_dir"];
+						show_debug_message("move_dir : " +string(move_dir));
 						move_dis = _map[? "move_dis"];
+						show_debug_message("move_dis : "+string(move_dis));
 						img_index = _map[? "img_index"];
+						show_debug_message("img_index : "+string(img_index));
 						dir_ref = _map[? "dir_ref"];
+						show_debug_message("dir_ref : "+string(dir_ref));
 						img_frame = _map[? "img_frame"];
+						show_debug_message("img_frame : "+string(img_frame));
 						enemy_health = _map[? "enemy_health"];
 						healthMax = _map[? "healthMax"];
 						isDying = _map[? "isDying"];
@@ -320,7 +353,6 @@ if( i < listSize){
 						playerFlee = _map[? "playerFlee"];
 					}
 					#endregion
-				
 				
 					//change its minimap values now that its correctly made
 					/*
@@ -368,7 +400,8 @@ if( i < listSize){
 				o_player.maxHealth = _map[? "maxHealth"];
 				o_player.hunger_ = _map[? "hunger_"];
 				
-			}else if(type == 0){
+			}
+			else if(type == 0){
 				//show_debug_message("find type 0");
 			
 				//global.xoffset = _map[? "xoffset"];
@@ -393,6 +426,15 @@ if( i < listSize){
 					global.chunkLoaded[chunkLI] = _map[? ("chunkLoaded["+string(chunkLI)+"]")];
 				}
 	
+				//load cave list
+				ds_list_read(global.caveInstanceLoaded, _map[? "caveLoad_"]);
+				
+				for(var index_ =0; index_ < ds_list_size(global.caveInstanceLoaded); index_++ ){
+					//initialize it here
+					ds_list_add(global.caveList, false); //add it to the list
+					ds_list_add(global.caveLoadList, false);
+				}
+				
 				//global.blockArr = _map[? "blockArr"];
 				//global.biomeArr = _map[? "biomeArr"];
 			}
@@ -598,7 +640,7 @@ repeat(40){
 	o_camera.x = futurePlayerX;
 	o_camera.y = futurePlayerY;
 	
-	//show_debug_message("numAdded: "+string(numAdded));
+	show_debug_message("numAdded: "+string(numAdded));
 	global.generatingEnvironment = false;
 	//show_debug_message("Game Loaded");
 	instance_destroy(self);

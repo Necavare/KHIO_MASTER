@@ -4,6 +4,7 @@ p_speed = 1;
 xdir = 0;
 ydir = 0;
 move_dir = 0;
+true_dir = 0;
 move_dis = 0;
 
 playerPrevDetected = false;

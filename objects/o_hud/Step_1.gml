@@ -91,7 +91,32 @@ if(savingWorld){
 		//surface_free(global.surfmm);
 		//global.surfmm = surface_create(2000, 2000);//map height and width if those are changed
 
+		//clear out the lists i made for caves
+		ds_list_destroy(global.caveLoadList);
+		ds_list_destroy(global.caveList);
+		global.caveLoadList = ds_list_create();
+		global.caveList = ds_list_create();
+		global.caveX = -1;
+		global.caveY = -1;
 		
+		//cave instance lists
+		ds_list_destroy(global.caveInstances);
+		ds_list_destroy(global.caveInstanceIndexVal);
+		ds_list_destroy(global.caveInstanceLoaded);
+		global.caveInstances = ds_list_create();
+		global.caveInstanceIndexVal = ds_list_create();
+		global.caveInstanceLoaded = ds_list_create();
+
+		
+		global.crate = undefined;
+		
+		
+		//make the room no longer persistent
+		
+		if(r_new.persistent){
+			show_debug_message("set persistent to false");
+			r_new.persistent = false;	
+		}
 
 		room_goto(r_title);
 		global.isPaused = false;

@@ -77,6 +77,16 @@ function save_createNew(argument0) {
 			ds_map_add(_map0, "chunkLoaded["+string(chunkLI)+"]", global.chunkLoaded[chunkLI]);	
 		}
 	
+		//add cave array into 0
+		//convert to string
+		//var caveList_ = ds_list_write(global.caveList); // <- these are pointers to rooms, they are not valid
+		var caveLoad_ = ds_list_write(global.caveLoadList);
+	
+	
+		//add to map
+		//ds_map_add(_map0, "caveList_", caveList_);
+		ds_map_add(_map0, "caveLoad_", caveLoad_);
+	
 		//ds_map_destroy(_map0);
 		/*
 		for(var biomeArrI = 0; biomeArrI < array_length(global.biomeArray); biomeArrI++){
@@ -87,8 +97,9 @@ function save_createNew(argument0) {
 #endregion
 
 #region par_3d_object
-	with (par_3d_object && par_flammable){
-	
+
+	//used to be par_3d_object && par_flammable
+	with (par_3d_object){
 		//dont add parts of towers/sheds/houses etc.
 		if(object_index !=o_tower_log && object_index != o_tower_ladder && object_index != o_tower_roof &&
 			object_index != o_house_back && object_index != o_house_door && object_index != o_house_floor &&
@@ -96,7 +107,7 @@ function save_createNew(argument0) {
 			object_index != o_shed_door && object_index != o_shed_door && object_index != o_shed_floor &&
 			object_index != o_shed_side && object_index != o_shed_roof && object_index != o_shed_pillar){
 	
-	
+		
 		numAdded++;
 	
 		var _map = ds_map_create();
@@ -239,30 +250,37 @@ function save_createNew(argument0) {
 		}// end of the if check for exclusions
 	}
 
-	//COPY PASTE OF WHATS ABOVE /////\\\\\
-	/*
-	with(par_flammable){
-		numAdded++;
 	
+#endregion
+
+#region o_cave_entrance
+
+
+with(o_cave_entrance){
+	numAdded++;
 	
-		var _map = ds_map_create();
-		ds_list_add(_root_list, _map); //this only adds a pointer
-		ds_list_mark_as_map(_root_list, ds_list_size(_root_list)-1);
-		//take last entry (the _map) marks as a ds_map, so it saves the data not pointer
+	var _caveMap = ds_map_create();
+	show_debug_message("saving cave with index :: "+string(listIndex));
+	ds_list_add(_root_list, _caveMap); //this only adds a pointer
+	ds_list_mark_as_map(_root_list, ds_list_size(_root_list)-1);
+	//take last entry (the _map) marks as a ds_map, so it saves the data not pointer
 	
-		var _obj = object_get_name(object_index); //find name
-		ds_map_add (_map, "type", 1); //add type int
-		ds_map_add (_map, "obj", _obj); //adds name under obj
+	var _obj = object_get_name(object_index); //find name
+	ds_map_add (_caveMap, "houseVar", false);
+	ds_map_add (_caveMap, "type", 1); //add type int
+	ds_map_add (_caveMap, "obj", _obj); //adds name under obj
 	
-		if(ds_list_find_index(global.activemm,id)){//if it is registered active
+		if(ds_list_find_index(global.activemm,id)||object_index == o_lake){//if it is registered active
+			ds_map_add(_caveMap, "mmTrue", true);
 			var miniValuesPrev = ds_map_find_value(global.minimapVar, id);
-			ds_map_add (_map, "image_angle", miniValuesPrev[1]); //adds angle
-			ds_map_add (_map, "xmm", miniValuesPrev[2]);
-			ds_map_add (_map, "ymm", miniValuesPrev[3]);
-			ds_map_add (_map, "mmdepth", miniValuesPrev[4]); //add minimap depth
+			ds_map_add (_caveMap, "image_angle", miniValuesPrev[1]); //adds angle
+			ds_map_add (_caveMap, "xmm", miniValuesPrev[2]);
+			ds_map_add (_caveMap, "ymm", miniValuesPrev[3]);
+			ds_map_add (_caveMap, "mmdepth", miniValuesPrev[4]); //add minimap depth
 		}
 		else{
-			ds_map_add(_map, "image_angle", image_angle);	
+			ds_map_add(_caveMap, "mmTrue", false);
+			ds_map_add(_caveMap, "image_angle", image_angle);	
 		}
 	
 		var yn3d = y+global.yoffset;
@@ -271,19 +289,20 @@ function save_createNew(argument0) {
 		if (yn3d >= room_height) { yn3d -= room_height; }
 		if (xn3d < 0) { xn3d += room_width; }
 		if (xn3d >= room_width) { xn3d -= room_width; }
-		ds_map_add (_map, "y", yn3d); //adds y coordinate
-		ds_map_add (_map, "x", xn3d); //adds x coordinate
+		ds_map_add (_caveMap, "y", yn3d); //adds y coordinate
+		ds_map_add (_caveMap, "x", xn3d); //adds x coordinate
 	
 	
-	
-		//currently not working says "-1" which means no layer, odd. but not important
-		//ds_map_add (_map, "layer", layer); //add its layer
-		//show_debug_message(layer);
-	
-	
-		ds_map_add (_map, "image_index", image_index); //adds image index
-		ds_map_add (_map, "image_blend", image_blend); //adds image blend
-	}*/
+		ds_map_add (_caveMap, "image_index", image_index); //adds image index
+		ds_map_add (_caveMap, "image_blend", image_blend); //adds image blend
+		ds_map_add (_caveMap, "listIndex", listIndex);
+		
+		
+		//add its contents to a new file
+		save_cave_createNew(_filename, listIndex);
+}
+
+
 #endregion
 
 #region o_player
@@ -766,7 +785,11 @@ function save_createNew(argument0) {
 	}
 #endregion
 
-	show_debug_message("numAdded: "+string(numAdded));
+#region 
+
+#endregion
+
+	show_debug_message("numAdded save: "+string(numAdded));
 
 	//wrap root List in a map
 	var _wrapper = ds_map_create();
