@@ -98,3 +98,8 @@ if(!o_player.isSleeping && !global.isPaused) {
 		}
 	}
 }
+
+if(hour_of_day <= .1) {
+	if((global.noSleep >= 2 && irandom(200) == 0) || (global.noSleep < 2 && irandom(750) == 0))
+		instance_create_layer(o_player.x+irandom_range(-350,350), o_player.y+irandom_range(-350,350), "items", o_bat); 	
+}
