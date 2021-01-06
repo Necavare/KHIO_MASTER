@@ -13,3 +13,5 @@ canHit = true;
 enemy_health = 7;
 healthMax = 7;
 deathAngle = 0;
+
+isDead = false;

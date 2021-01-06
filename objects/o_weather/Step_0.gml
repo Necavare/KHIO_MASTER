@@ -40,5 +40,5 @@ if(isSnowing) {
 	alarm[0] = -1;
 }
 
-if(room == r_cave)
+if(global.inCave)
 	isSnowing = false;

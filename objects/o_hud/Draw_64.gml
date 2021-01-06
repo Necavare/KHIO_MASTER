@@ -2011,10 +2011,22 @@ if(confirm) {
 			
 		if(mouse_check_button_pressed(global.M_LEFT)) {
 			if(desktopHighlighted) {
+				if(room != r_new && room != r_testing && !global.inCave){
+					room_goto(r_new);
+					global.reLoad = true;
+					o_player.x = global.caveX;
+					o_player.y = global.caveY;
+				}
 				savingWorld = true;
 				instance_activate_all();
 				goToMenu = false;
 			} else if(menuHighlighted) {
+				if(room != r_new && room != r_testing && !global.inCave){
+					room_goto(r_new);
+					global.reLoad = true;
+					o_player.x = global.caveX;
+					o_player.y = global.caveY;
+				}
 				savingWorld = true;
 				instance_activate_all();
 				goToMenu = true;
@@ -2073,10 +2085,22 @@ if(confirm) {
 	
 		if(mouse_check_button_pressed(global.M_LEFT)) {
 			if(desktopHighlighted) {
+				if(room != r_new && room != r_testing && !global.inCave){
+					room_goto(r_new);
+					global.reLoad = true;
+					o_player.x = global.caveX;
+					o_player.y = global.caveY;
+				}
 				savingWorld = true;
 				instance_activate_all();
 				goToMenu = false;
 			} else if(menuHighlighted) {
+				if(room != r_new && room != r_testing && !global.inCave){
+					room_goto(r_new);
+					global.reLoad = true;
+					o_player.x = global.caveX;
+					o_player.y = global.caveY;
+				}
 				savingWorld = true;
 				instance_activate_all();
 				goToMenu = true;
@@ -2990,6 +3014,12 @@ if(saveAlarm){
 	instance_activate_all();	
 	goToMenu = false;
 	autoSave = true;
+	if(room != r_new && room != r_testing && !global.inCave){
+		room_goto(r_new);
+		global.reLoad = true;
+		o_player.x = global.caveX;
+		o_player.y = global.caveY;
+	}
 	savingWorld = true;
 }
 

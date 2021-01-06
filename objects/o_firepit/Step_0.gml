@@ -1,7 +1,7 @@
 if(isCamp || room==r_testing)
 	logCount = 2;
 	
-if(room == r_cave)
+if(room == global.inCave)
 	sprite_index = s_firepit_cave;
 
 if(!global.generatingEnvironment && !global.loadingWorld &&  spawnStartingEnemy){

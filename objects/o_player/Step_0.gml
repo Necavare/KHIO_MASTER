@@ -639,7 +639,7 @@ if(healthKick && !kickBack) {
 
 #endregion
 
-if(place_meeting(x,y,o_cavefloor) || room == r_cave) {
+if(place_meeting(x,y,o_cavefloor) || global.inCave) {
 	isCave = true;
 } else
 	isCave = false;

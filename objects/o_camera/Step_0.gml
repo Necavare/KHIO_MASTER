@@ -119,7 +119,7 @@ if(delay_loops > 0 && !o_player.isBlocking && !global.isAiming) {
 
 #region Setting object depths
 
-	if(deactivateFrame == 0 && !global.generatingEnvironment && room != r_testing && room != r_cave){
+	if(deactivateFrame == 0 && !global.generatingEnvironment && room != r_testing && !global.inCave){
 		/*
 		
 		//find the chunks your in

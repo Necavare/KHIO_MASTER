@@ -142,82 +142,106 @@ function scr_generateCave(indexVal){
 		var chestSpawned = false;
 		var maxRocks = 4;
 		while(curRocks < maxRocks){
-		if(!chestSpawned){
-			var ranDirC = irandom(360);
-			var ranLenC = irandom_range(10,30);
-			var chestX = xCen+lengthdir_x(ranDirC, ranLenC);
-			var chestY = yCen+lengthdir_y(ranDirC, ranLenC);
-			var chest = instance_create_depth(chestX, chestY, 1, o_small_crate);
-			chest.isCave = true;
-			chestSpawned = true;
-			with(chest){add_to_list(_root_list);}
-		}
-		
-		//random direction
-		var ranDir = irandom(360);
-		var ranLen = irandom_range(70, 150);
-		var bigRockX = xCen+lengthdir_x(ranLen, ranDir);
-		var bigRockY = yCen+lengthdir_y(ranLen, ranDir);
-		var rock = instance_create_depth(bigRockX, bigRockY, 1, o_bigrock);
-		var rockDestroyed = false;
-		with(rock){
-			if(place_meeting(x,y ,o_cave_wall) || place_meeting(x,y, o_cave_exit) || place_meeting(x,y,o_bigrock)){
-				rockDestroyed = true;
-				instance_destroy(self);
+			if(!chestSpawned){
+				var ranDirC = irandom(360);
+				var ranLenC = irandom_range(10,30);
+				var chestX = xCen+lengthdir_x(ranDirC, ranLenC);
+				var chestY = yCen+lengthdir_y(ranDirC, ranLenC);
+				var chest = instance_create_depth(chestX, chestY, 1, o_small_crate);
+				chest.isCave = true;
+				chestSpawned = true;
+				with(chest){add_to_list(_root_list);}
 			}
-			else
-				with(self){add_to_list(_root_list);}
-		}
 		
-		//generate small rocks
-		var maxSmallRocks = 10;
-		var curSmallRocks = 0;
-		while(!rockDestroyed && curSmallRocks < maxSmallRocks){
-			var ranDir2 = irandom(360);
-			var ranLen2 = irandom_range(25, 60);
-			var small_rock = instance_create_depth(bigRockX+lengthdir_x(ranLen2, ranDir2), bigRockY+lengthdir_y(ranLen2, ranDir2), 1, o_rocks);
-			with(small_rock){
-				if(place_meeting(x,y ,o_cave_wall) || place_meeting(x,y, o_cave_exit) || place_meeting(x,y, o_rocks) || place_meeting(x,y, o_rock)|| place_meeting(x,y, o_bigrock)){
+			//random direction
+			var ranDir = irandom(360);
+			var ranLen = irandom_range(70, 150);
+			var bigRockX = xCen+lengthdir_x(ranLen, ranDir);
+			var bigRockY = yCen+lengthdir_y(ranLen, ranDir);
+			var rock = instance_create_depth(bigRockX, bigRockY, 1, o_bigrock);
+			var rockDestroyed = false;
+			with(rock){
+				if(place_meeting(x,y ,o_cave_wall) || place_meeting(x,y, o_cave_exit) || place_meeting(x,y,o_bigrock)){
+					rockDestroyed = true;
 					instance_destroy(self);
 				}
 				else
 					with(self){add_to_list(_root_list);}
 			}
-			var randomChance = irandom(99);
-			if(randomChance < 50){
-				curSmallRocks+=1;
-			}
-			else{
-				curSmallRocks+=2;	
-			}
-		}
 		
-		//generate medium rocks
-		var maxMedRocks = 5;
-		var curMedRocks = 0;
-		while(!rockDestroyed && curMedRocks < maxMedRocks){
-			var ranDir3 = irandom(360);
-			var ranLen3 = irandom_range(25, 75);
-			var med_rock = instance_create_depth(bigRockX+lengthdir_x(ranLen3, ranDir3), bigRockY+lengthdir_y(ranLen3, ranDir3), 1, o_rock);
-			with(med_rock){
-				if(place_meeting(x,y ,o_cave_wall) || place_meeting(x,y, o_cave_exit) || 
-				place_meeting(x,y, o_rocks) || place_meeting(x,y, o_bigrock) || place_meeting(x,y, o_rock)){
-					instance_destroy(self);
+			//generate small rocks
+			var maxSmallRocks = 10;
+			var curSmallRocks = 0;
+			while(!rockDestroyed && curSmallRocks < maxSmallRocks){
+				var ranDir2 = irandom(360);
+				var ranLen2 = irandom_range(25, 60);
+				var small_rock = instance_create_depth(bigRockX+lengthdir_x(ranLen2, ranDir2), bigRockY+lengthdir_y(ranLen2, ranDir2), 1, o_rocks);
+				with(small_rock){
+					if(place_meeting(x,y ,o_cave_wall) || place_meeting(x,y, o_cave_exit) || place_meeting(x,y, o_rocks) || place_meeting(x,y, o_rock)|| place_meeting(x,y, o_bigrock)){
+						instance_destroy(self);
+					}
+					else
+						with(self){add_to_list(_root_list);}
 				}
-				else
-					with(self){add_to_list(_root_list);}
+				var randomChance = irandom(99);
+				if(randomChance < 50){
+					curSmallRocks+=1;
+				}
+				else{
+					curSmallRocks+=2;	
+				}
 			}
-			curMedRocks+=1;
+		
+			//generate medium rocks
+			var maxMedRocks = 5;
+			var curMedRocks = 0;
+			while(!rockDestroyed && curMedRocks < maxMedRocks){
+				var ranDir3 = irandom(360);
+				var ranLen3 = irandom_range(25, 75);
+				var med_rock = instance_create_depth(bigRockX+lengthdir_x(ranLen3, ranDir3), bigRockY+lengthdir_y(ranLen3, ranDir3), 1, o_rock);
+				with(med_rock){
+					if(place_meeting(x,y ,o_cave_wall) || place_meeting(x,y, o_cave_exit) || 
+					place_meeting(x,y, o_rocks) || place_meeting(x,y, o_bigrock) || place_meeting(x,y, o_rock)){
+						instance_destroy(self);
+					}
+					else
+						with(self){add_to_list(_root_list);}
+				}
+				curMedRocks+=1;
 			
-		}
+			}
 		
-		//set up the cur total of big rocks
-			curRocks+=1;
-	}
+			//set up the cur total of big rocks
+				curRocks+=1;
+		}
 	
+		var exitCase = 0;
+		var curGoblins = 0;
+		var maxGoblins = irandom(4);
+		while(curGoblins < maxGoblins){
+			var ranAngleGoblin = irandom(360);
+			var ranLenGoblin = irandom_range(70, 150);
+			var goblinX = xCen+lengthdir_x(ranLenGoblin, ranAngleGoblin);
+			var goblinY = yCen+lengthdir_y(ranLenGoblin, ranAngleGoblin);
+			var goblin = instance_create_depth(goblinX, goblinY, 1, o_goblin);
+			with(goblin){
+				if(place_meeting(x,y ,o_cave_wall) || place_meeting(x,y, o_cave_exit) || 
+					place_meeting(x,y, o_rocks) || place_meeting(x,y, o_bigrock) || place_meeting(x,y, o_rock)){
+						instance_destroy(self);
+						curGoblins--;
+					}
+					else
+						with(self){add_to_list(_root_list);}
+			}
+			curGoblins++;
+			exitCase++;
+			//iff its looped too many times just exit
+			if(exitCase > 1000)
+				curGoblins = maxGoblins;
+		}
 	}
 	else{
-		save_cave_loadFile(global.currentFile+"-"+string(indexVal));	
+		save_cave_loadFile(global.currentFile+"-"+string(indexVal), indexVal);	
 	}
 }
 	
@@ -252,7 +276,7 @@ function add_to_list(_root_list){
 	
 		
 		if(object_index == o_small_crate){
-			show_debug_message("saving small crate");
+			//show_debug_message("saving small crate");
 		
 			var smallCrate_itemsString = ds_grid_write(items);
 			var smallCrate_countString = ds_grid_write(count);
@@ -265,7 +289,7 @@ function add_to_list(_root_list){
 			ds_map_add(_map, "health", health_);
 		}
 		if(object_index == o_large_crate){
-			show_debug_message("saving large crate");
+			//show_debug_message("saving large crate");
 		
 			var largeCrate_itemsString = ds_grid_write(items);
 			var largeCrate_countString = ds_grid_write(count);
@@ -277,8 +301,23 @@ function add_to_list(_root_list){
 		
 			ds_map_add(_map, "health", health_);
 		}
-
-
+		if(object_index == o_goblin){
+			/*
+			var gobMode = mode;
+			var gobAnim = anim;
+			var gobCanHit = canHit;
+			var gobEnemyHealth = enemy_health;
+			var gobHealthMax = healthMax;
+			var gobDeathAngle = deathAngle;
+			*/
+			
+			ds_map_add(_map, "modeString", mode);
+			ds_map_add(_map, "animString", anim);
+			ds_map_add(_map, "canHitString", canHit);
+			ds_map_add(_map, "enemy_health_string", enemy_health);
+			ds_map_add(_map, "healthMaxString", healthMax);
+			ds_map_add(_map, "deathAngleString", deathAngle);
+		}
 
 #endregion
 }

@@ -7,7 +7,7 @@ if(room == r_testing) {
 	global.hour = (hour_of_day / (1/24));
 }
 
-if(room == r_cave) {
+if(global.inCave) {
 	hour_of_day = .15;
 	global.hour = (hour_of_day / (1/24));
 }
