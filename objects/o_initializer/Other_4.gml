@@ -17,7 +17,7 @@ if(!global.reLoad){
 		//ds_map_clear(global.minimapVar);//clear map of minimap variables
 	
 		//loading a cave:
-		if(room != r_cave && room != r_display_init && room != r_new && room != r_testing && room != r_title){
+		if(!global.inCave&& room != r_display_init && room != r_new && room != r_testing && room != r_title){
 			o_player.x = 2249;
 			o_player.y = 1327;
 			var index = ds_list_find_index(global.caveList, room);
@@ -89,7 +89,7 @@ if(!global.reLoad){
 		else{
 	
 			//if its not loading
-			if(room == r_testing || room == r_cave){
+			if(room == r_testing || global.inCave){
 		
 				global.demoRoom = true;
 				instance_create_layer(0,0,main,o_shaders);

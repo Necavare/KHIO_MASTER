@@ -1,3 +1,9 @@
+//check what room it is in
+if(room != r_new && room != r_display_init && room != r_cave && room != r_testing && room != r_title){
+	global.inCave = true;
+}
+else
+	global.inCave = false;
 
 
 /*
@@ -9,7 +15,14 @@ if(exitPressed&&instanceActivated){
 }*/
 
 if(savingWorld){
-	if(room != r_testing && room != r_cave)
+	if(room != r_new && room != r_testing && !global.inCave){
+		room_goto(r_new);
+		global.reLoad = true;
+		o_player.x = global.caveX;
+		o_player.y = global.caveY;
+	}
+	
+	if(room != r_testing && !global.inCave)
 		save_createNew(global.currentFile);
 	savingWorld = false;
 	

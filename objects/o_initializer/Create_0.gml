@@ -270,6 +270,7 @@ global.caveLoadList = ds_list_create();
 global.caveList = ds_list_create();
 global.caveX = -1;
 global.caveY = -1;
+global.inCave = false;
 
 //ds_list_add(o_hud.campNameList, "Enemy Camp");
 //ds_list_add(o_hud.campXList, x-500);

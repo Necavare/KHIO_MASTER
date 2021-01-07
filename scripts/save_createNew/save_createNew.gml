@@ -617,6 +617,43 @@ with(o_cave_entrance){
 
 #endregion
 
+#region goblins
+	with(o_goblin){
+
+		var _mapGob = ds_map_create();
+		ds_list_add(_root_list, _mapGob); //this only adds a pointer
+		ds_list_mark_as_map(_root_list, ds_list_size(_root_list)-1);
+		//take last entry (the _map) marks as a ds_map, so it saves the data not pointer
+	
+		var _obj = object_get_name(object_index); //find name
+		ds_map_add (_mapGob, "houseVar", false);
+		ds_map_add (_mapGob, "type", 1); //add type int
+		ds_map_add (_mapGob, "obj", _obj); //adds name under obj
+	
+		var ygoblin = y+global.yoffset;
+		var xgoblin = x+global.xoffset;
+		if (ygoblin < 0) { ygoblin += room_height; }
+		if (ygoblin >= room_height) { ygoblin -= room_height; }
+		if (xgoblin < 0) { xgoblin += room_width; }
+		if (xgoblin >= room_width) { xgoblin -= room_width; }
+	
+		ds_map_add (_mapGob, "y", ygoblin); //adds y coordinate
+		ds_map_add (_mapGob, "x", xgoblin); //adds x coordinate
+	
+		ds_map_add (_mapGob, "image_index", image_index); //adds image index
+		ds_map_add (_mapGob, "image_blend", image_blend); //adds image blend
+		ds_map_add (_mapGob, "image_angle", image_angle); //adds angle
+			
+		ds_map_add(_map, "modeString", mode);
+		ds_map_add(_map, "animString", anim);
+		ds_map_add(_map, "canHitString", canHit);
+		ds_map_add(_map, "enemy_health_string", enemy_health);
+		ds_map_add(_map, "healthMaxString", healthMax);
+		ds_map_add(_map, "deathAngleString", deathAngle);
+	
+		//ds_map_destroy(_mapES);
+	}
+#endregion
 #region o_hud (overhead array, minimap sprite, inventory)
 	with(o_hud){
 		var _map3 = ds_map_create();

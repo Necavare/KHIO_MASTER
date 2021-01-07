@@ -1,6 +1,13 @@
 /// @desc save_cave_loadFile(filename)
 /// @arg filename
-function save_cave_loadFile(argument0) {
+function save_cave_loadFile(argument0, indexVal) {
+	
+	//setup a new save for next
+	var _root_list = ds_list_create(); // saves all objects into one list
+	ds_list_add(global.caveInstances, _root_list); // add the list to the global list
+	ds_list_add(global.caveInstanceIndexVal, indexVal); // add a corresponding index value to another array
+	ds_list_set(global.caveInstanceLoaded, indexVal, true);
+
 
 	var _filename = argument0;
 
@@ -306,6 +313,19 @@ function save_cave_loadFile(argument0) {
 					}
 				#endregion
 				
+				#region goblin
+				
+				if(object_index == o_goblin){
+					mode = _map[? "modeString"];
+					anim = _map[? "animString"];
+					canHit = _map[? "canHitString"];
+					enemy_health = _map[? "enemy_health_string"];
+					healthMax = _map[? "healthMaxString"];
+					deathAngle = _map[? "deathAngleString"];
+				}
+				
+				#endregion
+				
 				
 					//change its minimap values now that its correctly made
 					if(ds_list_find_index(global.activemm,_inst.id)){//if it is registered active
@@ -329,6 +349,9 @@ function save_cave_loadFile(argument0) {
 						ds_list_add(global.activemm, _inst.id); //add it to list of active minimap symbols
 	
 					}
+				
+				//with the instance
+				add_to_list(_root_list);
 				}
 			}
 			else if(type == 0){
@@ -479,3 +502,74 @@ function save_cave_loadFile(argument0) {
 
 
 }
+
+
+/*
+function add_to_list(_root_list){
+	#region 
+	
+		var _map = ds_map_create();
+		ds_list_add(_root_list, _map); //this only adds a pointer
+		ds_list_mark_as_map(_root_list, ds_list_size(_root_list)-1);
+		//take last entry (the _map) marks as a ds_map, so it saves the data not pointer
+	
+		var _obj = object_get_name(object_index); //find name
+		ds_map_add (_map, "houseVar", false);
+		ds_map_add (_map, "type", 1); //add type int
+		ds_map_add (_map, "obj", _obj); //adds name under obj
+	
+			ds_map_add(_map, "mmTrue", false);
+			ds_map_add(_map, "image_angle", image_angle);	
+	
+	
+		var yn3d = y+global.yoffset;
+		var xn3d = x+global.xoffset;
+		if (yn3d < 0) { yn3d += room_height; }
+		if (yn3d >= room_height) { yn3d -= room_height; }
+		if (xn3d < 0) { xn3d += room_width; }
+		if (xn3d >= room_width) { xn3d -= room_width; }
+		ds_map_add (_map, "y", yn3d); //adds y coordinate
+		ds_map_add (_map, "x", xn3d); //adds x coordinate
+	
+		ds_map_add (_map, "image_index", image_index); //adds image index
+		ds_map_add (_map, "image_blend", image_blend); //adds image blend
+	
+		
+		if(object_index == o_small_crate){
+			//show_debug_message("saving small crate");
+		
+			var smallCrate_itemsString = ds_grid_write(items);
+			var smallCrate_countString = ds_grid_write(count);
+			var smallCrate_durabilityString = ds_grid_write(durability);
+		
+			ds_map_add(_map, "itemsString", smallCrate_itemsString);
+			ds_map_add(_map, "countString", smallCrate_countString);
+			ds_map_add(_map, "durabilityString", smallCrate_durabilityString);
+		
+			ds_map_add(_map, "health", health_);
+		}
+		if(object_index == o_large_crate){
+			//show_debug_message("saving large crate");
+		
+			var largeCrate_itemsString = ds_grid_write(items);
+			var largeCrate_countString = ds_grid_write(count);
+			var largeCrate_durabilityString = ds_grid_write(durability);
+		
+			ds_map_add(_map, "itemsString", largeCrate_itemsString);
+			ds_map_add(_map, "countString", largeCrate_countString);
+			ds_map_add(_map, "durabilityString", largeCrate_durabilityString);
+		
+			ds_map_add(_map, "health", health_);
+		}
+		if(object_index == o_goblin){
+			
+			ds_map_add(_map, "modeString", mode);
+			ds_map_add(_map, "animString", anim);
+			ds_map_add(_map, "canHitString", canHit);
+			ds_map_add(_map, "enemy_health_string", enemy_health);
+			ds_map_add(_map, "healthMaxString", healthMax);
+			ds_map_add(_map, "deathAngleString", deathAngle);
+		}
+
+#endregion
+}*/
