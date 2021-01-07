@@ -1,4 +1,4 @@
-if(other.isDead) {
+if(other.mode != 5) {
 	healthKick = true;
 	isBleeding = true;
 
