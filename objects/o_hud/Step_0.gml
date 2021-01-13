@@ -143,7 +143,7 @@ if(keyboard_check_pressed(global.K_PAUSE) && !global.isInventoryOpen && !global.
 		global.interactingObject = -1;
 		global.interactingLoad = -1;
 		o_player.checkNearestShed = false;
-		global.pausedBackground = sprite_create_from_surface(global.pixelSurf,0,0,view_get_wport(view_camera[0]),view_get_hport(view_camera[0]),false,false,0,0);
+		global.pausedBackground = sprite_create_from_surface(global.pixelSurf,0,0,1920,1080,false,false,0,0);
 		instance_deactivate_all(true);
 		instance_activate_object(o_player);
 		instance_activate_object(o_input);
