@@ -17,7 +17,7 @@ if(!global.reLoad){
 		//ds_map_clear(global.minimapVar);//clear map of minimap variables
 	
 		//loading a cave:
-		if(!global.inCave&& room != r_display_init && room != r_new && room != r_testing && room != r_title){
+		if(!global.inCave&& room != r_display_init && room != r_new && room != r_testing && room != r_title && room != r_cave){
 			o_player.x = 2249;
 			o_player.y = 1327;
 			var index = ds_list_find_index(global.caveList, room);

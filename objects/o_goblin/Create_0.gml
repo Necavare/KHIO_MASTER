@@ -5,7 +5,9 @@ image_angle = irandom_range(0,360);
 if(irandom_range(0,1) == 0)
 	sprite_index = s_goblin_idle_1;
 	
-mode = 0; // 0 = idle, 1 = circle player, 2 = chase player, 3 = bounce player, 4 = circle other way, 5 dead
+mode = 0; // 0 = idle, 1 = circle player, 2 = chase player, 3 = bounce player, 4 = circle other way, 5 dead, 6 bounce cave wall
+
+caveO = -1;
 
 anim = 0;
 

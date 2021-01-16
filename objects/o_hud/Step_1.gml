@@ -15,14 +15,14 @@ if(exitPressed&&instanceActivated){
 }*/
 
 if(savingWorld){
-	if(room != r_new && room != r_testing && !global.inCave){
+	if(room != r_new && room != r_testing && room != r_cave){
 		room_goto(r_new);
 		global.reLoad = true;
 		o_player.x = global.caveX;
 		o_player.y = global.caveY;
 	}
 	
-	if(room != r_testing && !global.inCave)
+	if(room != r_testing && room != r_cave)
 		save_createNew(global.currentFile);
 	savingWorld = false;
 	
@@ -123,15 +123,15 @@ if(savingWorld){
 		
 		global.crate = undefined;
 		
-		
 		//make the room no longer persistent
 		
 		if(r_new.persistent){
 			show_debug_message("set persistent to false");
 			r_new.persistent = false;	
 		}
-
+		
 		room_goto(r_title);
+		
 		global.isPaused = false;
 		global.play = false;
 	} else if(!autoSave){

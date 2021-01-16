@@ -639,9 +639,9 @@ if(healthKick && !kickBack) {
 
 #endregion
 
-if(place_meeting(x,y,o_cavefloor) || global.inCave) {
+if(global.inCave)
 	isCave = true;
-} else
+else
 	isCave = false;
 
 //turn it off when generating for now cus it looks weird and just slows it down more

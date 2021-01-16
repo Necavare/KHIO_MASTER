@@ -12,6 +12,10 @@ if(mode == 3)
 	image_angle=point_direction(x,y,o_player.x,o_player.y)-90;
 if(mode == 4) 
 	image_angle=point_direction(x,y,o_player.x,o_player.y)+180;
+	
+	
+if(mode == 6)
+	image_angle=point_direction(x,y,caveO.x,caveO.y)-90;
 
 
 // Running speed
