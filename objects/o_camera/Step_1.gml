@@ -12,6 +12,8 @@ if(roomShiftDelay){
 if(roomShiftDelay && roomShiftDelayTick  > 5){
 */
 if (point_distance(o_player.x, o_player.y, room_center_x, room_center_y) >= (room_height/2)-400  && !global.generatingEnvironment && global.finishedLoading && roomShift){
+	show_debug_message("room shift set");
+	
 	roomShiftDelay = false;
 	roomShiftDelayTick = 0;
 	

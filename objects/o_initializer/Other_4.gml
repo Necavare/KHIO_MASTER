@@ -17,9 +17,9 @@ if(!global.reLoad){
 		//ds_map_clear(global.minimapVar);//clear map of minimap variables
 	
 		//loading a cave:
-		if(!global.inCave&& room != r_display_init && room != r_new && room != r_testing && room != r_title){
+		if(room != r_display_init && room != r_new && room != r_testing && room != r_title){
 			o_player.x = 2249;
-			o_player.y = 1327;
+			o_player.y = 1267;
 			var index = ds_list_find_index(global.caveList, room);
 			if(!ds_list_find_value(global.caveLoadList, index)){
 		
@@ -202,15 +202,21 @@ if(!global.reLoad){
 	}
 
 }
-/*
-else{
+
+else if(global.saveLoad){
+	//not necessary if just loading in from cave back into world but IS necessary for loading from cave into world
+	//for pupose of saving
+	instance_activate_all();
+	
+	/*
 	instance_create_depth(0,0,1, o_shaders);
 	instance_create_depth(0,0,1, o_camera);
 	instance_create_depth(0,0,1, o_debugger);
 	instance_create_depth(0,0,1, o_input);
-	instance_create_depth(0,0,1, o_weather);
+	instance_create_depth(0,0,1, o_weather);*/
 }
-*/
+
+global.saveLoad = false;
 global.reLoad = false;
 
 // Initializing view variables

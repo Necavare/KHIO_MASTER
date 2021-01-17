@@ -15,16 +15,28 @@ if(exitPressed&&instanceActivated){
 }*/
 
 if(savingWorld){
-	if(room != r_new && room != r_testing && !global.inCave){
+	show_debug_message("saving world");
+	//possible use (global.inCave)
+	
+	/*
+	if(global.inCave){
+	//if(room != r_new && room != r_testing){
+		show_debug_message("returning to r_new");
 		room_goto(r_new);
+		//instance_activate_all();
 		global.reLoad = true;
 		o_player.x = global.caveX;
 		o_player.y = global.caveY;
-	}
+		//global.inCave = false;
+	}*/
 	
-	if(room != r_testing && !global.inCave)
+	if(room != r_testing && room == r_new && !global.inCave){
+		//instance_activate_all();
 		save_createNew(global.currentFile);
-	savingWorld = false;
+		savingWorld = false;	
+	}
+		
+	//savingWorld = false;
 	
 	if(goToMenu) {
 		//show_debug_message("deleting stuff");
@@ -134,9 +146,11 @@ if(savingWorld){
 		room_goto(r_title);
 		global.isPaused = false;
 		global.play = false;
-	} else if(!autoSave){
+	} 
+	else if(!autoSave && !global.inCave){
 		game_end();
-	} else if(autoSave){
+	} 
+	else if(autoSave){
 		//instance_deactivate_region()
 		//show_debug_message("saved deactivation");
 		activate_essential();

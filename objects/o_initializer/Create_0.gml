@@ -266,6 +266,7 @@ global.moundYList = ds_list_create();
 global.moundPointerList = ds_list_create();
 
 global.reLoad = false;
+global.saveLoad = false;
 global.caveLoadList = ds_list_create();
 global.caveList = ds_list_create();
 global.caveX = -1;

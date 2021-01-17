@@ -2011,8 +2011,10 @@ if(confirm) {
 			
 		if(mouse_check_button_pressed(global.M_LEFT)) {
 			if(desktopHighlighted) {
-				if(room != r_new && room != r_testing && !global.inCave){
+				if(room != r_new && room != r_testing){
+					show_debug_message("debug 1");
 					room_goto(r_new);
+					global.saveLoad = true;
 					global.reLoad = true;
 					o_player.x = global.caveX;
 					o_player.y = global.caveY;
@@ -2021,8 +2023,10 @@ if(confirm) {
 				instance_activate_all();
 				goToMenu = false;
 			} else if(menuHighlighted) {
-				if(room != r_new && room != r_testing && !global.inCave){
+				if(room != r_new && room != r_testing){
+					show_debug_message("debug 2");
 					room_goto(r_new);
+					global.saveLoad = true;
 					global.reLoad = true;
 					o_player.x = global.caveX;
 					o_player.y = global.caveY;
@@ -2085,8 +2089,10 @@ if(confirm) {
 	
 		if(mouse_check_button_pressed(global.M_LEFT)) {
 			if(desktopHighlighted) {
-				if(room != r_new && room != r_testing && !global.inCave){
+				if(room != r_new && room != r_testing){
+					show_debug_message("debug 3");
 					room_goto(r_new);
+					global.saveLoad = true;
 					global.reLoad = true;
 					o_player.x = global.caveX;
 					o_player.y = global.caveY;
@@ -2095,8 +2101,10 @@ if(confirm) {
 				instance_activate_all();
 				goToMenu = false;
 			} else if(menuHighlighted) {
-				if(room != r_new && room != r_testing && !global.inCave){
+				if(room != r_new && room != r_testing){
+					show_debug_message("debug 4");
 					room_goto(r_new);
+					global.saveLoad = true;
 					global.reLoad = true;
 					o_player.x = global.caveX;
 					o_player.y = global.caveY;
@@ -3010,16 +3018,17 @@ if(inventoryclosing){
 #endregion
 
 //auto saving check
-if(saveAlarm){
+if(saveAlarm && !global.inCave){
 	instance_activate_all();	
 	goToMenu = false;
 	autoSave = true;
+	/*
 	if(room != r_new && room != r_testing && !global.inCave){
 		room_goto(r_new);
 		global.reLoad = true;
 		o_player.x = global.caveX;
 		o_player.y = global.caveY;
-	}
+	}*/
 	savingWorld = true;
 }
 

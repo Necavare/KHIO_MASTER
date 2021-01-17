@@ -870,10 +870,10 @@
     {"id":{"name":"o_jaies","path":"objects/o_jaies/o_jaies.yy",},"order":3,},
     {"id":{"name":"o_note","path":"objects/o_note/o_note.yy",},"order":4,},
     {"id":{"name":"r_display_init","path":"rooms/r_display_init/r_display_init.yy",},"order":0,},
-    {"id":{"name":"r_title","path":"rooms/r_title/r_title.yy",},"order":0,},
+    {"id":{"name":"r_title","path":"rooms/r_title/r_title.yy",},"order":1,},
     {"id":{"name":"r_new","path":"rooms/r_new/r_new.yy",},"order":2,},
     {"id":{"name":"r_testing","path":"rooms/r_testing/r_testing.yy",},"order":3,},
-    {"id":{"name":"display_mouse_lock","path":"extensions/display_mouse_lock/display_mouse_lock.yy",},"order":1,},
+    {"id":{"name":"display_mouse_lock","path":"extensions/display_mouse_lock/display_mouse_lock.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
