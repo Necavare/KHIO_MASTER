@@ -1,9 +1,3 @@
-// Setting the camera view size
-camera_set_view_size(view_camera[0], ideal_width, ideal_height);
-
-// Initializing view variables
-view_enabled = true;
-view_visible[0] = true;
 
 if(!global.reLoad){
 
@@ -23,16 +17,11 @@ if(!global.reLoad){
 		//ds_map_clear(global.minimapVar);//clear map of minimap variables
 	
 		//loading a cave:
-		if(room != r_cave && room != r_display_init && room != r_new && room != r_testing && room != r_title){
+		if(!global.inCave&& room != r_display_init && room != r_new && room != r_testing && room != r_title && room != r_cave){
 			o_player.x = 2249;
 			o_player.y = 1327;
 			var index = ds_list_find_index(global.caveList, room);
 			if(!ds_list_find_value(global.caveLoadList, index)){
-				//view_visible[0] = true;
-				view_enabled = true;
-				view_hport[0] = 1080;
-				view_wport[0] = 1920;
-				view_camera[0] = camera_create_view(0,0,320, 180, 0, -1, -1, -1, 160, 120);
 		
 				//o_player.x = 2500;
 				//o_player.y = 2500;
@@ -91,7 +80,7 @@ if(!global.reLoad){
 				instance_create_layer(0,0,main,o_input);
 				instance_create_layer(0,0,main,o_weather);
 	
-				scr_generateCave();
+				scr_generateCave(index);
 				ds_list_set(global.caveLoadList, index, true);
 			}
 		}
@@ -100,7 +89,7 @@ if(!global.reLoad){
 		else{
 	
 			//if its not loading
-			if(room == r_testing || room == r_cave){
+			if(room == r_testing || global.inCave){
 		
 				global.demoRoom = true;
 				instance_create_layer(0,0,main,o_shaders);
@@ -223,3 +212,11 @@ else{
 }
 */
 global.reLoad = false;
+
+// Initializing view variables
+view_enabled = true;
+view_visible[0] = true;
+
+// Setting the camera view size
+view_camera[0] = camera_create_view(0,0,ideal_width, ideal_height, 0, -1, -1, -1, ideal_width/2, ideal_height/2);
+camera_set_view_size(view_camera[0], ideal_width, ideal_height);

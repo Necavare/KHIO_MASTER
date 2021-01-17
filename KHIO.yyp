@@ -681,7 +681,7 @@
     {"id":{"name":"scr_createTownBlock","path":"scripts/scr_createTownBlock/scr_createTownBlock.yy",},"order":13,},
     {"id":{"name":"scr_createTownBlock2","path":"scripts/scr_createTownBlock2/scr_createTownBlock2.yy",},"order":14,},
     {"id":{"name":"scr_createCompound","path":"scripts/scr_createCompound/scr_createCompound.yy",},"order":15,},
-    {"id":{"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},"order":4,},
+    {"id":{"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},"order":5,},
     {"id":{"name":"misc_playerNameRev","path":"scripts/misc_playerNameRev/misc_playerNameRev.yy",},"order":5,},
     {"id":{"name":"misc_markNameRev","path":"scripts/misc_markNameRev/misc_markNameRev.yy",},"order":6,},
     {"id":{"name":"s_player_pumpkin","path":"sprites/s_player_pumpkin/s_player_pumpkin.yy",},"order":0,},
@@ -892,8 +892,8 @@
     {"roomId":{"name":"r_display_init","path":"rooms/r_display_init/r_display_init.yy",},},
     {"roomId":{"name":"r_title","path":"rooms/r_title/r_title.yy",},},
     {"roomId":{"name":"r_new","path":"rooms/r_new/r_new.yy",},},
-    {"roomId":{"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},},
     {"roomId":{"name":"r_testing","path":"rooms/r_testing/r_testing.yy",},},
+    {"roomId":{"name":"r_cave","path":"rooms/r_cave/r_cave.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},

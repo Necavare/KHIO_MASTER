@@ -1,3 +1,4 @@
+
 if(!global.reLoad){
 
 	// Creating instances for each room
@@ -16,19 +17,15 @@ if(!global.reLoad){
 		//ds_map_clear(global.minimapVar);//clear map of minimap variables
 	
 		//loading a cave:
-		if(room != r_cave && room != r_display_init && room != r_new && room != r_testing && room != r_title){
+<<<<<<< HEAD
+		if(room != r_display_init && room != r_new && room != r_testing && room != r_title){
+=======
+		if(!global.inCave&& room != r_display_init && room != r_new && room != r_testing && room != r_title && room != r_cave){
+>>>>>>> master
 			o_player.x = 2249;
-			o_player.y = 1327;
+			o_player.y = 1267;
 			var index = ds_list_find_index(global.caveList, room);
 			if(!ds_list_find_value(global.caveLoadList, index)){
-<<<<<<< HEAD
-=======
-				//view_visible[0] = true;
-				view_enabled = true;
-				view_hport[0] = 1080;
-				view_wport[0] = 1920;
-				view_camera[0] = camera_create_view(0,0,320, 180, 0, -1, -1, -1, 160, 120);
->>>>>>> master
 		
 				//o_player.x = 2500;
 				//o_player.y = 2500;
@@ -87,7 +84,7 @@ if(!global.reLoad){
 				instance_create_layer(0,0,main,o_input);
 				instance_create_layer(0,0,main,o_weather);
 	
-				scr_generateCave();
+				scr_generateCave(index);
 				ds_list_set(global.caveLoadList, index, true);
 			}
 		}
@@ -96,7 +93,7 @@ if(!global.reLoad){
 		else{
 	
 			//if its not loading
-			if(room == r_testing || room == r_cave){
+			if(room == r_testing || global.inCave){
 		
 				global.demoRoom = true;
 				instance_create_layer(0,0,main,o_shaders);
@@ -209,15 +206,21 @@ if(!global.reLoad){
 	}
 
 }
-/*
-else{
+
+else if(global.saveLoad){
+	//not necessary if just loading in from cave back into world but IS necessary for loading from cave into world
+	//for pupose of saving
+	instance_activate_all();
+	
+	/*
 	instance_create_depth(0,0,1, o_shaders);
 	instance_create_depth(0,0,1, o_camera);
 	instance_create_depth(0,0,1, o_debugger);
 	instance_create_depth(0,0,1, o_input);
-	instance_create_depth(0,0,1, o_weather);
+	instance_create_depth(0,0,1, o_weather);*/
 }
-*/
+
+global.saveLoad = false;
 global.reLoad = false;
 
 // Initializing view variables
