@@ -1942,7 +1942,7 @@ var wy = device_mouse_y_to_gui(0);
 var dX = display_get_gui_width();
 var dY = display_get_gui_height();
 	
-if(confirm) {
+if(confirm && global.isPaused) {
 	draw_sprite(global.pausedBackground,0,0,0);
 	draw_set_color($333128);
 	draw_set_alpha(.75);
