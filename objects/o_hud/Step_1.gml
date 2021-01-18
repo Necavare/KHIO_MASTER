@@ -138,10 +138,12 @@ if(savingWorld){
 		
 		//make the room no longer persistent
 		
+		/*
 		if(r_new.persistent){
 			show_debug_message("set persistent to false");
 			r_new.persistent = false;	
-		}
+		}*/
+		room_set_persistent(r_new, false);
 
 		room_goto(r_title);
 		global.isPaused = false;
