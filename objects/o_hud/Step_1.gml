@@ -31,6 +31,7 @@ if(savingWorld){
 	}*/
 	
 	if(room != r_testing && room == r_new && !global.inCave){
+		show_debug_message("caveNum : "+ string(instance_number(o_cave_entrance)));
 		//instance_activate_all();
 		save_createNew(global.currentFile);
 		savingWorld = false;	
@@ -43,8 +44,21 @@ if(savingWorld){
 		
 		
 		global.camera_angle = 0;
+		show_debug_message("caveNum before: "+ string(instance_number(o_cave_entrance)));
+		//set the persistence of the caves to false
+		with(o_cave_entrance){
+			room_instance_clear(ds_list_find_value(global.caveList, listIndex));
+			room_set_persistent(ds_list_find_value(global.caveList, listIndex), false);	
+		}
+		
+		//this line
+		//room_persistent = false;
+		
+		
+		room_set_persistent(r_new, false);
 		room_instance_clear(r_new);
-		room_restart();
+		//room_restart();
+		show_debug_message("caveNum after: "+ string(instance_number(o_cave_entrance)));
 		//room_restart();
 		ds_map_destroy(global.minimapVar);
 
@@ -131,7 +145,6 @@ if(savingWorld){
 		global.caveInstances = ds_list_create();
 		global.caveInstanceIndexVal = ds_list_create();
 		global.caveInstanceLoaded = ds_list_create();
-
 		
 		global.crate = undefined;
 		
@@ -143,9 +156,12 @@ if(savingWorld){
 			show_debug_message("set persistent to false");
 			r_new.persistent = false;	
 		}*/
-		room_set_persistent(r_new, false);
-
+		//room_set_persistent(r_new, false);
+		
+		room_persistent = false;
+		//global.reLoad = true;
 		room_goto(r_title);
+		
 		global.isPaused = false;
 		global.play = false;
 	} 

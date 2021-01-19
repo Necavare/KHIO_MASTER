@@ -1,3 +1,4 @@
+show_debug_message("creating cave entrance");
 image_angle = irandom(360);
 
 options = false;

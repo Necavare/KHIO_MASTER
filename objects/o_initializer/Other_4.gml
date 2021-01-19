@@ -87,7 +87,8 @@ if(!global.reLoad){
 	
 		//loading a normal room
 		else{
-	
+			room_persistent = true; //set persistent
+			
 			//if its not loading
 			if(room == r_testing || global.inCave){
 		
@@ -120,6 +121,8 @@ if(!global.reLoad){
 				//instance_create_layer(0,0,ground,o_generatorW);
 				instance_create_layer(0,0,main,o_hud);
 				instance_create_layer(0,0,main,o_camera);
+				
+				//used to be commented out
 				//instance_create_layer(0,0,main,o_shaders);
 	
 			}

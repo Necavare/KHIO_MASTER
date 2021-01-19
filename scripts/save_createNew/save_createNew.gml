@@ -1,6 +1,7 @@
 /// @desc save_createNew(filename)
 /// @arg filename
 function save_createNew(argument0) {
+	show_debug_message("saving createNew");
 
 	var _filename = argument0;
 
@@ -12,7 +13,7 @@ function save_createNew(argument0) {
 	//**********************************************
 	//-----------------
 	//    type key
-	//----------------
+	//-----------------
 	// 0 = global/nonglobal initilizer variables 
 	// 1 = basic objects ("par_3d_obj", trees, boxes, animals etc.)
 	// 2 = markers 
@@ -106,7 +107,7 @@ function save_createNew(argument0) {
 			object_index != o_house_side && object_index != o_house_roof && object_index != o_shed_back &&
 			object_index != o_shed_door && object_index != o_shed_door && object_index != o_shed_floor &&
 			object_index != o_shed_side && object_index != o_shed_roof && object_index != o_shed_pillar){
-	
+		
 		
 		numAdded++;
 	
@@ -820,10 +821,6 @@ with(o_cave_entrance){
 	
 		//ds_map_destroy(_map3);
 	}
-#endregion
-
-#region 
-
 #endregion
 
 	show_debug_message("numAdded save: "+string(numAdded));

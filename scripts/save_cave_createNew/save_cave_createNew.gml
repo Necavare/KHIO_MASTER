@@ -12,7 +12,6 @@ function save_cave_createNew(argument0, argument1) {
 	//var _root_list = ds_list_create(); <-created already here
 
 
-
 	//**********************************************
 	//-----------------
 	//    type key
@@ -38,7 +37,9 @@ function save_cave_createNew(argument0, argument1) {
 	//theirs already a root list we created with the caves!
 	var _root_list  = ds_list_find_value(global.caveInstances, ds_list_find_index(global.caveInstanceIndexVal, _index));
 
-
+	if(_root_list == undefined)
+		show_debug_message("undefined root_list");
+		
 	//wrap root List in a map
 	var _wrapper = ds_map_create();
 	ds_map_add_list(_wrapper, "ROOT", _root_list);
