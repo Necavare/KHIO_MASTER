@@ -480,7 +480,7 @@ function save_loadFile(argument0) {
 	
 		ds_map_destroy(_wrapper);
 	
-		show_debug_message("numAdded: "+string(numAdded));
+		show_debug_message("numAdded LOAD: "+string(numAdded));
 		global.generatingEnvironment = false;
 		show_debug_message("Game Loaded");
 	}

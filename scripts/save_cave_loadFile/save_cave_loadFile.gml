@@ -397,6 +397,7 @@ function save_cave_loadFile(argument0, indexVal) {
 					image_angle = _map[? "image_angle"];
 				}
 			}
+			
 			else if(type == 3){
 				with(o_hud){
 			#region marker values
