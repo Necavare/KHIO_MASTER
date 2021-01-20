@@ -2,8 +2,8 @@
 //set this to true to draw map at the start of a world, not draw overhead, and any other dev only things
 global.isDev = false;
 global.minimapActive = true;
-global.isDev = true;
-global.minimapActive = false;
+//global.isDev = true;
+//global.minimapActive = false;
 
 #region o_input set up stuff
 global.wind = random(pi*2);
