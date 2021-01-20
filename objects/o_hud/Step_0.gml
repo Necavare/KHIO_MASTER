@@ -1,3 +1,4 @@
+show_debug_message("instance number: "+string(instance_number(all)));
 /*if(window_mouse_get_x() > window_get_width())
 	window_mouse_set(window_get_width(), window_mouse_get_y());
 	

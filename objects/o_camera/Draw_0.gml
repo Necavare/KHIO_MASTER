@@ -183,5 +183,7 @@ with(all)
 //^^^(remove this to undo comment)
 
 //this is for cleaning up roomshifting for better frames
-if(roomShift)
+if(roomShift){
 	instance_activate_all();
+	show_debug_message("room shift step");
+}

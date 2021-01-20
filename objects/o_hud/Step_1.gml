@@ -158,6 +158,10 @@ if(savingWorld){
 		}*/
 		//room_set_persistent(r_new, false);
 		
+		//set player persistence
+		o_player.persistent = false;
+		o_player_hitBox.persistent = false;
+		
 		room_persistent = false;
 		//global.reLoad = true;
 		room_goto(r_title);
