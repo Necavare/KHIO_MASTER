@@ -53,4 +53,12 @@ with(o_hud){
 	scr_merge_map(global.blockArr, mapWidth, mapHeight);
 }
 
+show_debug_message("finished loading");
+show_debug_message("how many cameras: "+string(instance_number(o_camera)));
 //global.finishedLoading = true;
+
+
+instance_deactivate_all(true);
+activate_essential();
+instance_activate_region(o_camera.x-200, o_camera.y-200, 500, 500, true);
+
